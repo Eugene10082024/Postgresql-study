@@ -16,4 +16,4 @@
 
 [18 - Работа с индексами, join'ами, статистикой](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/ind_postgresql)
 
-[20 - Секционирование таблицы](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/ind_postgresql)
+[20 - Секционирование таблицы](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/sectioning_postgresql)
