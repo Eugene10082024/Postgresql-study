@@ -4,5 +4,5 @@
 
 [03 - Установка PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/install_postgres)
 
-[06 - Установка PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/install_postgres)
+[06 - Установка и настройка PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/conf_postgresql)
 
