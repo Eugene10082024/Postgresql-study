@@ -1,1 +1,1 @@
-## Установка POstgresql
+## Установка Postgresql
