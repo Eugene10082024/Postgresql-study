@@ -7,17 +7,17 @@
 научиться управлять уровнем изолции транзации в PostgreSQL и понимать особенность работы уровней read commited и repeatable read
 
 
-## Создание VM на Google Cloud в проекте Project name = Postgresql-2022-10081967
+### Создание VM на Google Cloud в проекте Project name = Postgresql-2022-10081967
 
 pic01
 
 
-## Подключение к VM созданной  на Google Cloud по ssh
+### Подключение к VM созданной  на Google Cloud по ssh
 
     asarafanov-adm@pc-asarafanov-01:~/.ssh$ ssh asarafanov-adm@35.223.223.238
 
 
-## Проверяем куда мы подключились.
+### Проверяем куда мы подключились.
 
     asarafanov-adm@vm-postgresql01:~$ ip addr
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -33,7 +33,7 @@ pic01
         inet6 fe80::4001:aff:fe80:2/64 scope link 
         valid_lft forever preferred_lft forever
 
-## Установка и настройка postgresql14.
+### Установка и настройка postgresql14.
 
     root@vm-postgresql01:~# sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
     root@vm-postgresql01:~# wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -41,7 +41,7 @@ pic01
     root@vm-postgresql01:~# apt-get update
     root@vm-postgresql01:~# apt install postgresql-14
 
-## Проверяем установлен ли postgresql
+### Проверяем установлен ли postgresql
 
     root@vm-postgresql01:~# pg_lsclusters 
     Ver Cluster Port Status Owner    Data directory              Log file
@@ -87,13 +87,13 @@ pic01
     OFF
 
 #### Первая сессия:
-postgres=# create table persons(id serial,first_name text,second_name text);
-CREATE TABLE
-postgres=*# insert into persons(first_name,second_name) values ('ivan','ivanov');
-INSERT 0 1
-postgres=*# insert into persons(first_name,second_name) values ('sergey','sergeev');
-INSERT 0 1
-postgres=*# commit;
+    postgres=# create table persons(id serial,first_name text,second_name text);
+    CREATE TABLE
+    postgres=*# insert into persons(first_name,second_name) values ('ivan','ivanov');
+    INSERT 0 1
+    postgres=*# insert into persons(first_name,second_name) values ('sergey','sergeev');
+    INSERT 0 1
+    postgres=*# commit;
 
 ### 1. Проверяем работу уровня изоляции READ COMMITTED
 
