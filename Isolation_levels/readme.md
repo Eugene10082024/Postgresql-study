@@ -13,11 +13,13 @@ pic01
 
 
 ## Подключение к VM созданной  на Google Cloud по ssh
-asarafanov-adm@pc-asarafanov-01:~/.ssh$ ssh asarafanov-adm@35.223.223.238
+
+    asarafanov-adm@pc-asarafanov-01:~/.ssh$ ssh asarafanov-adm@35.223.223.238
 
 
 ## Проверяем куда мы подключились.
-asarafanov-adm@vm-postgresql01:~$ ip addr
+
+    asarafanov-adm@vm-postgresql01:~$ ip addr
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
         inet 127.0.0.1/8 scope host lo
@@ -41,50 +43,50 @@ asarafanov-adm@vm-postgresql01:~$ ip addr
 
 ## Проверяем установлен ли postgresql
 
-root@vm-postgresql01:~# pg_lsclusters 
-Ver Cluster Port Status Owner    Data directory              Log file
-14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log
+    root@vm-postgresql01:~# pg_lsclusters 
+    Ver Cluster Port Status Owner    Data directory              Log file
+    14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log
 
 
-root@vm-postgresql01:~# systemctl status postgresql@14-main.service 
-● postgresql@14-main.service - PostgreSQL Cluster 14-main
-     Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled-runtime; vendor preset: enabled)
-     Active: active (running) since Sat 2022-03-05 13:24:27 UTC; 2min 7s ago
-   Main PID: 3720 (postgres)
-      Tasks: 7 (limit: 4696)
-     Memory: 17.2M
-     CGroup: /system.slice/system-postgresql.slice/postgresql@14-main.service
-             ├─3720 /usr/lib/postgresql/14/bin/postgres -D /var/lib/postgresql/14/main -c config_file=/etc/postgresql/14/main/postgresql.conf
-             ├─3722 postgres: 14/main: checkpointer
-             ├─3723 postgres: 14/main: background writer
-             ├─3724 postgres: 14/main: walwriter
-             ├─3725 postgres: 14/main: autovacuum launcher
-             ├─3726 postgres: 14/main: stats collector
-             └─3727 postgres: 14/main: logical replication launcher
+    root@vm-postgresql01:~# systemctl status postgresql@14-main.service 
+    ● postgresql@14-main.service - PostgreSQL Cluster 14-main
+         Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled-runtime; vendor preset: enabled)
+         Active: active (running) since Sat 2022-03-05 13:24:27 UTC; 2min 7s ago
+       Main PID: 3720 (postgres)
+          Tasks: 7 (limit: 4696)
+         Memory: 17.2M
+         CGroup: /system.slice/system-postgresql.slice/postgresql@14-main.service
+                 ├─3720 /usr/lib/postgresql/14/bin/postgres -D /var/lib/postgresql/14/main -c config_file=/etc/postgresql/14/main/postgresql.conf
+                 ├─3722 postgres: 14/main: checkpointer
+                 ├─3723 postgres: 14/main: background writer
+                 ├─3724 postgres: 14/main: walwriter
+                 ├─3725 postgres: 14/main: autovacuum launcher
+                 ├─3726 postgres: 14/main: stats collector
+                 └─3727 postgres: 14/main: logical replication launcher
 
-Mar 05 13:24:25 vm-postgresql01 systemd[1]: Starting PostgreSQL Cluster 14-main...
-Mar 05 13:24:27 vm-postgresql01 systemd[1]: Started PostgreSQL Cluster 14-main.
+    Mar 05 13:24:25 vm-postgresql01 systemd[1]: Starting PostgreSQL Cluster 14-main...
+    Mar 05 13:24:27 vm-postgresql01 systemd[1]: Started PostgreSQL Cluster 14-main.
 
-root@vm-postgresql01:~# su - postgres
-postgres@vm-postgresql01:~$ psql
-psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
-Type "help" for help.
+    root@vm-postgresql01:~# su - postgres
+    postgres@vm-postgresql01:~$ psql
+    psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
+    Type "help" for help.
 
-postgres=# \echo :AUTOCOMMIT
-on
-Первая сессия:
+    postgres=# \echo :AUTOCOMMIT
+    on
+#### Первая сессия:
     postgres=# \set AUTOCOMMIT OFF
     postgres=# \echo :AUTOCOMMIT 
     OFF
 
-Вторая сессия:
+#### Вторая сессия:
     postgres=# \echo :AUTOCOMMIT
     on
     postgres=# \set AUTOCOMMIT OFF
     postgres=# \echo :AUTOCOMMIT
     OFF
 
-Первая сессия:
+#### Первая сессия:
 postgres=# create table persons(id serial,first_name text,second_name text);
 CREATE TABLE
 postgres=*# insert into persons(first_name,second_name) values ('ivan','ivanov');
@@ -93,27 +95,27 @@ postgres=*# insert into persons(first_name,second_name) values ('sergey','sergee
 INSERT 0 1
 postgres=*# commit;
 
-## 1. Проверяем работу уровня изоляции READ COMMITTED
+### 1. Проверяем работу уровня изоляции READ COMMITTED
 
-### 1.1. Первая сессия:
+#### 1.1. Первая сессия:
     test_db=# show transaction isolation level;
     transaction_isolation 
     -----------------------
     read committed
     (1 row)
 
-### 1.2. Вторая сессия:
+#### 1.2. Вторая сессия:
     postgres=# show transaction isolation level;
     transaction_isolation 
     -----------------------
     read committed
     (1 row)
 
-### 1.3. Первая сессия:
+#### 1.3. Первая сессия:
     test_db=*# insert into persons(first_name,second_name) values ('petr','petrov');
     INSERT 0 1
 
-### 1.4. Вторая сессия:
+#### 1.4. Вторая сессия:
     test_db=*# select * from persons;
     id | first_name | second_name 
     ----+------------+-------------
@@ -123,11 +125,11 @@ postgres=*# commit;
   
 Добавленной третей записи в первой сессии не видно.
 
-### 1.5. Первая сессия:
+#### 1.5. Первая сессия:
     test_db=*# commit;
     COMMIT
 
-### 1.6. Вторая сессия:
+#### 1.6. Вторая сессия:
     test_db=*# select * from persons;
     id | first_name | second_name 
     ----+------------+-------------
@@ -140,19 +142,9 @@ postgres=*# commit;
 Закрыл транзакцию во второй сессии.
 
 
-## 2. Смена утовня изоляции с READ COMMITTED на REPEATABLE READ. Проверка работы уровня изоляции REPEATABLE READ
+### 2. Смена утовня изоляции с READ COMMITTED на REPEATABLE READ. Проверка работы уровня изоляции REPEATABLE READ
 
-### 2.1. Первая сессия:
-
-    test_db=# set transaction isolation level repeatable read;
-    SET
-    test_db=*# show transaction isolation level;
-    transaction_isolation 
-    -----------------------
-    repeatable read
-    (1 row)
-
-### 2,2, Вторая сессия:
+#### 2.1. Первая сессия:
 
     test_db=# set transaction isolation level repeatable read;
     SET
@@ -162,11 +154,21 @@ postgres=*# commit;
     repeatable read
     (1 row)
 
-### 2.3. Первая сессия:
+#### 2.2. Вторая сессия:
+
+    test_db=# set transaction isolation level repeatable read;
+    SET
+    test_db=*# show transaction isolation level;
+    transaction_isolation 
+    -----------------------
+    repeatable read
+    (1 row)
+
+#### 2.3. Первая сессия:
     test_db=*# insert into persons(first_name,second_name) values ('sveta','svetova');
     INSERT 0 1
 
-### 2.4. Вторая сессия:
+#### 2.4. Вторая сессия:
     test_db=*# select * from persons;
     id | first_name | second_name 
     ----+------------+-------------
@@ -178,17 +180,17 @@ postgres=*# commit;
 Добавленной записи в первой сессии не отображается.
 
 
-### 2.5. Первая сессия:
+#### 2.5. Первая сессия:
     test_db=*# commit;
     COMMIT
 
-### 2.6. Вторая сессия:
+#### 2.6. Вторая сессия:
     test_db=*# select * from persons;
-    id | first_name | second_name 
+     id | first_name | second_name 
     ----+------------+-------------
-    1 | ivan       | ivanov
-    2 | sergey     | sergeev
-    3 | petr       | petrov
+      1 | ivan       | ivanov
+      2 | sergey     | sergeev
+      3 | petr       | petrov
     (3 rows)
 
 Добавленной и зафиксированной записи в первой сессии не видно.
