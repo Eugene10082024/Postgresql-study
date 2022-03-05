@@ -95,7 +95,7 @@ pic01
     INSERT 0 1
     postgres=*# commit;
 
-### 1. Проверяем работу уровня изоляции READ COMMITTED
+### 1. Проверка работы уровня изоляции READ COMMITTED
 
 #### 1.1. Первая сессия:
     test_db=# show transaction isolation level;
@@ -142,7 +142,7 @@ pic01
 Закрыл транзакцию во второй сессии.
 
 
-### 2. Смена утовня изоляции с READ COMMITTED на REPEATABLE READ. Проверка работы уровня изоляции REPEATABLE READ
+### 2. Проверка работы уровня изоляции REPEATABLE READ
 
 #### 2.1. Первая сессия:
 
