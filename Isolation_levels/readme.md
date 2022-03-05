@@ -9,7 +9,7 @@
 
 ### Создание VM на Google Cloud в проекте Project name = Postgresql-2022-10081967
 
-pic01
+![picture](pic1.jpg)
 
 
 ### Подключение к VM созданной  на Google Cloud по ssh
