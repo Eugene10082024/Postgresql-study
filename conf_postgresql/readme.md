@@ -7,9 +7,11 @@
 
 переносить содержимое БД PostgreSQL между виртуальными машинами
 
-### Установка кластера postgresql 14 на Ubuntu-20-01 (IP 192.168.122.180)
+### Выполнение ДЗ.
 
-#### Создание файла репозитория:
+#### Установка кластера postgresql 14 на Ubuntu-20-01 (IP 192.168.122.180)
+
+##### Создание файла репозитория:
 
         sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
@@ -370,9 +372,9 @@
         -----------+----------+----------+-------------+-------------+-----------------------
         postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
         template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
-                |          |          |             |             | postgres=CTc/postgres
+                  |          |          |             |             | postgres=CTc/postgres
         template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
-                |          |          |             |             | postgres=CTc/postgres
+                  |          |          |             |             | postgres=CTc/postgres
         test      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
         (4 rows)
 
