@@ -15,19 +15,19 @@
 
         sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
-#### Импортирование ключа репозитория:
+##### Импортирование ключа репозитория:
 
         wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 
-####  Обновление списка пакетов:
+#####  Обновление списка пакетов:
 
         apt-get update
 
-#### Установка Postgresql 14.2.
+##### Установка Postgresql 14.2.
 
         apt-get -y install postgresql-14
 
-#### Проверка установленного кластера Postgresql на ВМ
+##### Проверка установленного кластера Postgresql на ВМ
 
         asarafanov@ubuntu-20:~$ sudo -u postgres pg_lsclusters 
         Ver Cluster Port Status Owner    Data directory              Log file
@@ -35,26 +35,26 @@
 
 Кластер Postgresql-14 установлен и запущен.
 
-### Создание БД, таблицы и добавление строк в таблицу 
+#### Создание БД, таблицы и добавление строк в таблицу 
 
-#### Подключение к кластеру postgresql с помощью psql
+##### Подключение к кластеру postgresql с помощью psql
 
         postgres@ubuntu-20:~$ psql
         psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
         Type "help" for help.
 
-#### Создание БД test.
+##### Создание БД test.
 
         postgres=# create database test;
         CREATE DATABASE
 
-#### Создание таблицы test в БД test        
+##### Создание таблицы test в БД test        
         postgres=# \c test;
         You are now connected to database "test" as user "postgres".
         test=# create table test(id serial, name1 text);
         CREATE TABLE
 
-#### Добавление строк в таблицу test
+##### Добавление строк в таблицу test
 
         test=# insert into test (name1) Values ('Pupkin Vasia');
         INSERT 0 1
@@ -63,7 +63,7 @@
         test=# insert into test (name1) Values ('Petrov Petr');
         INSERT 0 1
         
-#### Проверка наличия записей в таблице test
+##### Проверка наличия записей в таблице test
 
         test=# select * from test;
         id |    name1     
@@ -73,11 +73,11 @@
         3 | Petrov Petr
         (3 rows)
 
-### Добавлние нового диска к ВМ, инициализация диска и монтирование к точке монтирования /mnt/disk_01
+#### Добавлние нового диска к ВМ, инициализация диска и монтирование к точке монтирования /mnt/disk_01
 
 Все операции делаем под пользователем root
 
-#### Проверка наличия нового блочного устройства презентованного гипервизером KVM.
+##### Проверка наличия нового блочного устройства презентованного гипервизером KVM.
 
         root@ubuntu-20:~# lsblk
         NAME                MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
@@ -91,7 +91,7 @@
 
 Новое устройсво vda презентовано.
 
-#### Инициализация устройства vda с помощью утилиты Parted
+##### Инициализация устройства vda с помощью утилиты Parted
 
         root@ubuntu-20:~# parted /dev/vda
         GNU Parted 3.3
@@ -132,11 +132,11 @@
 
 Устройство /dev/vda инициализировано
 
-#### Монтирование /dev/vda1
+##### Монтирование /dev/vda1
 
         mkdir /mnt/disk_01
 
-### Добавляем в /etc/fstab запись монтрирования блочного устройства /dev/vda1
+#### Добавляем в /etc/fstab запись монтрирования блочного устройства /dev/vda1
 
         # <file system> <mount point>   <type>  <options>       <dump>  <pass>
         /dev/mapper/vgubuntu-root /               ext4           errors=remount-ro     0       1
@@ -144,7 +144,7 @@
         /dev/mapper/vgubuntu-swap_1 none          swap           sw                    0       0
         /dev/vda1       /mnt/disk_01              ext4            errors=remount-ro    0       1
                                                                                 
-#### Проверка монтирования,
+##### Проверка монтирования,
 
         mount -a
         
@@ -169,7 +169,7 @@
         /dev/vda1                   20G   45M   19G   1% /mnt/disk_01
         root@ubuntu-20:~# 
 
-Раздел блочного устройства /dev/vda1 примонтирован к ОС.
+Блочное устройство /dev/vda1 примонтировано к ОС.
 
 #### Создание нового каталога для данных кластера Postgresql-14
 
@@ -177,11 +177,11 @@
         
         root@ubuntu-20:~# mkdir -p /mnt/disk_01/postgres/data
         
-#### Назначение владельцем каталога /mnt/disk_01/postgres пользователя postgres
+##### Назначение владельцем каталога /mnt/disk_01/postgres пользователя postgres
 
         root@ubuntu-20:~# chown -R postgres:postgres /mnt/disk_01/postgres
         
-#### Проверка 
+##### Проверка 
 
         root@ubuntu-20:~# ls -al /mnt/disk_01
         total 28
@@ -192,9 +192,9 @@
         root@ubuntu-20:~# 
 
 
-### Перенос данных кластера Postgres-14 в созданный каталог.
+#### Перенос данных кластера Postgres-14 в созданный каталог.
 
-#### Оставка кластера Postgresql-14
+##### Оставка кластера Postgresql-14
 
       root@ubuntu-20:~# pg_ctlcluster 14 main stop
       
@@ -202,7 +202,7 @@
         Ver Cluster Port Status Owner    Data directory              Log file
         14  main    5432 down   postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log   
    
-#### Перенос данных из /var/lib/postgresql/14/main/ в /mnt/disk_01/postgres/data/
+##### Перенос данных из /var/lib/postgresql/14/main/ в /mnt/disk_01/postgres/data/
         postgres@ubuntu-20:~$ cd /var/lib/postgresql/14/main/
         postgres@ubuntu-20:~/14/main$ ls -al
         total 88
@@ -262,11 +262,13 @@
 
 Данные перенесены.
 
-### Запуск кластера postgresql-14
+#### Запуск кластера postgresql-14
 
         root@ubuntu-20:~# pg_ctlcluster 14 main start
         
-#### При запуске выводится сообщение об и предлангается посмотреть в journalctl -xe
+##### При запуске выводится сообщение об ошибке. 
+
+Смотрим  в journalctl -xe
         
         Job for postgresql@14-main.service failed because the service did not take the steps required by its unit configuration.
         See "systemctl status postgresql@14-main.service" and "journalctl -xe" for details.
@@ -313,12 +315,12 @@
 
 При запуске, service не может найти каталог с данными.
 
-#### Вносим изменения в файл postgresql.conf - /etc/postgresql/14/main/postgresql.conf
+##### Вносим изменения в файл postgresql.conf - /etc/postgresql/14/main/postgresql.conf
     
 Изменяем параметр data_directory на '/mnt/disk_01/postgres/data'
 
 
-#### Запускаем кластер postgresql-14 и получаем ошибку "Не правильные права у каталога /mnt/disk_01/postgres/data".
+##### Запускаем кластер postgresql-14 и получаем ошибку "Не правильные права у каталога /mnt/disk_01/postgres/data".
 
         root@ubuntu-20:~# pg_ctlcluster 14 main start
         Job for postgresql@14-main.service failed because the service did not take the steps required by its unit configuration.
@@ -341,7 +343,7 @@
 
         
         
-#### Предоставляем права 700 на каталог /mnt/disk_01/postgres/data        
+##### Предоставляем права 700 на каталог /mnt/disk_01/postgres/data        
         
         root@ubuntu-20:~# cd /mnt/disk_01/postgres/
         root@ubuntu-20:/mnt/disk_01/postgres# ls -al
@@ -351,7 +353,7 @@
         drwxr-xr-x 19 postgres postgres 4096 мар 21 18:12 data
         root@ubuntu-20:/mnt/disk_01/postgres# chmod -R 700 data
 
-#### Запускаем кластер postgresql-14 и проверяем
+##### Запускаем кластер postgresql-14 и проверяем
         
         root@ubuntu-20:/mnt/disk_01/postgres# pg_ctlcluster 14 main start
         
@@ -360,7 +362,7 @@
         14  main    5432 online postgres /mnt/disk_01/postgres/data /var/log/postgresql/postgresql-14-main.log
 
    
- #### Проверяем что с таблицей test БД test
+ ##### Проверяем что с таблицей test БД test
  
         postgres@ubuntu-20:~$ psql
         psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
