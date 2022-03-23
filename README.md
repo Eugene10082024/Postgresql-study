@@ -2,13 +2,17 @@
 
 [02 - Работа с уровнями изоляции транзакции в PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/Isolation_levels)
 
-[03 - Установка PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/install_postgres)
+[03 - Установка и нстройка PostgreSQL в контейнере Docker](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/install_postgres)
 
 [06 - Установка и настройка PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/conf_postgresql)
 
+[07 - Работа с базами данных, пользователями и правами](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/conf_postgresql)
+
 [08 - Настройка autovacuum с учетом оптимальной производительности](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_wal)
 
-[09 - Механизм блокировок](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_locks)
+[09 - Журналы](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_wal)
+
+[10 - Механизм блокировок](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_locks)
 
 [12 - Нагрузочное тестирование и тюнинг PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/test_postgresql)
 
