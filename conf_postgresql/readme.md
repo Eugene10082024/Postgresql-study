@@ -344,9 +344,8 @@
         мар 21 18:21:00 ubuntu-20.04-01 systemd[1]: postgresql@14-main.service: Can't open PID file /run/postgresql/14-main.pid (yet?) after start: Operation not permitted
         мар 21 18:21:00 ubuntu-20.04-01 systemd[1]: postgresql@14-main.service: Failed with result 'protocol'.
         мар 21 18:21:00 ubuntu-20.04-01 systemd[1]: Failed to start PostgreSQL Cluster 14-main.
-
-        
-        
+    
+      
 ##### Предоставляем права 700 на каталог /mnt/disk_01/postgres/data        
         
         root@ubuntu-20:~# cd /mnt/disk_01/postgres/
@@ -402,6 +401,9 @@
 
 #### Презинтация диска ubuntu-20.04.01-1.qcow2 на ВМ ubuntu-20.04-02
 
+![picture](pic1.png)
+
+![picture](pic2.png)
 
  
 Диск презентован. Запускаем ВМ ubuntu-20.04-02
