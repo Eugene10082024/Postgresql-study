@@ -7,9 +7,16 @@
 
 переносить содержимое БД PostgreSQL между виртуальными машинами
 
+ДЗ выполнялось на ВМ поднятых на локальной ВМ (гипервизор KVM)
+
+Для выполнения:
+        основного задания использовалась ВМ Ubuntu-20.04-01 (IP 192.168.122.180)
+        задания со * использовалась ВМ Ubuntu-20.04-02 (IP 192.168.122.181)
+
+
 ### Выполнение ДЗ.
 
-#### Установка кластера postgresql 14 на Ubuntu-20-01 (IP 192.168.122.180)
+#### Установка кластера postgresql 14 на Ubuntu-20.04-01 (IP 192.168.122.180)
 
 ##### Создание файла репозитория:
 
@@ -73,7 +80,7 @@
         3 | Petrov Petr
         (3 rows)
 
-#### Добавлние нового диска к ВМ, инициализация диска и монтирование к точке монтирования /mnt/disk_01
+#### Добавлние нового диска к ВМ, инициализация  и монтирование диска к  /mnt/disk_01
 
 Все операции делаем под пользователем root
 
@@ -130,7 +137,7 @@
         vda                 252:0    0    20G  0 disk 
         └─vda1              252:1    0    20G  0 part 
 
-Устройство /dev/vda инициализировано
+Раздел /dev/vda1 инициализирован
 
 ##### Монтирование /dev/vda1
 
@@ -169,7 +176,7 @@
         /dev/vda1                   20G   45M   19G   1% /mnt/disk_01
         root@ubuntu-20:~# 
 
-Блочное устройство /dev/vda1 примонтировано к ОС.
+Раздел /dev/vda1 примонтирован к ОС.
 
 #### Создание нового каталога для данных кластера Postgresql-14
 
@@ -198,11 +205,12 @@
 
       root@ubuntu-20:~# pg_ctlcluster 14 main stop
       
-     root@ubuntu-20:~# sudo -u postgres pg_lsclusters 
-        Ver Cluster Port Status Owner    Data directory              Log file
-        14  main    5432 down   postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log   
+      root@ubuntu-20:~# sudo -u postgres pg_lsclusters 
+      Ver Cluster Port Status Owner    Data directory              Log file
+      14  main    5432 down   postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log   
    
 ##### Перенос данных из /var/lib/postgresql/14/main/ в /mnt/disk_01/postgres/data/
+
         postgres@ubuntu-20:~$ cd /var/lib/postgresql/14/main/
         postgres@ubuntu-20:~/14/main$ ls -al
         total 88
@@ -228,13 +236,9 @@
         drwx------  2 postgres postgres 4096 мар 21 17:15 pg_xact
         -rw-------  1 postgres postgres   88 мар 21 17:15 postgresql.auto.conf
         -rw-------  1 postgres postgres  130 мар 21 17:59 postmaster.opts
+        
         postgres@ubuntu-20:~/14/main$ mv * /mnt/disk_01/postgres/data/
-        postgres@ubuntu-20:~/14/main$ ls -al
-        total 8
-        drwx------ 2 postgres postgres 4096 мар 21 18:02 .
-        drwxr-xr-x 3 postgres postgres 4096 мар 21 17:15 ..
-        postgres@ubuntu-20:~/14/main$ 
-
+        
         postgres@ubuntu-20:~/14/main$ ls -al /mnt/disk_01/postgres/data/
         total 88
         drwxr-xr-x 19 postgres postgres 4096 мар 21 18:02 .
@@ -353,7 +357,7 @@
         drwxr-xr-x 19 postgres postgres 4096 мар 21 18:12 data
         root@ubuntu-20:/mnt/disk_01/postgres# chmod -R 700 data
 
-##### Запускаем кластер postgresql-14 и проверяем
+##### Запускаем кластер postgresql-14
         
         root@ubuntu-20:/mnt/disk_01/postgres# pg_ctlcluster 14 main start
         
@@ -362,7 +366,7 @@
         14  main    5432 online postgres /mnt/disk_01/postgres/data /var/log/postgresql/postgresql-14-main.log
 
    
- ##### Проверяем что с таблицей test БД test
+ ##### Проверяем таблицу test БД test
  
         postgres@ubuntu-20:~$ psql
         psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
@@ -393,3 +397,181 @@
         test=# 
 
 Данные на месте.
+
+### задание со звездочкой *
+
+#### Презинтация диска ubuntu-20.04.01-1.qcow2 на ВМ ubuntu-20.04-02
+
+
+ 
+Диск презентован. Запускаем ВМ ubuntu-20.04-02
+
+
+ ##### Проверка наличия второго блочного устройства на ВМ ubuntu-20.04-02
+        root@ubuntu-20:~# lsblk
+        NAME                MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+        sda                   8:0    0    20G  0 disk 
+        ├─sda1                8:1    0   512M  0 part /boot/efi
+        ├─sda2                8:2    0     1K  0 part 
+        └─sda5                8:5    0  19,5G  0 part 
+        ├─vgubuntu-root   253:0    0  18,5G  0 lvm  /
+        └─vgubuntu-swap_1 253:1    0   976M  0 lvm  [SWAP]
+        sdb                   8:16   0    20G  0 disk 
+        └─sdb1                8:17   0    20G  0 part 
+
+Второе блочное устройство /dev/sdb и раздел /dev/sdb1 доступно на  ВМ ubuntu-20.4-02
+
+##### Проверяем какие данные есть на разделе /dev/sdb1
+     
+        root@ubuntu-20:~# mkdir /mnt/disk_01
+        
+        root@ubuntu-20:~# mount /dev/sdb1 /mnt/disk_01
+        
+        root@ubuntu-20:~# cd /mnt/disk_01/
+        
+        root@ubuntu-20:/mnt/disk_01# ls -al
+        total 28
+        drwxr-xr-x 4 root root  4096 мар 21 17:52 .
+        drwxr-xr-x 3 root root  4096 мар 23 08:43 ..
+        drwx------ 2 root root 16384 мар 21 17:40 lost+found
+        drwxr-xr-x 3  127  134  4096 мар 21 17:52 postgres
+        root@ubuntu-20:/mnt/disk_01# cd postgres/data/
+        
+        root@ubuntu-20:/mnt/disk_01/postgres/data# ls -al
+        total 88
+        drwx------ 19  127  134 4096 мар 21 18:48 .
+        drwxr-xr-x  3  127  134 4096 мар 21 17:52 ..
+        drwx------  6  127  134 4096 мар 21 17:25 base
+        drwx------  2  127  134 4096 мар 21 18:23 global
+        lrwxrwxrwx  1 root root   27 мар 21 18:12 main -> /var/lib/postgresql/14/main
+        drwx------  2  127  134 4096 мар 21 17:15 pg_commit_ts
+        drwx------  2  127  134 4096 мар 21 17:15 pg_dynshmem
+        drwx------  4  127  134 4096 мар 21 18:48 pg_logical
+        drwx------  4  127  134 4096 мар 21 17:15 pg_multixact
+        drwx------  2  127  134 4096 мар 21 17:15 pg_notify
+        drwx------  2  127  134 4096 мар 21 17:15 pg_replslot
+        drwx------  2  127  134 4096 мар 21 17:15 pg_serial
+        drwx------  2  127  134 4096 мар 21 17:15 pg_snapshots
+        drwx------  2  127  134 4096 мар 21 18:48 pg_stat
+        drwx------  2  127  134 4096 мар 21 17:15 pg_stat_tmp
+        drwx------  2  127  134 4096 мар 21 17:15 pg_subtrans
+        drwx------  2  127  134 4096 мар 21 17:15 pg_tblspc
+        drwx------  2  127  134 4096 мар 21 17:15 pg_twophase
+        -rwx------  1  127  134    3 мар 21 17:15 PG_VERSION
+        drwx------  3  127  134 4096 мар 21 17:15 pg_wal
+        drwx------  2  127  134 4096 мар 21 17:15 pg_xact
+        -rwx------  1  127  134   88 мар 21 17:15 postgresql.auto.conf
+        -rwx------  1  127  134  129 мар 21 18:22 postmaster.opts
+        root@ubuntu-20:/mnt/disk_01/postgres/data# 
+
+Данные кластера postgres есть на данном разделе диска.
+        
+       root@ubuntu-20:~# umount /dev/sdb1 /mnt/disk_01
+
+##### Проверяем наличие кластера postgres на ВМ Ubuntu-20.4-2 
+
+        root@ubuntu-20:~# pg_lsclusters 
+        Ver Cluster Port Status Owner    Data directory              Log file
+        14  main    5432 online postgres /var/lib/postgresql/14/main /var/log/postgresql/postgresql-14-main.log
+
+##### Останавливаем кластер и удаляем все из каталога /var/lib/postgresql
+        
+        root@ubuntu-20: pg_ctlcluster 14 main stop
+        
+        root@ubuntu-20:rm -rf /var/lib/postgresql/*
+        
+        oot@ubuntu-20:~# ls -al /var/lib/postgresql/
+        total 8
+        drwxr-xr-x  2 postgres postgres 4096 мар 23 08:55 .
+        drwxr-xr-x 67 root     root     4096 мар 23 08:49 ..
+   
+   
+        root@ubuntu-20:~# pg_ctlcluster 14 main start
+        Error: /var/lib/postgresql/14/main is not accessible or does not exist  \
+
+##### Монтируем раздел /dev/sdb1 к /var/lib/postgresql
+        
+        root@ubuntu-20:~# mount /dev/sdb1 /var/lib/postgresql
+
+        root@ubuntu-20:~# ls -al /var/lib/postgresql/
+        total 28
+        drwxr-xr-x  4 root     root      4096 мар 21 17:52 .
+        drwxr-xr-x 67 root     root      4096 мар 23 08:49 ..
+        drwx------  2 root     root     16384 мар 21 17:40 lost+found
+        drwxr-xr-x  3 postgres postgres  4096 мар 21 17:52 postgres
+
+##### Редактируем конфигурационный файл postgresql.conf
+
+        root@ubuntu-20:vi /etc/postgresql/14/main/postgresql.conf 
+        data_directory = '/var/lib/postgresql/postgres/data' 
+
+##### Запускаем экземпляр postgresql и проверяем статус
+
+        root@ubuntu-20:pg_ctlcluster 14 main start
+
+        root@ubuntu-20:/var/lib/postgresql/postgres/data# pg_ctlcluster 14 main status
+        pg_ctl: server is running (PID: 6846)
+        /usr/lib/postgresql/14/bin/postgres "-D" "/var/lib/postgresql/postgres/data" "-c" "config_file=/etc/postgresql/14/main/postgresql.conf"
+
+        root@ubuntu-20:/var/lib/postgresql/postgres/data# systemctl status postgresql@14-main.service 
+        ● postgresql@14-main.service - PostgreSQL Cluster 14-main
+             Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled-runtime; vendor preset: enabled)
+             Active: active (running) since Wed 2022-03-23 09:00:38 MSK; 5min ago
+            Process: 6841 ExecStart=/usr/bin/pg_ctlcluster --skip-systemctl-redirect 14-main start (code=exited>
+           Main PID: 6846 (postgres)
+              Tasks: 7 (limit: 4627)
+             Memory: 21.6M
+             CGroup: /system.slice/system-postgresql.slice/postgresql@14-main.service
+                     ├─6846 /usr/lib/postgresql/14/bin/postgres -D /var/lib/postgresql/postgres/data -c config_>
+                     ├─6848 postgres: 14/main: checkpointer
+                     ├─6849 postgres: 14/main: background writer
+                     ├─6850 postgres: 14/main: walwriter
+                     ├─6851 postgres: 14/main: autovacuum launcher
+                     ├─6852 postgres: 14/main: stats collector
+                     └─6853 postgres: 14/main: logical replication launcher
+
+        мар 23 09:00:35 ubuntu-20.04-2 systemd[1]: Starting PostgreSQL Cluster 14-main...
+        мар 23 09:00:38 ubuntu-20.04-2 systemd[1]: Started PostgreSQL Cluster 14-main.
+
+
+##### Проверяем наличие данные к кластере Postgresql
+
+            postgres@ubuntu-20:~$ psql
+            psql (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
+            Type "help" for help.
+
+            postgres=# \l
+                                            List of databases
+            Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+            -----------+----------+----------+-------------+-------------+-----------------------
+            postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+            template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                      |          |          |             |             | postgres=CTc/postgres
+            template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                      |          |          |             |             | postgres=CTc/postgres
+            test      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+            (4 rows)
+
+            postgres=# \c test
+            You are now connected to database "test" as user "postgres".
+            test=# \dt
+                    List of relations
+            Schema | Name | Type  |  Owner   
+            --------+------+-------+----------
+            public | test | table | postgres
+            (1 row)
+
+            test=# select * from test;
+            id |    name1     
+            ----+--------------
+            1 | Pupkin Vasia
+            2 | Ivanov Ivan
+            3 | Petrov Petr
+            (3 rows)
+
+            test=# 
+
+Данные переехали вместе с диском.
+
+
+
