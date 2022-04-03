@@ -72,11 +72,6 @@ autovacuum_vacuum_threshold (integer) - Задаёт минимальное чи
 
 Это объеснется тем что ВМ была с одним ядром и postgresql не смог задействовать в процессе autovacuum несколько процессов, а использование агрессной политики avtovacuum (первая итерация) приводила к частому переключению ресурсов и замедлению работы.
 
-
-
-![picture](pic_autovac_02.png)
-
-
 #### Наилучший тест с наибольшим количеством транзакций и tps
 
                 postgres@ubuntu-20:/etc/postgresql/14/main$ pgbench -c8 -P 60 -T 3600 -U postgres postgres
