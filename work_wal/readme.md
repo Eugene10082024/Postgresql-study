@@ -62,12 +62,12 @@
 
 ![picture](pic_autovac_01.png)
 
-
+наилучшим с точки зрения количестваобщего количества транзакций и tps 
 
 ![picture](pic_autovac_02.png)
 
 
-#### Наилучший тест с наибольшим количеством активных транзакций и tps
+#### Наилучший тест с наибольшим количеством транзакций и tps
 
                 postgres@ubuntu-20:/etc/postgresql/14/main$ pgbench -c8 -P 60 -T 3600 -U postgres postgres
                 pgbench (14.2 (Ubuntu 14.2-1.pgdg20.04+1))
