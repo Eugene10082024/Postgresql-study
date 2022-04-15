@@ -53,8 +53,6 @@ Cделать нагрузочное тестирование PostgreSQL
         done in 91.80 s (drop tables 0.00 s, create tables 0.26 s, client-side generate 63.61 s, vacuum 14.16 s, primary keys 13.77 s).
         postgres@ubuntu-20:~$ 
 
-
-
         postgres=# select datname, pg_size_pretty(pg_database_size(datname)) from pg_database;
         datname  | pg_size_pretty 
         -----------+----------------
@@ -66,6 +64,7 @@ Cделать нагрузочное тестирование PostgreSQL
 
 Размер БД  benchmark ~ 1.5GB
 ##### Описание теста
+
     pgbench -c10 -P 60 -j 2 -T 600 benchmark 
     
         где:
@@ -73,3 +72,5 @@ Cделать нагрузочное тестирование PostgreSQL
             P - период времени в сек когда выводить данные
             j - кол-во потоков 
             T - общий период времени проведения теста
+            
+            
