@@ -93,3 +93,14 @@ Cделать нагрузочное тестирование PostgreSQL
 
 Итерация 8 - отключение synchronous_commit и fsync одновременно
 
+![picture](pic_1.png)
+
+
+
+
+
+
+
+
+![picture](pic_2.png)
+
