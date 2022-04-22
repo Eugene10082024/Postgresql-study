@@ -9,13 +9,12 @@ https://habr.com/ru/post/228793/ - Huge Pages в PostgreSQL
 https://habr.com/ru/company/southbridge/blog/435558/ - Тестирование PostgreSQL с HugePages в Linux (основная рекомендация — отключать Transparent HugePages)
     
 
-Пример настройки HugePage показал для следующих параметров памяти:
+##### Пример настройки HugePage показал для следующих параметров памяти:
 
-Memory OC - 64 GB
+            Memory OC - 64 GB
+            shared_buffers = 48GB
 
-shared_buffers = 48GB
-
-Для начала провередения работ обязательно проверяем можел ли ядро использовать HugePages.
+##### Для начала провередения работ обязательно проверяем можел ли ядро использовать HugePages.
 
 1. Проверяем может ли ядро использовать HugePage
 
