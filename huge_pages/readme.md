@@ -18,16 +18,16 @@ shared_buffers = 48GB
 
 1. Проверяем может ли ядро использовать HugePage
 
-    [root@redoc-7 ~]# grep Huge /proc/meminfo
-            AnonHugePages:          0 kB
-            ShmemHugePages:         0 kB
-            FileHugePages:          0 kB
-            HugePages_Total:        0
-            HugePages_Free:         0
-            HugePages_Rsvd:         0
-            HugePages_Surp:         0
-            Hugepagesize:       2048 kB
-            Hugetlb:                0 kB
+        [root@redoc-7 ~]# grep Huge /proc/meminfo
+                AnonHugePages:          0 kB
+                ShmemHugePages:         0 kB
+                FileHugePages:          0 kB
+                HugePages_Total:        0
+                HugePages_Free:         0
+                HugePages_Rsvd:         0
+                HugePages_Surp:         0
+                Hugepagesize:       2048 kB
+                Hugetlb:                0 kB
 
 Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
 Если нет необходимо перекомпилировать ядро с соответвествующими параметрами.    
