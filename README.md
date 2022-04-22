@@ -23,3 +23,7 @@
 [20 - Секционирование таблицы](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/sectioning_postgresql)
 
 [23 - Триггеры, поддержка заполнения витрин](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/func_postgresql)
+
+Дополнительные материалы:
+
+[Настройка HugePages для Postgresql] (https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages)
