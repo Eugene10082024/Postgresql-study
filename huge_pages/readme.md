@@ -1,11 +1,12 @@
 ### Настройка HugePages в Postgresql
 
 Статьи:
-    https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR391 - HugePages
+
+https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR391 - HugePages
     
-    https://habr.com/ru/post/228793/ - Huge Pages в PostgreSQL
+https://habr.com/ru/post/228793/ - Huge Pages в PostgreSQL
     
-    https://habr.com/ru/company/southbridge/blog/435558/ - Тестирование PostgreSQL с HugePages в Linux (основная рекомендация — отключать Transparent HugePages)
+https://habr.com/ru/company/southbridge/blog/435558/ - Тестирование PostgreSQL с HugePages в Linux (основная рекомендация — отключать Transparent HugePages)
     
 
 Пример настройки HugePage показал для следующих параметров памяти:
