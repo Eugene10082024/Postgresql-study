@@ -26,4 +26,4 @@
 
 Дополнительные материалы:
 
-[Настройка HugePages для Postgresql] (https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages)
+[Настройка HugePages для Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages)
