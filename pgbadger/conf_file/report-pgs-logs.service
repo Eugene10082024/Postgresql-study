@@ -1,0 +1,17 @@
+[Unit]
+Description=generating a report for the previous day
+Wants=perort_psql.timer
+
+[Service]
+Type=oneshot
+
+User=postgres
+Group=postgres
+
+EnvironmentFile=/etc/default/report-pgs-logs.cfg
+ExecStart=/usr/bin/report-pgs-logs.sh $DAYS $DIR_LOG_PGS $DIR_OUTPUT
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

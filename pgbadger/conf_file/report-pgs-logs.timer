@@ -1,0 +1,9 @@
+[Unit]
+Description=timer start demon report-pgs-logs.service
+
+[Timer]
+OnCalendar=Tue..Sat *-*-* 02:00:00
+Unit=report-pgs-logs.service
+
+[Install]
+WantedBy=timers.target
