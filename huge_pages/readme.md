@@ -14,7 +14,7 @@ https://habr.com/ru/company/southbridge/blog/435558/ - Тестирование 
             Memory OC - 64 GB
             shared_buffers = 48GB
 
-##### Для начала провередения работ обязательно проверяем можел ли ядро использовать HugePages.
+##### Для начала провередения работ обязательно проверяем может ли ядро использовать HugePages.
 
 1. Проверяем может ли ядро использовать HugePage
 
@@ -32,9 +32,9 @@ https://habr.com/ru/company/southbridge/blog/435558/ - Тестирование 
 Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
 Если нет необходимо перекомпилировать ядро с соответвествующими параметрами.    
 
-#### Отключаем Transparent HugePages.
+#### 1. Отключаем Transparent HugePages.
 
-1. Проверяем текущий статус Transparent HugePages
+1.1. Проверяем текущий статус Transparent HugePages
 
         cat /sys/kernel/mm/transparent_hugepage/enabled
         [always] madvise never - Transparent HugePages включены
@@ -48,7 +48,7 @@ madvise означает, что transparent hugepages включены толь
 never означает, что transparent hugepages не будут включаться даже при запросе с помощью madvise. 
 
 
-2. Редактируем  config grub
+1.2. Редактируем  config grub
 
          vi /etc/default/grub
 
@@ -56,22 +56,22 @@ never означает, что transparent hugepages не будут включ�
 
          GRUB_CMDLINE_LINUX="resume=/dev/mapper/cl-swap rd.lvm.lv=cl/root rd.lvm.lv=cl/swap rhgb quiet transparent_hugepage=never"
 
-3. Generate new GRUB boot menu based on customized configuration file.
+1.3. Generate new GRUB boot menu based on customized configuration file.
 
          grub2-mkconfig -o /boot/grub2/grub.cfg
     
-4. Restart Linux operating system to apply new settings.
+1.4. Restart Linux operating system to apply new settings.
 
         reboot now
 
-5. После перезагрузки проверяем статус Transparent HugePages
+1.5. После перезагрузки проверяем статус Transparent HugePages
 
          cat /sys/kernel/mm/transparent_hugepage/enabled
          always madvise [never]
     
-#### Дополнительная настройка OC (Рекомендация Oracle)
+#### 2. Дополнительная настройка OC (Рекомендация Oracle)
 
-1. Проверяем может ли ядро использовать HugePage
+2.1. Проверяем может ли ядро использовать HugePage
 
         [root@redoc-7 ~]# grep Huge /proc/meminfo
                 AnonHugePages:          0 kB
@@ -86,7 +86,7 @@ never означает, что transparent hugepages не будут включ�
 
 Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
 
-2. Отредактировать параметры memlock в файле /etc/security/limits.conf.
+2.2. Отредактировать параметры memlock в файле /etc/security/limits.conf.
 
 Значения memlock указываются в KB. 
 
@@ -99,35 +99,35 @@ never означает, что transparent hugepages не будут включ�
 
 Обязательно memlock должен быть больше shared_buffers.
 
-3. Подключаемся под пользователем postgres и проверяем:
+2.3. Подключаемся под пользователем postgres и проверяем:
              $ ulimit -l
                 60397977
 
-#### Включение HugePages в ОС.
+#### 3. Включение HugePages в ОС.
 
-1. Запускаем PostgresPro с установленным размером  shared_buffers (Пример shared_buffers = 48GB)
+3.1. Запускаем PostgresPro с установленным размером  shared_buffers (Пример shared_buffers = 48GB)
  
             systemctl start postgrespro-ent-13.service 
     
-2. Опеределаем размер HugePage который мы может использовать в OC (можно из под root, можно из под postgresql):
+3.2. Опеределаем размер HugePage который мы может использовать в OC (можно из под root, можно из под postgresql):
 
             grep Hugepagesize /proc/meminfo
             Hugepagesize:       2048 kB
 
 
-3. Определяем pid процесса postgrespro (выполняем под root):
+3.3. Определяем pid процесса postgrespro (выполняем под root):
  
             head -1 /pgstore/pgdata/postmaster.pid 
             Для примера
                 769
         
-4.  Определяем пиковое значение использования виртуальной памяти (VmPeak) используемое PostgresPro
+3.4.  Определяем пиковое значение использования виртуальной памяти (VmPeak) используемое PostgresPro
 
             grep ^VmPeak /proc/769/status
             Для примера:
                 VmPeak: 51867736 kB
 
-5. Выполняем расчет кол-ва HugePage 
+3.5. Выполняем расчет кол-ва HugePage 
 
         kol_hugepage=(VmPeak/Hugepagesize +1)
     
@@ -135,25 +135,25 @@ never означает, что transparent hugepages не будут включ�
             echo $((51866736 / 2048 + 1))
             25326
     
-6. 
+3.6. 
         echo 'vm.nr_hugepages = 25326' >> /etc/sysctl.d/30-postgresql.conf
 
-7. 
+3.7. 
         sysctl -p --system
 
-8. Останавливаем PostgresPro
+3.8. Останавливаем PostgresPro
 
         systemctl stop postgrespro-ent-13.service
         
-9. Редактируем файл postgresql.conf меняя параметр huge_pages = try
+3.9. Редактируем файл postgresql.conf меняя параметр huge_pages = try
 
         huge_pages = on
     
-10. Запускаем PostgresqlPro
+3.10. Запускаем PostgresqlPro
 
         systemctl start postgrespro-ent-13.service 
     
-11. Смотрим использование HugePages
+3.11. Смотрим использование HugePages
     
         grep ^HugePages /proc/meminfo
             HugePages_Total:   25326
