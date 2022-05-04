@@ -1,6 +1,6 @@
 #!/bin/bash
 cp report-pgs-logs.sh /usr/bin/
-chmod 755 /usr/bin/report_psql.sh
+chmod 755 /usr/bin/report-pgs-logs.sh
 
 cp report-pgs-logs.service /etc/systemd/system/
 cp report-pgs-logs.timer /etc/systemd/system/
