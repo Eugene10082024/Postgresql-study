@@ -11,9 +11,8 @@ pgbadger - PostgreSQL log analyzer предназначенный для дет�
 #### 1. Установка конфигурационных параметров в файле postgresql.conf
 
 Для правильной работы утилиты необходимо задать следующие параметры в postgresql.conf.
-log_filename = 'postgresql-%a.log'
 
-
+      log_filename = 'postgresql-%a.log'
       log_min_duration_statement = 0
       log_line_prefix = '%t [%p]: ' 
       log_checkpoints = on
