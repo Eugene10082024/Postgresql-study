@@ -69,65 +69,32 @@ never означает, что transparent hugepages не будут включ�
          cat /sys/kernel/mm/transparent_hugepage/enabled
          always madvise [never]
     
-#### 2. Дополнительная настройка OC (Рекомендация Oracle)
 
-2.1. Проверяем может ли ядро использовать HugePage
+#### 2. Включение HugePages в ОС.
 
-        [root@redoc-7 ~]# grep Huge /proc/meminfo
-                AnonHugePages:          0 kB
-                ShmemHugePages:         0 kB
-                FileHugePages:          0 kB
-                HugePages_Total:        0
-                HugePages_Free:         0
-                HugePages_Rsvd:         0
-                HugePages_Surp:         0
-                Hugepagesize:       2048 kB
-                Hugetlb:                0 kB
-
-Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
-
-2.2. Отредактировать параметры memlock в файле /etc/security/limits.conf.
-
-Значения memlock указываются в KB. 
-
-Максимальный предел заблокированной памяти (locked memory) должен быть установлен как минимум на 90 процентов от текущего объема ОЗУ.
- 
- Для нашего примера (ОЗУ - 64GB):
- 
-            *   soft   memlock    60397977
-            *   hard   memlock    60397977
-
-Обязательно memlock должен быть больше shared_buffers.
-
-2.3. Подключаемся под пользователем postgres и проверяем:
-             $ ulimit -l
-                60397977
-
-#### 3. Включение HugePages в ОС.
-
-3.1. Запускаем PostgresPro с установленным размером  shared_buffers (Пример shared_buffers = 48GB)
+2.1. Запускаем PostgresPro с установленным размером  shared_buffers (Пример shared_buffers = 48GB)
  
             systemctl start postgrespro-ent-13.service 
     
-3.2. Опеределаем размер HugePage который мы может использовать в OC (можно из под root, можно из под postgresql):
+2.2. Опеределаем размер HugePage который мы может использовать в OC (можно из под root, можно из под postgresql):
 
             grep Hugepagesize /proc/meminfo
             Hugepagesize:       2048 kB
 
 
-3.3. Определяем pid процесса postgrespro (выполняем под root):
+2.3. Определяем pid процесса postgrespro (выполняем под root):
  
             head -1 /pgstore/pgdata/postmaster.pid 
             Для примера
                 769
         
-3.4.  Определяем пиковое значение использования виртуальной памяти (VmPeak) используемое PostgresPro
+2.4.  Определяем пиковое значение использования виртуальной памяти (VmPeak) используемое PostgresPro
 
             grep ^VmPeak /proc/769/status
             Для примера:
                 VmPeak: 51867736 kB
 
-3.5. Выполняем расчет кол-ва HugePage 
+2.5. Выполняем расчет кол-ва HugePage 
 
         kol_hugepage=(VmPeak/Hugepagesize +1)
     
@@ -135,25 +102,26 @@ never означает, что transparent hugepages не будут включ�
             echo $((51866736 / 2048 + 1))
             25326
     
-3.6. 
+2.6. 
         echo 'vm.nr_hugepages = 25326' >> /etc/sysctl.d/30-postgresql.conf
 
-3.7. 
-        sysctl -p --system
 
-3.8. Останавливаем PostgresPro
+2.7. Останавливаем PostgresPro
 
         systemctl stop postgrespro-ent-13.service
         
-3.9. Редактируем файл postgresql.conf меняя параметр huge_pages = try
+2.8. Редактируем файл postgresql.conf меняя параметр huge_pages = try
 
         huge_pages = on
-    
-3.10. Запускаем PostgresqlPro
+
+2.7. 
+        sysctl -p --system
+
+2.10. Запускаем PostgresqlPro
 
         systemctl start postgrespro-ent-13.service 
     
-3.11. Смотрим использование HugePages
+2.11. Смотрим использование HugePages
     
         grep ^HugePages /proc/meminfo
             HugePages_Total:   25326
