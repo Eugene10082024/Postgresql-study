@@ -317,5 +317,21 @@ less /var/log/postgresql/postgresql-14-main.log
         2022-04-17 20:03:42.322 MSK [4472] postgres@database_locks CONTEXT:  while updating tuple (0,15) in relation "test_lock_update"
         2022-04-17 20:03:42.322 MSK [4472] postgres@database_locks STATEMENT:  update test_lock_update set email='p.petrov@rambler.ru' where id=3;
         2022-04-17 20:03:42.323 MSK [4458] postgres@database_locks LOG:  process 4458 acquired ExclusiveLock on tuple (0,15) of relation 16522 of database 16516 after 36196.921 ms
+        2022-04-17 20:03:42.323 MSK [4458] postgres@database_locks STATEMENT:  update test_lock_update set email='p.petrov@gmail.ru' where id=3;
+        2022-04-17 20:03:43.323 MSK [4458] postgres@database_locks LOG:  process 4458 still waiting for ShareLock on transaction 123899 after 1000.089 ms
+        2022-04-17 20:03:43.323 MSK [4458] postgres@database_locks DETAIL:  Process holding the lock: 4472. Wait queue: 4458.
+        2022-04-17 20:03:43.323 MSK [4458] postgres@database_locks CONTEXT:  while updating tuple (0,15) in relation "test_lock_update"
+        2022-04-17 20:03:43.323 MSK [4458] postgres@database_locks STATEMENT:  update test_lock_update set email='p.petrov@gmail.ru' where id=3;
+        2022-04-17 20:04:33.015 MSK [4459] postgres@database_locks ERROR:  current transaction is aborted, commands ignored until end of transaction block
+        2022-04-17 20:04:33.015 MSK [4459] postgres@database_locks STATEMENT:  update test_lock_update set email='sidorov@yandex.ru' where id=2;
+        2022-04-17 20:04:53.874 MSK [4458] postgres@database_locks LOG:  process 4458 acquired ShareLock on transaction 123899 after 71551.678 ms
+        2022-04-17 20:04:53.874 MSK [4458] postgres@database_locks CONTEXT:  while updating tuple (0,15) in relation "test_lock_update"
+        2022-04-17 20:04:53.874 MSK [4458] postgres@database_locks STATEMENT:  update test_lock_update set email='p.petrov@gmail.ru' where id=3;
+        2022-04-17 20:07:46.040 MSK [4429] LOG:  checkpoint starting: time
+        
+Из log файла следует (2022-04-17 20:03:42.322 MSK ), что взаимоблокировка возникла между двумя процессами: процессом 4459 и процессом 4472 при выполнении команды процессом 4459:
+
+update test_lock_update set email='ivanov@yandex.ru' where id=1;
+        
 
 #### 4. Могут ли две транзакции, выполняющие единственную команду UPDATE одной и той же таблицы (без where), заблокировать друг друга?  
