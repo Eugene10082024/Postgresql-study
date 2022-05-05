@@ -335,3 +335,88 @@ update test_lock_update set email='ivanov@yandex.ru' where id=1;
         
 
 #### 4. Могут ли две транзакции, выполняющие единственную команду UPDATE одной и той же таблицы (без where), заблокировать друг друга?  
+
+Выяснение возможности блокировки и взаимоблокировки транзакций буду выполнять на таблице test_lock_update.
+
+Обновлять буду поле email.
+
+                database_locks=# select * from test_lock_update ;
+                 id |     name      |       role        |        email        
+                ----+---------------+-------------------+---------------------
+                  4 | Pypkin Vasia  | Super Admin       | vpupkin@rambler.ru
+                  5 | Student-01    | user windows      | sudent01@rambler.ru
+                  6 | Student-02    | user windows      | sudent02@rambler.ru
+                  7 | Student-03    | user windows      | sudent03@rambler.ru
+                  8 | Student-04    | user linux        | sudent04@yandex.ru
+                  9 | Student-05    | user linux        | sudent05@yandex.ru
+                 10 | Student-06    | user linux        | sudent06@yandex.ru
+                  1 | Ivanov Ivan   | user of 1C        | i.ivanov@yandex.ru
+                  2 | Sidorov Sidor | admin of 1C       | s.sidorov@yandex.ru
+                  3 | Petron Petr   | Admin Astra Linux | p.petrov@gmail.ru
+                (10 rows)
+
+##### Первая транзакция
+                database_locks=# begin;
+                BEGIN
+                database_locks=*# select pg_backend_pid();
+                pg_backend_pid 
+                ----------------
+                        2626
+                (1 row)
+
+                database_locks=*# update test_lock_update set email='noname@mail.ru';
+                UPDATE 10
+                database_locks=*# 
+
+
+##### Вторая транзакция
+
+                database_locks=# begin;
+                BEGIN
+                database_locks=*# select pg_backend_pid();
+                pg_backend_pid 
+                ----------------
+                        2714
+                (1 row)
+
+                database_locks=*# update test_lock_update set email='noname@rambler.ru';
+
+Вторая транзакция зависла в ожидании освобождения блокировки ShareLock.
+
+В Log файле видно что вторая транзакция ожидает блокировки ShareLock. 
+
+        2022-05-05 08:14:52.345 MSK [2714] postgres@database_locks LOG:  process 2714 still waiting for ShareLock on transaction 123908 after 1000.260 ms
+        2022-05-05 08:14:52.345 MSK [2714] postgres@database_locks DETAIL:  Process holding the lock: 2626. Wait queue: 2714.
+        2022-05-05 08:14:52.345 MSK [2714] postgres@database_locks CONTEXT:  while updating tuple (0,7) in relation "test_lock_update"
+        2022-05-05 08:14:52.345 MSK [2714] postgres@database_locks STATEMENT:  update test_lock_update set email='noname@rambler.ru';
+
+Также это видно из представления pg_locks
+
+        database_locks: SELECT locktype, relation::REGCLASS,virtualxid AS virtxid,transactionid AS xid,mode,granted FROM pg_locks WHERE pid=2626;
+        locktype    |     relation     | virtxid |  xid   |       mode       | granted 
+        ---------------+------------------+---------+--------+------------------+---------
+        relation      | pg_locks         |         |        | AccessShareLock  | t
+        relation      | test_lock_update |         |        | RowExclusiveLock | t
+        virtualxid    |                  | 4/10    |        | ExclusiveLock    | t
+        transactionid |                  |         | 123908 | ExclusiveLock    | t
+        (4 rows)
+
+        database_locks=*# SELECT locktype, relation::REGCLASS,virtualxid AS virtxid,transactionid AS xid,mode,granted FROM pg_locks WHERE pid=2714;
+        locktype    |     relation     | virtxid |  xid   |       mode       | granted 
+        ---------------+------------------+---------+--------+------------------+---------
+        relation      | test_lock_update |         |        | RowExclusiveLock | t
+        virtualxid    |                  | 5/6     |        | ExclusiveLock    | t
+        tuple         | test_lock_update |         |        | ExclusiveLock    | t
+        transactionid |                  |         | 123908 | ShareLock        | f
+        transactionid |                  |         | 123909 | ExclusiveLock    | t
+        (5 rows)
+
+
+Вывод: Первая транзакция с оператором UPDATE будет блокировать выпополнение второй транзакции с оператором UPDATE, которая в свою очередь будет ожидать освобождения блокировки ShareLock первой транзакцией.
+При этом если выполнить повторный UPDATE в первой транзакции, то он пройдет так как в данная транзакция имеет все необходимые блокировки.
+В данном случае взаимоблокировки не произойдет.
+
+
+
+
+
