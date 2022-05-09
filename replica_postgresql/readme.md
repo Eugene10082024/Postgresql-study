@@ -30,9 +30,9 @@
 4. Перегружаем каждый кластер.
 
 
-### Основные действия.
+#### Подготовительные действия.
 
-##### На ВМ 1 создаем БД logic_replication_01;
+##### На ВМ1 создаем БД logic_replication_01;
         postgres=# create database logic_replication_01;
         CREATE DATABASE
 
@@ -42,7 +42,7 @@
         ----------------------+----------+----------+-------------+-------------+-----------------------
         logic_replication_01 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
     
-##### На ВМ 2 создаем БД logic_replication_02;
+##### На ВМ2 создаем БД logic_replication_02;
 
         postgres=# create database logic_replication_02;
         CREATE DATABASE
@@ -52,7 +52,7 @@
         ----------------------+----------+----------+-------------+-------------+-----------------------
         logic_replication_02 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
 
-##### На ВМ 3 создаем БД logic_replication_03;
+##### На ВМ3 создаем БД logic_replication_03;
     
         postgres=# create database logic_replication_03;
         CREATE DATABASE
@@ -62,20 +62,20 @@
         ----------------------+----------+----------+-------------+-------------+-----------------------
          logic_replication_02 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |     
 
-#### В БД logic_replication_01 ВМ 1 создаем 2 таблицы test1_students и test2_cites
+##### В БД logic_replication_01 ВМ1 создаем 2 таблицы test1_students и test2_cites
 
         logic_replication_01=#  create table test1_students (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name text, second_name text, email text);
         CREATE TABLE
         logic_replication_01=# create table test2_cites (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, city_name text, region text, country text);
         CREATE TABLE
-#### Добавим 2 записи в таблицу test1_students для проверки возможности передачи существующих записей.
+##### Добавим 2 записи в таблицу test1_students для проверки возможности передачи существующих записей.
 
         logic_replication_01=# INSERT INTO test1_students (first_name,second_name,email) VALUES ('Ivanov','Ivan','iivanov@gmail.com');
         INSERT 0 1
         logic_replication_01=# INSERT INTO test1_students (first_name,second_name,email) VALUES ('Petrov','Peter','petrov@mail.ru');
         INSERT 0 1
 
-#### В БД logic_replication_02 ВМ 2 создаем 2 таблицы test1_students и test2_cites.
+##### В БД logic_replication_02 ВМ2 создаем 2 таблицы test1_students и test2_cites.
 
         logic_replication_02=# create table test1_students (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name text, second_name text, email text);
         CREATE TABLE
