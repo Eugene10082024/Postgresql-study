@@ -13,12 +13,16 @@
 ### Настройка Postgresql на 3 ВМ.
 
 На каждом кластере Postgresql каждой из трех BM выполняем:
+
 1. в файле postgresql.conf следующие значения параметров:
+
         listen_addresses = '*'
+        
         wal_level=logical
         
         
 2. в файле pg_hba.conf добавляем строку:
+
 host    all             all             0.0.0.0/0               scram-sha-256
 
 3. пользователю postgres пресваиваем пароль postgres.
