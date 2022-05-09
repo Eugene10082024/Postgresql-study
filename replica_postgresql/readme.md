@@ -28,7 +28,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
 
 ### Основные действия.
 
-#### На ВМ 1 создаем БД logic_replication_01;
+##### На ВМ 1 создаем БД logic_replication_01;
         postgres=# create database logic_replication_01;
         CREATE DATABASE
 
@@ -38,7 +38,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
         ----------------------+----------+----------+-------------+-------------+-----------------------
         logic_replication_01 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
     
-#### На ВМ 2 создаем БД logic_replication_02;
+##### На ВМ 2 создаем БД logic_replication_02;
 
         postgres=# create database logic_replication_02;
         CREATE DATABASE
@@ -48,7 +48,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
         ----------------------+----------+----------+-------------+-------------+-----------------------
         logic_replication_02 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
 
-#### На ВМ 3 создаем БД logic_replication_03;
+##### На ВМ 3 создаем БД logic_replication_03;
     
         postgres=# create database logic_replication_03;
         CREATE DATABASE
