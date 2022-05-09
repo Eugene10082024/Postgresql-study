@@ -23,7 +23,7 @@
         
 2. в файле pg_hba.conf добавляем строку:
 
-host    all             all             0.0.0.0/0               scram-sha-256
+        host    all             all             0.0.0.0/0               scram-sha-256
 
 3. пользователю postgres пресваиваем пароль postgres.
 
