@@ -71,7 +71,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
         logic_replication_01=# INSERT INTO test1_students (first_name,second_name,email) VALUES ('Petrov','Peter','petrov@mail.ru');
         INSERT 0 1
 
-#### В БД logic_replication_02 ВМ 2 создаем 2 таблицы test1_students и test2_cites аналогичные таблицам БД logic_replication_01 ВМ 1.
+#### В БД logic_replication_02 ВМ 2 создаем 2 таблицы test1_students и test2_cites.
 
         logic_replication_02=# create table test1_students (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name text, second_name text, email text);
         CREATE TABLE
@@ -214,8 +214,9 @@ host    all             all             0.0.0.0/0               scram-sha-256
         (2 rows)
 
 Видим что записи появились. Репликация работает.
-       
-#### В БД logic_replication_03 создаем 2 таблицы test3_students   и test3_cites
+#### Настройка подписчиков а БД logic_replication_03 ВМ3
+
+##### В БД logic_replication_03 создаем 2 таблицы test1_students и test2_cites. 
 
         logic_replication_03=# create table test1_students (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name text, second_name text, email text);
         CREATE TABLE
@@ -230,6 +231,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
         public | test2_students | table | postgres
         (2 rows)
 
+##### Настройка подписчика test1_students БД logic_replication_03
 
         logic_replication_03=# CREATE SUBSCRIPTION test3_sub CONNECTION 'host=192.168.122.220 port=5432 user=postgres password=postgres     dbname=logic_replication_01' PUBLICATION test1_pub WITH (copy_data=true);
         NOTICE:  created replication slot "test3_sub" on publisher
@@ -241,6 +243,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
         test3_sub | postgres | t       | {test1_pub}
         (1 row)
 
+##### Настройка подписчика test2_cites БД logic_replication_03
 
        logic_replication_03=#  CREATE SUBSCRIPTION test4_sub CONNECTION 'host=192.168.122.221 port=5432 user=postgres password=postgres dbname=logic_replication_02' PUBLICATION test2_pub WITH (copy_data=true);
        NOTICE:  created replication slot "test4_sub" on publisher
@@ -255,7 +258,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
         (2 rows)
 
        
-#### Проверям наличие данных в таблицах test1_students и test2_cites БД logic_replication_03 ВМ3.
+##### Проверям наличие данных в таблицах test1_students и test2_cites БД logic_replication_03 ВМ3.
 
         logic_replication_03=# select * from test1_students;
         id | first_name | second_name |       email        
@@ -277,7 +280,7 @@ host    all             all             0.0.0.0/0               scram-sha-256
 
 Видим что данные из таблицы test1_students БД logic_replication_01 ВМ1 и данные из таблицы test2_cites БД logic_replication_02 ВМ2 реплицировались в соответсвующие таблицы БД logic_replication_03 ВМ3      
 
-#### Выполним дабавление строк в таблицу test1_students БД logic_replication_01 ВМ1 и в таблицу test2_cites БД logic_replication_02 ВМ2 и проверим что получилось.
+##### Выполним дабавление строк в таблицу test1_students БД logic_replication_01 ВМ1 и в таблицу test2_cites БД logic_replication_02 ВМ2 и проверим что получилось.
 
 ##### Добавляем данные в таблицу test1_students БД logic_replication_01 ВМ1
 
