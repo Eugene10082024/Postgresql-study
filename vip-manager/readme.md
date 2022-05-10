@@ -19,7 +19,7 @@ https://github.com/cybertec-postgresql/vip-manager/releases - можно ска�
 
 [Пример vip-manager.yml](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager/vip-manager.yml)
 
-##### Пояснения
+#### Пояснения к конфигурационному файлу
 
 ##### 1. trigger-key: "/service-pro-ent/cluster-ent13/leader"
 
