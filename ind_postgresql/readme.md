@@ -14,4 +14,9 @@
 
 _Italic too_
 
+**bold**
+*italic*
+***bold italic***
+_italic too_
 
+**Можно использовать _курсив_ внутри жирного текста.**
