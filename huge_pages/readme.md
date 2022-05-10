@@ -1,6 +1,6 @@
 ### Настройка HugePages в Postgresql
 
-[1. Shutdown Transparent HugePages.](# 1. Shutdown Transparent HugePages.)
+[1. Shutdown Transparent HugePages.](# 1.Shutdown_Transparent_HugePages.)
 
 [2. Включение HugePages в ОС c Postgresql](# 2. Включение HugePages в ОС c Postgresql)
 
@@ -28,7 +28,7 @@
 Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
 Если нет необходимо перекомпилировать ядро с соответвествующими параметрами.    
 
-#### 1. Shutdown Transparent HugePages.
+#### 1.Shutdown_Transparent_HugePages.
 
 1.1. Проверяем текущий статус Transparent HugePages
 
