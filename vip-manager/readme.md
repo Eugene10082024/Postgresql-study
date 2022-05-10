@@ -20,9 +20,8 @@ https://github.com/cybertec-postgresql/vip-manager/releases - можно ска�
 [Пример vip-manager.yml](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager/vip-manager.yml)
 
 ##### Пояснения
-Строка: 
 
-##### trigger-key: "/service-pro-ent/cluster-ent13/leader"
+##### 1. trigger-key: "/service-pro-ent/cluster-ent13/leader"
 
 Формируется из параметров которые можно взять из  patroni.yml. 
 
@@ -34,22 +33,32 @@ https://github.com/cybertec-postgresql/vip-manager/releases - можно ска�
 
 Имеем -> /namespace/scope/leader
 
-##### trigger-value: "redoc-pgs01"  -> указал имя node кластера Patroni
+##### 2. trigger-value: "redoc-pgs01"  -> указывается имя node кластера Patroni
 
-##### ip: 192.168.122.201 -> virtual IP
+Данный параметр можно взять из файла patroni.yml.
 
-Здесь указываются node кластера etcd:
+Параметр файла -> name: redoc-pgs01
 
-##### dcs-endpoints:
+##### 3. ip: 192.168.122.201 -> virtual IP
+
+##### 4. netmask: 24 -> маска virtual IP
+
+##### 5. interface: ens3  -> сетевой интерфейс к которому будет добавлен virtual IP
+
+##### 6. hosting-type: basic 
+
+##### 7. dcs-type: etcd
+
+##### 8. dcs-endpoints:
         
         - http://192.168.122.165:2379
         
         - http://192.168.122.166:2379
+        
+Здесь указываются node кластера etcd.       
 
-Пользователь под которым подключаешься к etcd:
+##### 9.  etcd-user: "root" -> Пользователь под которым подключаешься к etcd
 
-##### etcd-user:     "root"
-
-##### etcd-password: "root"
+##### 10. etcd-password: "root" -> Пароль пользователя под которым подключаешься к etcd
 
 
