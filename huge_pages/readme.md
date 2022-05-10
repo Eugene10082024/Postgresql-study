@@ -1,5 +1,7 @@
 ### Настройка HugePages в Postgresql
 
+Для использования HugePage в Postgresql необходимо выполнить 2 этапа:
+
 [1. Отключение Transparent HugePages.](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages/readme.md#1Отключение-transparent-hugepages)
 
 [2. Включение HugePages в ОС c Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages/readme.md#2%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-hugepages-%D0%B2-%D0%BE%D1%81-c-postgresql)
