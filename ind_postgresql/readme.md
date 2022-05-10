@@ -15,6 +15,13 @@
 **This text is _extremely_ important**
 
 
-click on this link](#my-multi-word-header)
+[click on this link](#my-multi-word-header)
+1
+2
+3
+4
+5
+6
 
 ### My Multi Word Header
+1
