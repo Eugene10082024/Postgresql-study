@@ -1,11 +1,9 @@
 ### Настройка HugePages в Postgresql
 
-<a name="1.Отключаем Transparent HugePages"></a>
+[Отключаем Transparent HugePages](#### 1. Отключаем Transparent HugePages)
 
+[Включение HugePages в ОС c Postgresql](#### 2. Включение HugePages в ОС c Postgresql)
 
-[2.Включение HugePages в ОС c Postgresql](#### 2. Включение HugePages в ОС c Postgresql)
-
-    
 
 #### Пример настройки HugePage показал для следующих параметров памяти:
 
@@ -29,8 +27,6 @@
 
 Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
 Если нет необходимо перекомпилировать ядро с соответвествующими параметрами.    
-
-[1.Отключаем Transparent HugePages](#1.Отключаем Transparent HugePages)
 
 #### 1. Отключаем Transparent HugePages.
 
