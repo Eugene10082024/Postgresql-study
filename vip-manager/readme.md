@@ -27,9 +27,8 @@ https://github.com/cybertec-postgresql/vip-manager/releases - можно ска�
 
 Параметры файла:
 
-    namespace: service-pro-ent
-    
-    scope: cluster-ent13
+        namespace: service-pro-ent
+        scope: cluster-ent13
 
 Имеем -> /namespace/scope/leader
 
@@ -37,7 +36,8 @@ https://github.com/cybertec-postgresql/vip-manager/releases - можно ска�
 
 Данный параметр можно взять из файла patroni.yml.
 
-Параметр файла -> name: redoc-pgs01
+Параметр файла
+        name: redoc-pgs01
 
 ##### 3. ip: 192.168.122.201 -> virtual IP
 
@@ -52,7 +52,6 @@ https://github.com/cybertec-postgresql/vip-manager/releases - можно ска�
 ##### 8. dcs-endpoints:
         
         - http://192.168.122.165:2379
-        
         - http://192.168.122.166:2379
         
 Здесь указываются node кластера etcd.       
