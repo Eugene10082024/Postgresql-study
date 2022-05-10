@@ -1,6 +1,6 @@
 ### Настройка HugePages в Postgresql
 
-[1. Shutdown Transparent HugePages.](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages/readme.md#1Отключение-transparent-hugepages)
+[1. Отключение Transparent HugePages.](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages/readme.md#1Отключение-transparent-hugepages)
 
 [2. Включение HugePages в ОС c Postgresql](# 2. Включение HugePages в ОС c Postgresql)
 
