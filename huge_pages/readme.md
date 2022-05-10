@@ -1,6 +1,6 @@
 ### Настройка HugePages в Postgresql
 
-[1. Shutdown Transparent HugePages.](# 1.Shutdown_Transparent_HugePages.)
+[1. Shutdown Transparent HugePages.](# 1.Shutdown Transparent HugePages.)
 
 [2. Включение HugePages в ОС c Postgresql](# 2. Включение HugePages в ОС c Postgresql)
 
