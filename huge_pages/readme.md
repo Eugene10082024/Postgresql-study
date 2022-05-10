@@ -1,6 +1,8 @@
 ### Настройка HugePages в Postgresql
 
-[2. Включение HugePages в ОС c Postgresql](#### 2. Включение HugePages в ОС c Postgresql)
+[1. Отключаем Transparent HugePages.](#### 1. Отключаем Transparent HugePages.)
+
+[2.Включение HugePages в ОС c Postgresql](#### 2. Включение HugePages в ОС c Postgresql)
 
     
 
