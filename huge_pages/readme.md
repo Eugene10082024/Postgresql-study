@@ -28,7 +28,7 @@
 Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
 Если нет необходимо перекомпилировать ядро с соответвествующими параметрами.    
 
-#### `1.Shutdown Transparent HugePages.`
+#### 1.Shutdown Transparent HugePages.
 
 1.1. Проверяем текущий статус Transparent HugePages
 
