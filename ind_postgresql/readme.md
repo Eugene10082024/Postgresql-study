@@ -32,3 +32,8 @@
 
 ### My Multi Word Header
 1
+
+[Foo](#foo)
+
+# Foo
+
