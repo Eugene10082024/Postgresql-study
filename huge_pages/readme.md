@@ -1,12 +1,6 @@
 ### Настройка HugePages в Postgresql
+[2.Включение HugePages в ОС c Postgresql](#### 2. Включение HugePages в ОС c Postgresql)
 
-Статьи:
-
-https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR391 - HugePages
-    
-https://habr.com/ru/post/228793/ - Huge Pages в PostgreSQL
-    
-https://habr.com/ru/company/southbridge/blog/435558/ - Тестирование PostgreSQL с HugePages в Linux (основная рекомендация — отключать Transparent HugePages)
     
 
 #### Пример настройки HugePage показал для следующих параметров памяти:
@@ -70,7 +64,7 @@ never означает, что transparent hugepages не будут включ�
          always madvise [never]
     
 
-#### 2. Включение HugePages в ОС.
+#### 2. Включение HugePages в ОС c Postgresql.
 
 2.1. Запускаем PostgresPro с установленным размером  shared_buffers (Пример shared_buffers = 48GB)
  
@@ -129,3 +123,9 @@ never означает, что transparent hugepages не будут включ�
             HugePages_Rsvd:    24635
             HugePages_Surp:        0
       
+
+#### Статьи:
+https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR391 - HugePages
+https://habr.com/ru/post/228793/ - Huge Pages в PostgreSQL
+https://habr.com/ru/company/southbridge/blog/435558/ - Тестирование PostgreSQL с HugePages в Linux (основная рекомендация — отключать Transparent HugePages)
+
