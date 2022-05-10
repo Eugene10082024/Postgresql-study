@@ -1,6 +1,6 @@
 ### Настройка HugePages в Postgresql
 
-[1. Shutdown Transparent HugePages.](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages/readme.md#1shutdown-transparent-hugepages)
+[1. Shutdown Transparent HugePages.](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages/readme.md#1Отключение-transparent-hugepages)
 
 [2. Включение HugePages в ОС c Postgresql](# 2. Включение HugePages в ОС c Postgresql)
 
@@ -28,7 +28,7 @@
 Если в выводе указан Hugepagesize то ядро скомпелировано с параметрами позволяющими использовать HugePage 
 Если нет необходимо перекомпилировать ядро с соответвествующими параметрами.    
 
-#### 1.Shutdown Transparent HugePages.
+#### 1.Отключение Transparent HugePages.
 
 1.1. Проверяем текущий статус Transparent HugePages
 
@@ -66,7 +66,7 @@ never означает, что transparent hugepages не будут включ�
          always madvise [never]
     
 
-#### 2. Включение HugePages в ОС c Postgresql.
+#### 2.Включение HugePages в ОС c Postgresql.
 
 2.1. Запускаем PostgresPro с установленным размером  shared_buffers (Пример shared_buffers = 48GB)
  
