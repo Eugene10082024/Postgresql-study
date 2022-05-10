@@ -17,5 +17,5 @@ https://github.com/cybertec-postgresql/vip-manager/releases - можно ска�
 
 Данный файл размещен по адресу - /etc/default/vip-manager.yml
 
-
+[Пример vip-manager.yml](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager/vip-manager.yml)
 
