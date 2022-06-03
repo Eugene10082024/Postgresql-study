@@ -85,7 +85,7 @@ relfilenode - текущие имя файла объекта.
        
        (3 строки)
 
-2. Запромонимает OID Tablespace и определяем какие объекты каких БД есть в данном tablespace
+2. Запомонимает OID Tablespace и определяем какие объекты каких БД есть в данном tablespace
 
     SELECT datname FROM pg_database WHERE OID IN (SELECT pg_tablespace_databases('26172'));
     
@@ -93,6 +93,10 @@ relfilenode - текущие имя файла объекта.
         ----------
         test_db3
         (1 строка)
+ 
+##### Удаление табличного пространства
+
+           DROP TABLESPACE new_ts CASCADE 
 
 [Удаление табличного пр-ва с объектами](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tbs/drop_tablespace.md)
 
