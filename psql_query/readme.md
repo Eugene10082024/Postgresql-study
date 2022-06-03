@@ -53,7 +53,7 @@
         (1 строка)
 
 ##### Удаление табличного пр-ва с объектами
-
+https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tbs/drop_tablespace.md
 #### Работа с таблицами
 
 #### Работа с индексами
