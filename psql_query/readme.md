@@ -27,6 +27,7 @@
             CREATE DATABASE <name_db> TABLESPACE <name_ts> - При создании БД мы можем указать табличное пр-во по умолчанию.
             
 В таком случае все создаваемые объекты бд будут попадать в табличное пр-во по умолчанию. 
+
 ВНИМАНИЕ: TABLESPACE должна быть создана
             
             CREATE DATABASE <name_db> LOCALE 'sv_SE.utf8' TEMPLATE template0; - Создание базы данных с другой локалью
