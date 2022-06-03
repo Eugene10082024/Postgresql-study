@@ -29,6 +29,31 @@
 
 #### Работа с табличными пространствами
 
+##### Просмотр какие БД используют табличное пространсва.
+
+1. Определяем OID TAblespace которое хотит посмотреть.
+
+        select oid, spcname,spcowner from pg_tablespace ;
+        
+        oid  |  spcname   | spcowner 
+        -------+------------+----------
+        1663 | pg_default |       10
+        1664 | pg_global  |       10
+       26172 | ts_01      |       10
+       
+       (3 строки)
+
+2. Запромонимает OID Tablespace и определяем какие объекты каких БД есть в данном tablespace
+
+    SELECT datname FROM pg_database WHERE OID IN (SELECT pg_tablespace_databases('26172'));
+    
+        datname  
+        ----------
+        test_db3
+        (1 строка)
+
+##### Удаление табличного пр-ва с объектами
+
 #### Работа с таблицами
 
 #### Работа с индексами
