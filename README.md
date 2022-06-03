@@ -26,7 +26,7 @@
 
 Дополнительные материалы:
 
-[Запросы для работы с Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager)
+[Запросы для работы с Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query)
 
 [Настройка HugePages для Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages)
 
