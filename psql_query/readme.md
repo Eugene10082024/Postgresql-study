@@ -21,6 +21,14 @@
 
 #### Работа с базой данных
 
+
+
+При создании БД мы можем указать табличное пр-во по умолчанию:
+
+            CREATE DATABASE <name_db> TABLESPACE <name_ts>;
+ 
+В таком случае все объекты БД будут создаваться в указанном Tablespace
+
 #### Работа с параметрами базы данных
 
 #### Работа с pg_hba.conf
@@ -29,11 +37,45 @@
 
 #### Работа с табличными пространствами
 
+##### Создание табличного пространства
+1. Создаем каталог в операционной системе:
+        
+        mkdir /mnt/postgres/ts_dir
+  
+2. Делаем владельцем каталога postgres
+
+        chown -R postgres:postgres /mnt/postgres/ts_dir
+
+3. Заходим в psql и создаем табличное пространство
+
+        CREATE TABLESPACE ts LOCATION '/mnt/postgres/ts_dir';
+        
+ 
+##### Перенос объект из одного tablespace в другое:
+
+        ALTER TABLE <name_table> SET TABLESPACE pg_default;
+    
+В данном случае объект перенесется в новое табличное пространство.
+
+ВНИМАНИЕ:
+При смене табличного пространства OID объекта остается старым, а имя файла объекта в новом табличном пространстве будет новое.
+
+Определить его можно в pg_class.
+
+        SELECT oid,relname,relfilenode from pg_class where relname='<name>';
+
+relfilenode - текущие имя файла объекта.
+При создании объекта oid = relfilenode
+
+##### Перемещение всех таблиц из табличного пространства pg_default в new_ts
+
+        ALTER TABLE ALL IN TABLESPACE pg_default SET TABLESPACE new_ts ; 
+        
 ##### Просмотр какие БД используют табличное пространсва.
 
 1. Определяем OID TAblespace которое хотит посмотреть.
 
-        select oid, spcname,spcowner from pg_tablespace ;
+        SELECT oid, spcname,spcowner FROM pg_tablespace ;
         
         oid  |  spcname   | spcowner 
         -------+------------+----------
