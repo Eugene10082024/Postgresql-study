@@ -11,13 +11,15 @@
 
 [5. Таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-таблицами)
 
-[6. Индексы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-индексами)
+[6. Секционированные таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-секционированными-таблицами)
 
-[7. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-последовательностями)
+[7. Индексы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-индексами)
 
-[8. Функции](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-функциями)
+[8. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-последовательностями)
 
-[9. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-триггерами)
+[9. Функции](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-функциями)
+
+[10. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-триггерами)
 
 #### Работа с базой данных
 
@@ -136,14 +138,16 @@ relfilenode - текущие имя файла объекта.
 
 3. Для временных таблиц можно задать параметр ON COMMIT
  
-     Возможные значения:
+Возможные значения:
      
-        PRESERVE ROWS - никакие действия по завершении транзакции не выполняются (по умолчанию)
+  PRESERVE ROWS - никакие действия по завершении транзакции не выполняются (по умолчанию)
         
-        DELETE ROWS   - при фиксации или отмене транзакции таблица очищается
+  DELETE ROWS   - при фиксации или отмене транзакции таблица очищается
         
-        DROP          - при фиксации или отмене транзакции таблица удаляется    
-
+  DROP          - при фиксации или отмене транзакции таблица удаляется 
+  
+  
+#### Работа с секционированными таблицами
 
 #### Работа с индексами
 
