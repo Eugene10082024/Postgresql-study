@@ -7,11 +7,11 @@ CASCADE - не работает т.к. в табличном пространс�
 
 1. Находим OID табличного пространства которое хотим удалить:
     
-    SELECT OID FROM pg_tablespace WHERE spcname = '<name_ts>';
+        SELECT OID FROM pg_tablespace WHERE spcname = '<name_ts>';
     
 2. Запишем OID_TS в переменную tsoid;
 
-    SELECT OID AS tsoid FROM pg_tablespace WHERE spcname = '<name_ts>' \gset ;
+        SELECT OID AS tsoid FROM pg_tablespace WHERE spcname = '<name_ts>' \gset ;
     
 3. Получаем список баз в которых есть объекты удаляемого пространства:
 
