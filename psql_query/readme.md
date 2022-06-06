@@ -15,16 +15,16 @@
 
 [7. Индексы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/index/index.md)
 
-[8. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-последовательностями)
+[8. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/sequence/sequence.md)
 
-[9. Функции](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-функциями)
+[9. Функции](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/function/function.md)
 
-[10. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-триггерами)
+[10. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/triggers/trigger.md)
 
 
  
   
-#### Работа с последовательностями
+
 
 #### Работа с функциями
 
