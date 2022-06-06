@@ -26,7 +26,7 @@
 
 Дополнительные материалы:
 
-[Запросы для работы с Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/query)
+[Запросы для работы в кластере Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/query)
 
 [Объекты Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query)
 
