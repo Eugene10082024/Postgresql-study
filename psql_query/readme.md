@@ -1,9 +1,9 @@
 ### Запросы для работы с Postgresql 
 [1. База данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/tables.md)
 
-[2. Параметры базы данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-Параметрами-базы-данных)
+[2. Параметры базы данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/parameters/param.md)
 
-[2.pg_hba.conf](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-pg_hba.conf)
+[3.pg_hba.conf](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-pg_hba.conf)
 
 [3. Схемы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-со-схемами)
 
@@ -22,8 +22,6 @@
 [10. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-триггерами)
 
 
-
-#### Работа с параметрами базы данных
 
 #### Работа с pg_hba.conf
 
