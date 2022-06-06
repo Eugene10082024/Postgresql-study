@@ -1,5 +1,5 @@
 ### Запросы для работы с Postgresql 
-[1. База данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-базой-данных)
+[1. База данных] (https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/tables.md)
 
 [2. Параметры базы данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-Параметрами-базы-данных)
 
