@@ -11,9 +11,9 @@
 
 [6. Таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/tables.md)
 
-[6. Секционированные таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-секционированными-таблицами)
+[6. Секционированные таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/sec_tables/tables.md)
 
-[7. Индексы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-индексами)
+[7. Индексы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/index/index.md)
 
 [8. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-последовательностями)
 
