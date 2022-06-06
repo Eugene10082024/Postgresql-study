@@ -3,11 +3,11 @@
 
 [2. Параметры базы данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/parameters/param.md)
 
-[3.pg_hba.conf](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-pg_hba.conf)
+[3.pg_hba.conf](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/pg_hba/pg_hba.md)
 
-[3. Схемы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-со-схемами)
+[4. Схемы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-со-схемами)
 
-[4. Табличные пространства](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-табличными-пространствами)
+[5. Табличные пространства](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-табличными-пространствами)
 
 [5. Таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-таблицами)
 
@@ -22,8 +22,6 @@
 [10. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-триггерами)
 
 
-
-#### Работа с pg_hba.conf
 
 #### Работа со схемами
 
