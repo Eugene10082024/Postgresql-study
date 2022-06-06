@@ -11,7 +11,7 @@
 
 [6. Таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/tables.md)
 
-[6. Секционированные таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/sec_tables/tables.md)
+[6. Секционированные таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/sec_tables/sec_tables.md)
 
 [7. Индексы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/index/index.md)
 
@@ -24,10 +24,6 @@
 
  
   
-#### Работа с секционированными таблицами
-
-#### Работа с индексами
-
 #### Работа с последовательностями
 
 #### Работа с функциями
