@@ -1,5 +1,5 @@
 ### Запросы для работы с Postgresql 
-[1. База данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/tables.md)
+[1. База данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/database/database.md)
 
 [2. Параметры базы данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/parameters/param.md)
 
@@ -9,7 +9,7 @@
 
 [5. Табличные пространства](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tbs/tablespace.md)
 
-[6. Таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-таблицами)
+[6. Таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/tables.md)
 
 [6. Секционированные таблицы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/readme.md#Работа-с-секционированными-таблицами)
 
