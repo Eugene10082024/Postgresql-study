@@ -59,4 +59,4 @@ relfilenode - текущие имя файла объекта.
 
            DROP TABLESPACE new_ts CASCADE 
 
-[Удаление табличного пр-ва с объектами](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tbs/drop_tablespace.md)
+[Удаление табличного пространства с объектами](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tbs/drop_tablespace.md)
