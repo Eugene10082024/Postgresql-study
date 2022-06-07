@@ -18,6 +18,9 @@
             ALTER DATABASE <name_db> REMANE TO new_name_db - смена названия базы данных
             ALTER DATABASE <name_db> OWNER TO new_owner - смена владельца базы данных
             ALTER DATABASE <name_db> SET TABLESPACE <new_ts> - установка нового табличного пространства по умолчанию базы данных
+
+##### Ограничение доступа к БД
+
             ALTER DATABASE <name_db> CONNECTION LIMIT 0 - установка ограничения на подключение
             ALTER DATABASE <name_db> CONNECTION LIMIT -1 - снятие ограничений на подключения
             
