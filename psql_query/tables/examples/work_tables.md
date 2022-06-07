@@ -14,3 +14,37 @@
 user_id - PRIMERY KEY который является последовательность. Как последующее значение +1
 
 record_date - дата и время создания записи timestamp NOT NULL DEFAULT now()
+
+Пример 2 - Создание 2 таблиц со связанной таблицей
+
+         CREATE TABLE users(
+                    user_id SERIAL PRIMARY KEY NOT NULL,             -- Primary Key
+                    username varchar(50) NOT NULL,                   -- Имя пользователя
+                    email varchar(50) NOT NULL,                      -- Электронная почта
+                    mobile_phone varchar(12) NOT NULL,               -- Номер телефона
+                    firstname TEXT NOT NULL,                         -- Имя
+                    lastname TEXT NOT NULL,                          -- Фамилия
+                    city  TEXT,                                      -- Название города
+                    is_curator boolean NOT NULL,                     -- Является ли пользователь куратором
+                    record_date timestamp NOT NULL DEFAULT now()     -- Время создания записи о пользователе
+                    );
+
+                CREATE TABLE courses(
+                    course_id SERIAL PRIMARY KEY NOT NULL,  -- Primary Key
+                    coursename varchar(50) NOT NULL,        -- Название практикума
+                    tasks_count INT NOT NULL,               -- Количество заданий в практикуме
+                    price INT NOT NULL                      -- Цена практикума
+                    );
+
+
+                CREATE TABLE users__courses(
+                    id SERIAL PRIMARY KEY NOT NULL,     -- Primary Key
+                    user_id INT NOT NULL,               -- Foreign Key to table users
+                    course_id INT NOT NULL,             -- Foreign Key to table courses
+                    CONSTRAINT fk_user_id
+                        FOREIGN KEY (user_id)
+                            REFERENCES users(user_id),
+                    CONSTRAINT fk_course_id
+                        FOREIGN KEY (course_id)
+                            REFERENCES courses(course_id)
+                    );
