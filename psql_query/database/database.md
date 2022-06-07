@@ -3,11 +3,13 @@
 ##### Создание базы данных
             CREATE DATABASE <name_db> - создает БД database01 владельцем которой является текущий пользователь.
             CREATE DATABASE <name_db> OWNER <user_name> - создание БД с указанием владельца
-            CREATE DATABASE <name_db> TABLESPACE <name_ts> - При создании БД мы можем указать табличное пр-во по умолчанию.
             
-В таком случае все создаваемые объекты бд будут попадать в табличное пр-во по умолчанию. 
+            CREATE DATABASE <name_db> TABLESPACE <name_ts> - При создании БД мы можем указать табличное пр-во по умолчанию.
 
 ВНИМАНИЕ: TABLESPACE должна быть создана
+
+В таком случае все создаваемые объекты бд будут попадать в табличное пр-во по умолчанию. 
+
             
             CREATE DATABASE <name_db> LOCALE 'sv_SE.utf8' TEMPLATE template0; - Создание базы данных с другой локалью
             CREATE DATABASE <name_db> LOCALE 'sv_SE.iso885915' ENCODING LATIN9 TEMPLATE template0; - cоздание базы данных с другой локалью и другой кодировкой символов
