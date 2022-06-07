@@ -2,7 +2,7 @@
 
 #### Примеры создания таблиц
 
-Пример 1
+##### Пример 1
 
     CREATE TABLE users (user_id SERIAL PRIMARY KEY NOT NULL, 
                         username varchar(50) NOT NULL,
@@ -15,7 +15,12 @@ user_id - PRIMERY KEY который является последователь
 
 record_date - дата и время создания записи timestamp NOT NULL DEFAULT now()
 
-Пример 2 - Создание 2 таблиц со связанной таблицей
+Вставка данных в таблицу Примера 1.
+
+        INSERT INTO users (username,email,mobile_phone,firstname,lastname,city,is_curator) VALUES 'admin','vasiliy_ozerov@mail.com','+79111937483','Vasiliy','Ozerov','Moscow','true')
+
+
+##### Пример 2 - Создание 2 таблиц со связанной таблицей
 
          CREATE TABLE users(
                     user_id SERIAL PRIMARY KEY NOT NULL,             -- Primary Key
