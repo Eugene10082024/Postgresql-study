@@ -26,3 +26,4 @@
   DROP          - при фиксации или отмене транзакции таблица удаляется 
 
 
+[Примеры работы с таблицами](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/examples/work_tables.md)
