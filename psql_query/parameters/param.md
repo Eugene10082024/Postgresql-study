@@ -1,10 +1,15 @@
 ### Работа с параметрами базы данных
 
-    /usr/pgsql-12/bin/pg_controldata -D $PGDATA - просмотрт текущих параметров кластера
-         
+#### Где размещены параметры кластера Postgresql.conf
+
+***pg_controldata*** 
+
+    /usr/pgsql-12/bin/pg_controldata -D $PGDATA - просмотр текущих параметров кластера
     
-    
-    В postgres.auto.conf - хранятся результаты команды alter system. Этот файл ручками не правим.
+***postgresql.conf*** 
+
+***postgres.auto.conf*** - - хранятся результаты команды alter system. Этот файл ручками не правим.
+
     
 #### Применение измененных значений параметров
 
