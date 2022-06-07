@@ -8,14 +8,19 @@
     
 #### Представления для работы с параметрами
 
-pg_setting - представление для хранения параметров кластера postgres и их применимость
+***pg_settings*** - позволяет получить некоторые свойства каждого параметра, которые нельзя получить непосредственно, используя команду SHOW, например, минимальные и максимальные значения.
 
 В данном представлении есть параметр - pending_restart . Если f - то норм, если t - то требует перезагрузки кластера.
 
-pg_settings - 
+[Полное описание представления](https://postgrespro.ru/docs/postgresql/14/view-pg-settings)
+
+Пример:
 
         select name, setting, context from pg_settings where category like '%name_category%';
 
-Пример: 
-          select name,setting,context  from pg_settings where category like '%Write-Ahead Log%';
-        
+        select name,setting,context,pending_restart from pg_settings where category like '%Write-Ahead Log%'; 
+ 
+ Получение списка категорий:
+ 
+        select distinct category from pg_settings;
+           
