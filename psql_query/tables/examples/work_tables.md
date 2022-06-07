@@ -15,11 +15,6 @@ user_id - PRIMERY KEY который является последователь
 
 record_date - дата и время создания записи timestamp NOT NULL DEFAULT now()
 
-Вставка данных в таблицу Примера 1.
-
-        INSERT INTO users (username,email,mobile_phone,firstname,lastname,city,is_curator) VALUES 'admin','vasiliy_ozerov@mail.com','+79111937483','Vasiliy','Ozerov','Moscow','true')
-
-
 ##### Пример 2 - Создание 2 таблиц со связанной таблицей
 
          CREATE TABLE users(
@@ -53,3 +48,20 @@ record_date - дата и время создания записи timestamp NOT
                         FOREIGN KEY (course_id)
                             REFERENCES courses(course_id)
                     );
+
+INSERT
+
+        INSERT INTO users (username,email,mobile_phone,firstname,lastname,city,is_curator) VALUES ('admin','vasiliy_ozerov@mail.com','+79111937483','Vasiliy','Ozerov','Moscow','true')
+        INSERT INTO courses (coursename,tasks_count,price) VALUES ('Kubernetes','70','35000'),('Highload','130','75000'),('Bash','15','6900')
+
+UPDATE
+
+        UPDATE courses SET coursename = 'LINUX-UBUNTU" WHERE coursename = 'LINUX';
+        UPDATE courses SET price = 100000 where coursename='Devops';
+
+DELETE
+
+        DELETE FROM users WHERE username='admin';
+
+
+
