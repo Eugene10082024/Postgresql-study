@@ -4,7 +4,7 @@
 
 [Работа с транзакциями](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/transactions.md)
 
-[Работа с блокировками запросов](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/locks.md)
+[Работа с блокировками](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/locks.md)
      
 #### Дополнительная информация
       
