@@ -1,6 +1,6 @@
 ### Запросы для работы в кластере Postgresql
 
-Вывод колисества соединений в кластере Postgresql
+Вывод количества соединений в кластере Postgresql
 
       SELECT count(*) AS total_conns FROM pg_stat_activity;
       
