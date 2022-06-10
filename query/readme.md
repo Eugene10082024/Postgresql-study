@@ -1,6 +1,6 @@
 ### Запросы для работы в кластере Postgresql
 
-[Работа с соединениями](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/connection.md)
+[Работа с запросами и соединениями](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/connection.md)
 
 [Работа с транзакциями](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/transactions.md)
 
