@@ -1,5 +1,13 @@
 ### Команды для получения информации из кластера etcd
 
+#### Получение информации по членам кластера etcd
+
+     curl http://localhost:2379/v2/members | jq
+     
+или можно указать IP соответсвующей node:
+
+     curl http://192.168.122.165:2379/v2/members | jq
+
 #### получение инфы по ключам кластера Patroni
 
     curl http://localhost:2379/v2/keys?recursive=true | jq
