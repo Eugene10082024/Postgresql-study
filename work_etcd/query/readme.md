@@ -9,9 +9,6 @@
 вывод списка членов кластера с детализацией в виде таблицы
 
     etcdctl -w table member list                                     
-
-Вывод cостояние членов кластера
-
     etcdctl --write-out=table --endpoints=localhost:2379 member list  
 
 диагностика всех конечных точек членов кластера 
