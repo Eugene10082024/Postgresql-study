@@ -1,12 +1,20 @@
 ### Команды для получениЯ информации из кластера etcd
 
 получение инфы по ключам кластера Patroni
+
     curl http://192.168.122.165:2379/v2/keys/service-pro-ent/cluster-ent13?recursive=true | jq
     
-    curl http://192.168.122.167:2379/v2/stats/leader | jq - получение статистики по лидеру
+получение статистики по лидеру
+
+    curl http://192.168.122.167:2379/v2/stats/leader | jq
+
+получение информации по node кластера cluster-ent13 (Patroni)
+
+    curl http://192.168.122.165:2379/v2/keys/service-pro-ent/cluster-ent13/members/redoc-pgs01 | jq - 
+
+получение статистики по node etcd
+
+    curl http://192.168.122.166:2379/v2/stats/self | jq
     
-    curl http://192.168.122.165:2379/v2/keys/service-pro-ent/cluster-ent13/members/redoc-pgs01 | jq - получение информации по node кластера cluster-ent13 (Patroni)
-    
-    curl http://192.168.122.166:2379/v2/stats/self | jq - получение статистики по node etcd
     
     curl http://192.168.122.165/v2/keys/_etcd/registry/ | jq
