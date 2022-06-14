@@ -2,6 +2,7 @@
 
 получение инфы по ключам кластера Patroni
 
+    curl http://localhost:2379/v2/keys?recursive=true | jq
     curl http://192.168.122.165:2379/v2/keys/service-pro-ent/cluster-ent13?recursive=true | jq
     
 получение статистики по лидеру
