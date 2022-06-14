@@ -7,6 +7,7 @@
     
 получение статистики по лидеру
 
+    curl http://localhost:2379/v2/stats/leader | jq
     curl http://192.168.122.167:2379/v2/stats/leader | jq
 
 получение информации по node кластера cluster-ent13 (Patroni)
@@ -15,7 +16,9 @@
 
 получение статистики по node etcd
 
+    curl http://localhost:2379/v2/stats/self | jq
     curl http://192.168.122.166:2379/v2/stats/self | jq
     
     
     curl http://192.168.122.165/v2/keys/_etcd/registry/ | jq
+    curl http://localhost/v2/keys/_etcd/registry/ | jq 
