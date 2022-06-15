@@ -1,8 +1,8 @@
-### Транзакции
+### Получение информации по транзакциям
 
 Вывод длинных транзакций
 
-      SELECT
+      SELECT 
       client_addr, usename, datname,
       clock_timestamp() - xact_start AS xact_age,
       clock_timestamp() - query_start AS query_age,
