@@ -1,12 +1,12 @@
 ### Запросы для работы в кластере Postgresql
 
-[Работа с  соединениями](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/connection.md)
+[Получение информации по соединениям](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/connection.md)
 
-[Рабата с информацией по базе данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/database.md)
+[Получение информации по базе данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/database.md)
 
-[Работа с транзакциями](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/transactions.md)
+[Получение информации по транзакциям](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/transactions.md)
 
-[Работа с блокировками](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/locks.md)
+[Получение информации по блокировкам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/locks.md)
      
 #### Дополнительная информация
       
