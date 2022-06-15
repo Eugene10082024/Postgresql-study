@@ -11,11 +11,17 @@
     etcdctl -w table member list                                     
     etcdctl --write-out=table --endpoints=localhost:2379 member list  
     
-Вывод статуса node кластера:    
+Вывод статуса кластера etcd:    
 
     ETCDCTL_API=3 /usr/local/bin/etcdctl endpoint status --cluster -w table
     
     /usr/local/bin/etcdctl endpoint status --cluster -w table
+    
+Надо разобратьс:
+    
+    /usr/local/bin/etcdctl --write-out=table --endpoints=$ENDPOINTS endpoint status
+    
+    etcdctl --endpoints=$ENDPOINTS endpoint health
 
 диагностика всех конечных точек членов кластера 
 
