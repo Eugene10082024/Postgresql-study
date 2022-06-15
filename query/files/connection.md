@@ -11,6 +11,10 @@
 Вывод статистики по выполняемым соединениям:
 
       SELECT client_addr, usename, datname, state, count(*) FROM pg_stat_activity GROUP BY 1, 2, 3, 4 ORDER BY 5 DESC;
+      
+ Вывод информации о состоянии сессий:
+ 
+      SELECT datname,usename,client_addr,wait_event,state FROM pg_stat_activity;
 
 Вывод списка активных запросов 
 
