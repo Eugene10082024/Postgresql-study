@@ -12,7 +12,7 @@
       auto-tls: true
     initial-cluster-state: new
 
-[Полный конфигурационный файл можно посмотреть здесь. Пример 3]
+[Полный конфигурационный файл можно посмотреть здесь. Пример 3](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/etcd_conf)
 
 Сертификаты созданы в папке /var/lib/etcd/fixtures
 
