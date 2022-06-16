@@ -1,11 +1,20 @@
 ### Примеры etcd.conf
 
-#### Вариант 1.
+#### Вариант 1. Использование IP адресов 
+            name: astra-etcd01 
+            data-dir: /var/lib/etcd 
+            enable-v2: true 
+            hearbeat-interval: 200
+            election-timeout: 2000
+            initial-advertise-peer-urls: http://192.168.110.165:2380 
+            listen-peer-urls: http://192.168.110.165:2380 
+            listen-client-urls: http://192.168.110.165:2379,http://127.0.0.1:2379 
+            advertise-client-urls: http://192.168.110.165:2379 
+            initial-cluster-token: cluster-etcd 
+            initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,astra-etcd03=http://192.168.110.167:2380  
+            initial-cluster-state: new
 
-
-#### Вариант 2.
-
-Показано в каких параметрам можно использовать FQDN, а в каких НЕТ.
+#### Вариант 2. Использование FQDN в параметрах, где это разрешено
 
             name: kis-etcd01
             data-dir: /var/lib/etcd
