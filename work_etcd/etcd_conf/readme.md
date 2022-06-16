@@ -50,3 +50,5 @@
               auto-tls: true
             initial-cluster-state: new
             log-level: debug
+
+[Пример etcd.conf от разработчика со всеми параметрами](https://github.com/etcd-io/etcd/blob/main/etcd.conf.yml.sample) 
