@@ -8,4 +8,6 @@
 
 [Примеры конфигурационного файла etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/etcd_conf)
 
+[Результаты настройки autotls (etcd 3.5.4)](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/work_etcd/autotls/readme.md)
+
 [Работа с утилитой etcdctl](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/etcdctl)
