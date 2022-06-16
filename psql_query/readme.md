@@ -1,9 +1,9 @@
 ### Объекты Postgresql 
 [1. База данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/database/database.md)
 
-[2. Параметры базы данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/parameters/param.md)
+[2. Основные файлы и параметры базы данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/parameters/param.md)
 
-[3. pg_hba.conf](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/pg_hba/pg_hba.md)
+[3. Файл pg_hba.conf и авторизация в Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/pg_hba/pg_hba.md)
 
 [4. Схемы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/schemas/schemas.md)
 
