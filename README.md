@@ -30,6 +30,8 @@
 
 [Объекты Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query)
 
+[Репликация](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/replication)
+
 [Резервное копирование и восстановление Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/backups)
 
 [Настройка HugePages для Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages)
