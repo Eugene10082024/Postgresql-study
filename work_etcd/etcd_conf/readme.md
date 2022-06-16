@@ -29,7 +29,9 @@
             initial-cluster: kis-etcd01=http://vdc01-testn1.test.ru:2380,kis-etcd02=http://vvdc01-testn2.test.ru:2380,kisupd-etcd03=http://vvdc01-testn3.test.ru:2380
             initial-cluster-state: existing
 
-#### Вариант 3. исмользование autotls + debug
+#### Вариант 3. использование autotls + debug 
+
+В данном варианте обратите внимание на отступы в соответствующих группах. etcd.conf - есть yml файл
 
             name: kis-etcd01
             data-dir: /var/lib/etcd
