@@ -19,3 +19,4 @@
             initial-cluster-token: cluster-kis-etcd
             initial-cluster: kis-etcd01=http://vdc01-testn1.test.ru:2380,kis-etcd02=http://vvdc01-testn2.test.ru:2380,kisupd-etcd03=http://vvdc01-testn3.test.ru:2380
             initial-cluster-state: existing
+й
