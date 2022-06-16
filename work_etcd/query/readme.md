@@ -53,6 +53,7 @@
     etcdctl endpoint status --cluster -w table
     
 Пример вывода:
+
     root@astra-etcd01:~# etcdctl endpoint status --cluster -w table
     +-----------------------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
     |          ENDPOINT           |        ID        | VERSION | DB SIZE | IS LEADER | IS LEARNER | RAFT TERM | RAFT INDEX | RAFT APPLIED INDEX | ERRORS |
