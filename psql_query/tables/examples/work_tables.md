@@ -63,5 +63,13 @@ DELETE
 
         DELETE FROM users WHERE username='admin';
 
+##### Пример 3. Создание таблицы для тестов.
 
+        CREATE TABLE  my_table (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, info text, date timestamp);
+        CREATE TABLE
+        
+        INSERT INTO my_table (info,date) VALUEs ('Первая запись',NOW());
+        INSERT 0 1
+        
+        SELECT * FROM my_table;
 
