@@ -63,18 +63,31 @@
     | http://192.168.110.165:2379 | 7b20e463ae528631 |   3.5.2 |   44 MB |      true |      false |       123 |    3228774 |            3228774 |        |
     +-----------------------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
 
+##### диагностика всех конечных точек членов кластера 
 
+    etcdctl endpoint --cluster health --user="root:root"       
     
+Пример вывода:    
+
+    root@astra-etcd01:~# etcdctl endpoint --cluster health --user="root:root"
+    http://192.168.110.165:2379 is healthy: successfully committed proposal: took = 1.22653ms
+    http://192.168.110.167:2379 is healthy: successfully committed proposal: took = 1.910143ms
+    http://192.168.110.166:2379 is healthy: successfully committed proposal: took = 1.752447ms
+
+#####  Дефрагментация всех node кластера
+
+    etcdctl defrag --cluster --user="root:root"     
+
+
+
+
+
 Надо разобратьс:
     
     /usr/local/bin/etcdctl --write-out=table --endpoints=$ENDPOINTS endpoint status
     
     etcdctl --endpoints=$ENDPOINTS endpoint health
 
-диагностика всех конечных точек членов кластера 
 
-    etcdctl endpoint --cluster health --user="root:root"                - 
 
-Дефрагментация всех node кластера
-
-    etcdctl defrag --cluster --user="root:root"     
+  
