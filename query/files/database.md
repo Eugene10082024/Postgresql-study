@@ -15,3 +15,4 @@
     
 ### Дополнительная информация:
 
+[Описание представления pg_database](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/views/pg_database.md)
