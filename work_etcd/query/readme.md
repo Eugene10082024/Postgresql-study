@@ -34,11 +34,35 @@
 
     etcdctl -w table member list                               
     etcdctl --write-out=table --endpoints=localhost:2379 member list  
+
+Пример вывода:
+
+    root@astra-etcd01:~# etcdctl --write-out=table --endpoints=localhost:2379 member list
+    +------------------+---------+--------------+-----------------------------+-----------------------------+------------+
+    |        ID        | STATUS  |     NAME     |         PEER ADDRS          |        CLIENT ADDRS         | IS LEARNER |
+    +------------------+---------+--------------+-----------------------------+-----------------------------+------------+
+    | 4dfc14f4cfccea9d | started | astra-etcd02 | http://192.168.110.166:2380 | http://192.168.110.166:2379 |      false |
+    | 5ad19e80ba693f24 | started | astra-etcd03 | http://192.168.110.167:2380 | http://192.168.110.167:2379 |      false |
+    | 7b20e463ae528631 | started | astra-etcd01 | http://192.168.110.165:2380 | http://192.168.110.165:2379 |      false |
+    +------------------+---------+--------------+-----------------------------+-----------------------------+------------+
+    
     
 ##### Вывод статуса кластера etcd:    
 
-    ETCDCTL_API=3 /usr/local/bin/etcdctl endpoint status --cluster -w table
-    /usr/local/bin/etcdctl endpoint status --cluster -w table
+    ETCDCTL_API=3 etcdctl endpoint status --cluster -w table
+    etcdctl endpoint status --cluster -w table
+    
+Пример вывода:
+    root@astra-etcd01:~# etcdctl endpoint status --cluster -w table
+    +-----------------------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+    |          ENDPOINT           |        ID        | VERSION | DB SIZE | IS LEADER | IS LEARNER | RAFT TERM | RAFT INDEX | RAFT APPLIED INDEX | ERRORS |
+    +-----------------------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+    | http://192.168.110.166:2379 | 4dfc14f4cfccea9d |   3.5.2 |   44 MB |     false |      false |       123 |    3228774 |            3228774 |        |
+    | http://192.168.110.167:2379 | 5ad19e80ba693f24 |   3.5.2 |   44 MB |     false |      false |       123 |    3228774 |            3228774 |        |
+    | http://192.168.110.165:2379 | 7b20e463ae528631 |   3.5.2 |   44 MB |      true |      false |       123 |    3228774 |            3228774 |        |
+    +-----------------------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
+
+
     
 Надо разобратьс:
     
