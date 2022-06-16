@@ -11,6 +11,14 @@
             CREATE DATABASE <name_db> LOCALE 'sv_SE.utf8' TEMPLATE template0; - Создание базы данных с другой локалью
             CREATE DATABASE <name_db> LOCALE 'sv_SE.iso885915' ENCODING LATIN9 TEMPLATE template0; - cоздание базы данных с другой локалью и другой кодировкой символов
             CREATE DATABASE <name_db> IS_TEMPLATE=true - создается БД ввиде шаблона, которая может быть клонирована в дальнейшем
+            
+#### Создание БД на основе другой БД (копирование стуктуры и данных)
+
+            CREATE DATABASE <name_db> TEMPLATE <source_db>;
+            
+#### Создание БД как шаблона
+
+            CREATE DATABASE <name_db> IS_TEMPLATE = true;
 
 #### Изменение свойств базы данных
 
@@ -22,7 +30,12 @@
 
             ALTER DATABASE <name_db> CONNECTION LIMIT 0 - установка ограничения на подключение
             ALTER DATABASE <name_db> CONNECTION LIMIT -1 - снятие ограничений на подключения
-            
+            ALTER DATABASE <name_db> ALLOW_CONNECTIONS = false - запрещение подключения к БД 
+             
 #### Удаление базы данных
             DROP DATABASE <name_db>; - удаление БД
             DROP DATABASE <name_db> FORCE;
+
+
+            
+            
