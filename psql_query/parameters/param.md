@@ -38,6 +38,8 @@
         select name, setting, context from pg_settings where category like '%name_category%';
 
         select name,setting,context,pending_restart from pg_settings where category like '%Write-Ahead Log%'; 
+        
+        select * from pg_settings where name like 'max_connections'\gx;
  
  Получение списка категорий:
  
