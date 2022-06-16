@@ -33,7 +33,7 @@
     curl http://192.168.122.166:2379/v2/stats/self | jq
     
 
-#### получение информации по node кластера cluster-ent13 (Patroni)
+#### получение информации по node (redoc-pgs01) кластера cluster-ent13 (Patroni)
 
     curl http://192.168.122.165:2379/v2/keys/service-pro-ent/cluster-ent13/members/redoc-pgs01 | jq - 
     
