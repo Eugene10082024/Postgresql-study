@@ -29,3 +29,22 @@
             initial-cluster: kis-etcd01=http://vdc01-testn1.test.ru:2380,kis-etcd02=http://vvdc01-testn2.test.ru:2380,kisupd-etcd03=http://vvdc01-testn3.test.ru:2380
             initial-cluster-state: existing
 
+#### Вариант 3. исмользование autotls + debug
+
+            name: kis-etcd01
+            data-dir: /var/lib/etcd
+            enable-v2: true
+            initial-advertise-peer-urls: https://vdc01-testn1.test.ru:2380
+            listen-peer-urls: https://10.2.7.133:2380
+            listen-client-urls: https://10.2.7.133:2379,https://127.0.0.1:2379
+            advertise-client-urls: https://vdc01-testn1.test.ru:2379
+            initial-cluster-token: cluster-kis-etcd
+            initial-cluster: kisupd-etcd01=https://vdc01-testn1.test.ru:2380
+            client-transport-security:
+              client-cert-auth: true
+              auto-tls: true
+            peer-transport-security:
+              client-cert-auth: true
+              auto-tls: true
+            initial-cluster-state: new
+            log-level: debug
