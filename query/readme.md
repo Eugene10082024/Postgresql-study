@@ -6,6 +6,8 @@
 
 [Запросы по индексам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/indexs.md)
 
+[Запросы по WAL файлам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/wals.md)
+
 [Запросы по транзакциям](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/transactions.md)
 
 [Запросы по блокировкам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/locks.md)
