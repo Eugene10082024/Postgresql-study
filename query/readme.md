@@ -4,6 +4,8 @@
 
 [Запросы по базе данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/database.md)
 
+[Запросы по индексам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/indexs.md)
+
 [Запросы по транзакциям](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/transactions.md)
 
 [Запросы по блокировкам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/locks.md)
