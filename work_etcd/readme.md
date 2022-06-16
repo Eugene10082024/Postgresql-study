@@ -6,4 +6,6 @@
 
 [Команды для получения информации из кластера etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/infa_etcd)
 
+[Примеры конфигурационного файла etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/etcd_conf)
+
 [Работа с утилитой etcdctl](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/etcdctl)
