@@ -10,7 +10,7 @@
 
 [Работа с переменными]()
 
-[Взаимодействие с ОС]()
+[Взаимодействие с ОС](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5-%D1%81-%D0%BE%D1%81)
 
 [Запуск команд]()
 
