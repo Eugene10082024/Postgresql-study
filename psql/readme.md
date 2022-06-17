@@ -6,7 +6,7 @@
 
 [Просмотр relations (tables, views,indexes ...)](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80-relations-tables-viewsindexes-)
 
-#### Основные понятия psql
+### Основные понятия psql
 
 psql --help
 
@@ -36,7 +36,7 @@ psql --help
 
 Описание настройки приглашения в документации: https://postgrespro.ru/docs/postgresql/10/app-psql.html#app-psql-prompting
 
-#### Команды psql
+### Команды psql
 
 **\с <name_database>** - переключение на БД (name_database)
 
@@ -80,7 +80,7 @@ psql --help
 
 **\set ECHO_HIDDEN on** - для просмотра что у нас под копотом, чтобы посмотреть какие запросы спрятаны в psql
 
-#### Просмотр relations (tables, views,indexes ...)
+### Просмотр relations (tables, views,indexes ...)
     
 **\d** - вывод всех relations в БД
     
