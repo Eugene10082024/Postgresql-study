@@ -2,10 +2,11 @@
 
 [Что такое схема в Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/schemas/teor_schema.md)
 
-Чтобы убрать права по умолчанию в схеме public (Первое слово «public» обозначает схему, а второе означает «каждый пользователь»):
-
-     	REVOKE CREATE ON SCHEMA public FROM PUBLIC; 
-     
+ #### Просмотр схем используемых в БД
+ 	
+	\с <name_db>
+	SELECT * FROM pg_namespace;
+ 	
  #### Создание схемы:
  
      	CREATE SCHEMA schema_name;
@@ -45,5 +46,13 @@
 	SET search_path TO myschema;
 	
 В данном случае не сможем обращаться к схеме public, не написав полное имя объекта.
+
+### Назначение привелегий
+
+Чтобы убрать права по умолчанию в схеме public (Первое слово «public» обозначает схему, а второе означает «каждый пользователь»):
+
+     	REVOKE CREATE ON SCHEMA public FROM PUBLIC; 
+
+
 
 
