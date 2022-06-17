@@ -38,6 +38,8 @@
 
 [Настройка pgbadger для составления отчетов по данным log файлов](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/pgbadger)
 
+Кластер patroni.
+
 [Работа с vip-manager](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager)
 
 [Работа с etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd)
