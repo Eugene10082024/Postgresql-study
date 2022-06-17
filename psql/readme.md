@@ -4,6 +4,7 @@
 
 [команды psql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B-psql)
 
+[Просмотр relations (tables, views,indexes ...)](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80-relations-tables-viewsindexes-)
 
 #### Основные понятия psql
 
