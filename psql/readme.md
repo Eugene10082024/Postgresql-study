@@ -2,7 +2,7 @@
 
 [Основные понятия psql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D0%B8%D1%8F-psql)
 
-[команды psql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B-psql-1)
+[команды psql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B-psql)
 
 
 #### Основные понятия psql
