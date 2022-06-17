@@ -53,6 +53,25 @@
 
      	REVOKE CREATE ON SCHEMA public FROM PUBLIC; 
 
+#### Ниже приведены команды на предоставление привелегий на уже существующие объекты в указанной схеме.
+
+Пользователь будет подключен к базе данных и получит все права для работы с ней
+
+	GRANT CONNECT ON DATABASE postgres TO postgres;
+	
+все команды, примененные к таблице, были доступны пользователю
+
+	GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO postgres;
+	GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO postgres;
+	GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO postgres;
+	GRANT ALL PRIVILEGES ON DATABASE postgres TO postgres;
+	
+Назначение привелений на создаваемые объекты:
+
+	ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO postgres;	
+	
+
+
 
 
 
