@@ -6,6 +6,8 @@
 
 [Просмотр relations (tables, views,indexes ...)](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80-relations-tables-viewsindexes-)
 
+[Работа с переменными](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql/readme.md#%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%81-%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8)
+
 ### Основные понятия psql
 
 psql --help
@@ -120,25 +122,79 @@ psql --help
     
 Установим переменную:
     
-        => \set TEST Hi!
+        \set TEST Hi!
     
 Чтобы получить значение, надо предварить имя переменной двоеточием:
     
-        => \echo :TEST
+        \echo :TEST
         Hi!
     
 Значение переменной можно сбросить:
     
-        => \unset TEST
-        => \echo :TEST
+        \unset TEST
+        \echo :TEST
         :TEST
     
 Можно результат запроса записать в переменную. Для этого запрос нужно завершить командой \gset вместо ";":
     
-        => SELECT now() AS curr_time \gset
-        => \echo :curr_time
+        SELECT now() AS curr_time \gset
+        \echo :curr_time
         2019-03-31 15:25:23.68208+03
     
 Запрос должен возвращать только одну запись.   
+    
+### Взаимодействие с ОС   
+    
+**\! <name_command>** - использование команд shell
+
+Пример:
+    
+    \! pwd
+    \! uptime
+    
+Можно установить переменную окружения:
+    
+    \setenv TEST Hello
+    \! echo $TEST    
+    
+### Запуск команд
+ 
+**\i <name_script>** -запуск скрипта
+    
+**psql <name_script>**  - запуск скрипта
+    
+**psql -f <name_script>** - запуск скрипта
+    
+**psql -c 'command'** - выполнение команды psql
+
+выполнение команды в базе dbname    
+    
+        psql -U postgres -d dbname -c "CREATE TABLE test(some_id serial PRIMARY KEY, some_text text);" 
+    
+вывод результата запроса в html-файл    
+    
+        psql -d dbname -H -c "SELECT * FROM test" -o test.html 
+    
+### НАСТРОЙКА PSQL
+
+Настройка постраничного просмотра в .psqlrc 
+    
+        postgres$ echo "\setenv PAGER 'less -XS'" >> ~/.psqlrc
+    
+Печать времени выполнения 
+    
+        postgres$ echo "\timing on" >> ~/.psqlrc
+    
+Настройка приглашения 
+    
+Для добавления информации о роли нужно в начало переменных PROMPT1 и PROMPT2 добавить %n@ 
+    
+        postgres$ echo "\set PROMPT1 '%n@%/%R%# '" >> ~/.psqlrc
+        postgres$ echo "\set PROMPT2 '%n@%/%R%# '" >> ~/.psqlrc
+
+    
+pgcli утилита командной строки с авто-дополнениям и подсветкой синтаксиса.    
+    
+      
     
     
