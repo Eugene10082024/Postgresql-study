@@ -24,7 +24,7 @@
 
 [23 - Триггеры, поддержка заполнения витрин](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/func_postgresql)
 
-Дополнительные материалы:
+### Дополнительные материалы:
 
 [Запросы для работы в кластере Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/query)
 
@@ -38,7 +38,7 @@
 
 [Настройка pgbadger для составления отчетов по данным log файлов](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/pgbadger)
 
-Кластер patroni.
+### Кластер patroni.
 
 [Работа с vip-manager](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager)
 
