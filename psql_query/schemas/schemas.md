@@ -18,7 +18,7 @@
      
 Удаление пустой схемы
      
-   DROP SCHEMA schema_name;
+    DROP SCHEMA schema_name;
    
 Удаление схемы со всем содержимым:
      
