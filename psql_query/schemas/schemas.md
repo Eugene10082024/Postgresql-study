@@ -6,3 +6,22 @@
 
      REVOKE CREATE ON SCHEMA public FROM PUBLIC; 
      
+ Создание схемы:
+ 
+     CREATE SCHEMA schema_name;
+     
+ Создание объекта в схеме:
+ 
+     CREATE TABLE myschema.mytable (
+	 ...
+	);
+     
+Удаление пустой схемы
+     
+   DROP SCHEMA schema_name;
+   
+Удаление схемы со всем содержимым:
+     
+    DROP SCHEMA schema_name CASCADE;
+    
+   
