@@ -6,6 +6,8 @@
 
 [Объекты Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query)
 
+[работа с расширениями Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/edit/main/work_extentions/readme.md)
+
 [Репликация](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/replication)
 
 [Резервное копирование и восстановление Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/backups)
