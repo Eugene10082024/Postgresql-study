@@ -42,18 +42,18 @@
 
 ### Кластер patroni.
 
-[Описание работы кластера Patroni]()
+[Описание работы кластера Patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/docs_patroni)
 
 [Настройка и администрирование с vip-manager](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager)
 
 [Настройка и администрирование etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd)
 
-[Настройка и администрирование кластера Patroni] ()
+[Настройка и администрирование кластера Patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_patroni)
 
 ### Кластер Pacemaker-Corosync Postgresql.
 
-[Описание работы кластера Pacemaker-Corosync]()
+[Описание работы кластера Pacemaker-Corosync](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/docs_pacemaker)
 
-[Настройка и администрирование Pacemaker-Corosync]()
+[Настройка и администрирование Pacemaker-Corosync](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_pacemaker)
 
 
