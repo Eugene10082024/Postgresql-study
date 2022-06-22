@@ -6,12 +6,12 @@
         
   1. Владельцем каталога куда будет создан backup (/pgdump/backups/2022-06-09) должен быть postgres
 
-        sudo chown -R postgres:postgres /pgdump/backups/2022-06-09
-        sudo chmod -R 700 /pgdump/backups/2022-06-09
+                sudo chown -R postgres:postgres /pgdump/backups/2022-06-09
+                sudo chmod -R 700 /pgdump/backups/2022-06-09
   
 2. Для создания backup в файле pg_hba.conf для пользователя postgres в разделе Replication должна быть создана строка:
 
-        host    replication     all             127.0.0.1/32              trust
+                  host    replication     all             127.0.0.1/32              trust
 
        
 И соответственно применены внесенные изменения на сервере с которого будет выполнен backup      
