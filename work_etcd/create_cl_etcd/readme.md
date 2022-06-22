@@ -27,19 +27,19 @@
 
 3.1. Каталог для конфигурационного файла etcd.yml
 
-        mkdir -p /etc/etcd
+    mkdir -p /etc/etcd
   
 3.2. Создание каталога для БД etcd  
 
-        mkdir -p /var/lib/etcd
+    mkdir -p /var/lib/etcd
     
 3.3. Назначение владельцем созданных каталогов пользователя etcd:
 
-        chown etcd:etcd /etc/etcd    
-        chown etcd:etcd /var/lib/etcd
+    chown etcd:etcd /etc/etcd    
+    chown etcd:etcd /var/lib/etcd
 
 3.4. Смена прав доступа к каталогу /var/lib/etcd:
 
-        chmod -R 700 /var/lib/etcd
+    chmod -R 700 /var/lib/etcd
     
 ##### 4. Подготовка бинарных файлов etcd для работы.
