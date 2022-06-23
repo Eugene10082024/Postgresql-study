@@ -66,19 +66,19 @@
         drwxr-xr-x  2 root root    102 May  5 17:29 zipp-3.6.0.dist-info
         -rw-r--r--  1 root root   8425 May  5 17:29 zipp.py
  
- 
+Пакеты необходимые для Patroni.
+
         [root@vdc01-piupddbn1 bin]# python3.6 -m pip list
          Package            Version
          ------------------ -------
          click              8.0.4
          dnspython          2.2.1
          importlib-metadata 4.8.3
-         mamonsu            3.4.0
          patroni            2.1.3
          pip                21.3.1
          prettytable        2.5.0
          psutil             5.9.0
-         psycopg2           2.8.5
+         psycopg2           2.8.5 - ВОТ ЭТО НЕ ПОНЯТНО
          psycopg2-binary    2.9.3
          python-dateutil    2.8.2
          python-etcd        0.4.5
