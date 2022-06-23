@@ -65,3 +65,29 @@
         -rw-r--r--  1 root root  34532 May  5 17:29 ydiff.py
         drwxr-xr-x  2 root root    102 May  5 17:29 zipp-3.6.0.dist-info
         -rw-r--r--  1 root root   8425 May  5 17:29 zipp.py
+ 
+ 
+        [root@vdc01-piupddbn1 bin]# python3.6 -m pip list
+         Package            Version
+         ------------------ -------
+         click              8.0.4
+         dnspython          2.2.1
+         importlib-metadata 4.8.3
+         mamonsu            3.4.0
+         patroni            2.1.3
+         pip                21.3.1
+         prettytable        2.5.0
+         psutil             5.9.0
+         psycopg2           2.8.5
+         psycopg2-binary    2.9.3
+         python-dateutil    2.8.2
+         python-etcd        0.4.5
+         PyYAML             6.0
+         setuptools         59.6.0
+         six                1.16.0
+         typing_extensions  4.1.1
+         urllib3            1.26.9
+         wcwidth            0.2.5
+         ydiff              1.2
+         zipp               3.6.0
+
