@@ -60,4 +60,4 @@
 
 ## Дополнительные материалы
 
-
+[Работа в редакторе VI](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/editor_vi)
