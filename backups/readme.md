@@ -5,7 +5,7 @@
 
 [03. PG_PROBACKUP ](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/backups/pro-backup)
 
-[04. PGBACKREST ]()
+[04. PGBACKREST ](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/backups/pgbackrest)
 
 Дополнительная информация:
 
