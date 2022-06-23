@@ -36,5 +36,29 @@
        host    replication     all             0.0.0.0/0                   trust
        
 И соответственно применены внесенные изменения на сервере с которого будет выполнен backup
+        
+####  Создание backup с master server при настройке репликации       
+
+192.168.122.150 - IP адрес Master server
+        
+192.168.122.151 - IP адрес Slave server
+
+Добавляем следующие строки в pg_hba.conf:
+        
+        host    replication     postgres    192.168.122.151/32      trust
+        host    replication     postgres    192.168.122.150/32      trust    
+
+Выполняем утилиту на будущей реплике.
+        
+        pg_basebackup -h 192.168.122.150 -U postgres -p 5432 -D /var/lib/pgpro/std-14/backup/ -Fp -Xs -P -R
+
+        
 
 ### Описание параметров pg_basebackup
+
+**-с fast** -         
+        
+**-P** - будет отображать прогресс в действиях      
+        
+** -X stream** - используем stream, а не fetch      
+        
