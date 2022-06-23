@@ -57,10 +57,12 @@
     
 4.4. Копируем бинарные файлы etcd.
 
-    Для RedOS,CentOS,RedHat:
+Для RedOS,CentOS,RedHat:
+
     sudo cp /tmp/etcd/etcd* /usr/bin/
     
-    Для Astra Linux, Debian
+Для Astra Linux, Debian:
+
      sudo cp /tmp/etcd/etcd* /usr/local/bin/
 
 
