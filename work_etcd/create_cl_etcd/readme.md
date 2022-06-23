@@ -43,3 +43,24 @@
     chmod -R 700 /var/lib/etcd
     
 ##### 4. Подготовка бинарных файлов etcd для работы.
+4.1. Создаем каталог для скачивания etcd.
+
+    sudo mkdir /tmp/etcd
+
+4.2. Скачиваем крайнюю версию etcd. Сейчас это 3.5.4
+
+    sudo curl -o /tmp/etcd/etcd-v3.5.4.tar.gz https://github.com/etcd-io/etcd/releases/download/v3.5.4/etcd-v3.5.4-linux-amd64.tar.gz
+    
+4.3. Раскрываем архив
+
+    sudo tar -xvf /tmp/etcd/etcd-v3.5.4.tar.gz
+    
+4.4. Копируем бинарные файлы etcd.
+
+    Для RedOS,CentOS,RedHat:
+    sudo cp /tmp/etcd/etcd* /usr/bin/
+    
+    Для Astra Linux, Debian
+     sudo cp /tmp/etcd/etcd* /usr/local/bin/
+
+
