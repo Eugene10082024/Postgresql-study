@@ -5,6 +5,7 @@
 ***/usr/local/bin или /usr/bin*** - каталог размещения бинарных файлов Patroni
 
 Файлы размещенные в данном каталоге:
+
         -rwxr-xr-x 1 root root 219 May  5 18:53 patroni
         -rwxr-xr-x 1 root root 222 May  5 18:53 patroni_aws
         -rwxr-xr-x 1 root root 212 May  5 18:53 patronictl
@@ -14,6 +15,7 @@
 ***/usr/local/lib64/python3.6/site-packages/*** - местонахождение 64 bit библиотек используемых для работы Patroni 
 
 Файлы размещенные в данном каталоге:
+
         drwxr-xr-x  4 root root  328 May  5 18:47 psutil
         drwxr-xr-x  2 root root  157 May  5 18:47 psutil-5.9.0-py3.6.egg-info
         drwxr-xr-x  3 root root  264 May  5 18:47 psycopg2
@@ -26,6 +28,7 @@
 ***/usr/local/lib/python3.6/site-packages/***  - местонахождение библиотек используемых для работы Patroni
 
 Файлы размещенные в данном каталоге:
+
         drwxr-xr-x 31 root root   4096 May  5 17:29 .
         drwxr-xr-x  3 root root     27 May  5 17:23 ..
         drwxr-xr-x  3 root root   4096 May  5 17:29 click
