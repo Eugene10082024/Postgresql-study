@@ -12,6 +12,10 @@
     
     SELECT * FROM pg_database WHERE datname ='name_db';
     
+Вывод информации разрешен доступ к БД или он закрыт.
+
+    SELECT datname,datallowconn FROM pg_database ;
+    
     
 ### Дополнительная информация:
 
