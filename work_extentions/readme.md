@@ -16,7 +16,8 @@
 
 
 #### Изменить определение расширения:
-    
+
+    ALTER EXTENSION timescaledb UPDATE;
     ALTER EXTENSION hstore UPDATE TO '2.0';                                     - Обновление расширения hstore до версии 2.0
     ALTER EXTENSION hstore SET SCHEMA utils;                                    - Смена схемы расширения hstore на utils
     ALTER EXTENSION hstore ADD FUNCTION populate_record(anyelement, hstore);    - Добавление существующей функции в расширение hstore
