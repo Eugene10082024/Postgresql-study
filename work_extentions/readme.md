@@ -42,10 +42,16 @@
 
 #### timescaleDB - для работы с временными рядами (time series)
 
+timescaledb-tune - утилита для настройки Postgres c расширением
+
 Параметры timescaledb можно посмотреть здесь: https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/timescaledb-config/#policies
 
 Их можно задать в файле postgresql.conf или в качестве параметров командной строки при запуске PostgreSQL.
 
+        show timescaledb.telemetry_level; - включение/отключение сбора анонимных сведений об использовании TimescaleDB. 
+        (отключение timescaledb.telemetry_level=off в postgresql.conf)
+        
+        show timescaledb.license; -  лицензия установленная в расширении (Apache - урезанная. timescale - полная)
         show timescaledb.max_background_workers ; - максимальное кол-во workers используемых timescaledb
         show max_worker_processes; - максимальное кол-во workers заданных в кластере Postgresql
                 
@@ -64,4 +70,5 @@
         SELECT show_chunks('history');
         SELECT chunk_schema, chunk_name, compression_status, before_compression_table_bytes, before_compression_index_bytes, before_compression_toast_bytes,          before_compression_total_bytes,after_compression_table_bytes, after_compression_index_bytes, after_compression_toast_bytes, after_compression_total_bytes,  node_name FROM chunk_compression_stats('history_txt')
 
-
+Ссылки:
+https://ypermitin.github.io/devoooops/2022/01/08/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-TimescaleDB-%D0%B4%D0%BB%D1%8F-Zabbix.html
