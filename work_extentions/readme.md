@@ -49,6 +49,9 @@
         SELECT * FROM _timescaledb_internal.bgw_job_stat; - выполненные jobs timescaledb
         SELECT * FROM _timescaledb_config.bgw_job; - вывод конфигурации jobs timescaledb
         
+        show timescaledb.max_background_workers ; - максимальное кол-во workers используемых timescaledb
+        show max_worker_processes; - максимальное кол-во workers заданных в кластере Postgresql
+        
         SELECT * FROM pg_catalog.pg_extension WHERE extname = 'timescaledb'
         SELECT * FROM timescaledb_information.hypertables
         SELECT * FROM timescaledb_information.chunks;
