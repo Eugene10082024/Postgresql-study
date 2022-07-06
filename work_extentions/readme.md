@@ -42,3 +42,18 @@
 
 ***timescaleDB*** - для работы с временными рядами (time series)
 
+Запросы по объектам расширения:
+
+В запросах используется hypertable => history
+
+        SELECT * FROM pg_catalog.pg_extension WHERE extname = 'timescaledb'
+        SELECT * FROM timescaledb_information.hypertables
+        SELECT * FROM timescaledb_information.chunks;
+        SELECT * FROM timescaledb_information.chunks where hypertable_name='history';
+        SELECT * FROM chunks_detailed_size('history');
+        SELECT chunk_schema,chunk_name,compression_status  FROM chunk_compression_stats('history');
+        SELECT show_chunks('history');
+        SELECT chunk_schema, chunk_name, compression_status, before_compression_table_bytes, before_compression_index_bytes, before_compression_toast_bytes,          before_compression_total_bytes,after_compression_table_bytes, after_compression_index_bytes, after_compression_toast_bytes, after_compression_total_bytes,  node_name
+FROM chunk_compression_stats('history_txt')
+
+
