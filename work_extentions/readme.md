@@ -71,6 +71,7 @@ timescaledb-tune - утилита для настройки Postgres c расш�
         SELECT chunk_schema, chunk_name, compression_status, before_compression_table_bytes, before_compression_index_bytes, before_compression_toast_bytes,          before_compression_total_bytes,after_compression_table_bytes, after_compression_index_bytes, after_compression_toast_bytes, after_compression_total_bytes,  node_name FROM chunk_compression_stats('history_txt')
 
 Ссылки:
+
 [Использование TimescaleDB для Zabbix](https://ypermitin.github.io/devoooops/2022/01/08/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-TimescaleDB-%D0%B4%D0%BB%D1%8F-Zabbix.html)
 
 [Zabbix 5.0 на Centos 8 с TimescaleDB и PostgreSQL](https://evgen.me/zabbix-5-0-na-centos-8-s-timescaledb-i-postgresql/)
