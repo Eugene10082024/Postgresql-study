@@ -53,7 +53,6 @@
         SELECT * FROM chunks_detailed_size('history');
         SELECT chunk_schema,chunk_name,compression_status  FROM chunk_compression_stats('history');
         SELECT show_chunks('history');
-        SELECT chunk_schema, chunk_name, compression_status, before_compression_table_bytes, before_compression_index_bytes, before_compression_toast_bytes,          before_compression_total_bytes,after_compression_table_bytes, after_compression_index_bytes, after_compression_toast_bytes, after_compression_total_bytes,  node_name
-FROM chunk_compression_stats('history_txt')
+        SELECT chunk_schema, chunk_name, compression_status, before_compression_table_bytes, before_compression_index_bytes, before_compression_toast_bytes,          before_compression_total_bytes,after_compression_table_bytes, after_compression_index_bytes, after_compression_toast_bytes, after_compression_total_bytes,  node_name FROM chunk_compression_stats('history_txt')
 
 
