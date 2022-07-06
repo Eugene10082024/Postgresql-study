@@ -46,6 +46,8 @@
 
 В запросах используется hypertable => history
 
+        SELECT * FROM _timescaledb_internal.bgw_job_stat; - выполненные jobs timescaledb
+        
         SELECT * FROM pg_catalog.pg_extension WHERE extname = 'timescaledb'
         SELECT * FROM timescaledb_information.hypertables
         SELECT * FROM timescaledb_information.chunks;
