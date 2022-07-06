@@ -32,6 +32,9 @@
 
 [Настройка и администрирование Pacemaker-Corosync](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_pacemaker)
 
+#### ELK для Postgresql
+[Материалы по ELK](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/docs_elk)
+
 ## Изучаем Postgresql (ДЗ по курсу)
 
 [02 - Работа с уровнями изоляции транзакции в PostgreSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/Isolation_levels)
