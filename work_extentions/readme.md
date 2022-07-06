@@ -40,18 +40,21 @@
 
 ***Pg_repack*** - очистка таблиц без долгой блокировки таблицы.
 
-***timescaleDB*** - для работы с временными рядами (time series)
+#### timescaleDB - для работы с временными рядами (time series)
 
-Запросы по объектам расширения:
+Параметры timescaledb можно посмотреть здесь: https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/timescaledb-config/#policies
+
+Их можно задать в файле postgresql.conf или в качестве параметров командной строки при запуске PostgreSQL.
+
+        show timescaledb.max_background_workers ; - максимальное кол-во workers используемых timescaledb
+        show max_worker_processes; - максимальное кол-во workers заданных в кластере Postgresql
+                
+***Запросы по объектам расширения:***
 
 В запросах используется hypertable => history
 
         SELECT * FROM _timescaledb_internal.bgw_job_stat; - выполненные jobs timescaledb
         SELECT * FROM _timescaledb_config.bgw_job; - вывод конфигурации jobs timescaledb
-        
-        show timescaledb.max_background_workers ; - максимальное кол-во workers используемых timescaledb
-        show max_worker_processes; - максимальное кол-во workers заданных в кластере Postgresql
-        
         SELECT * FROM pg_catalog.pg_extension WHERE extname = 'timescaledb'
         SELECT * FROM timescaledb_information.hypertables
         SELECT * FROM timescaledb_information.chunks;
