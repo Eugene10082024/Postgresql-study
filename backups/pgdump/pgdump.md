@@ -14,6 +14,7 @@
       psql --set ON_ERROR_STOP=on db_name < dbname_backup.sql
       
 ***2. Создание backup на одном сервере и восстановление на другом***
+
       pg_dump -h host1 db_name | psql -h host2 db_name
       pg_dump -h 192.168.122.100 db_name | psql -h 192.168.122.101 db_name
       
