@@ -1,4 +1,4 @@
-### PG_DUMP,PG_RESTORE
+### PG_DUMP, PG_RESTORE
 
 У PostgreSQL есть специальная утилита — pg_dump для создания логического backup БД.
 
