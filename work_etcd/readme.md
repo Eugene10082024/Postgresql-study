@@ -1,5 +1,7 @@
 ### Работа с etcd в рамках кластера Patroni 
 
+[Основные термины и теория работы etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/docs_etcd)
+
 [Создание кластера etcd для работы с Patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/create_cl_etcd)
 
 [Команды для проверки работы кластера etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/query)
