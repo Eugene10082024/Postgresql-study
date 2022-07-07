@@ -89,4 +89,17 @@
 
     etcdctl defrag --cluster --user="root:root"     
 
- 
+Проведение ручной дефрагментации
+
+    etcdctl --command-timeout=30s --endpoints=https://localhost:2379 defrag
+    
+Если возникает ошибка тайм-аута, увеличивайте значение --command-timeout до тех пор, пока команда не завершится успешно.
+
+#### Error NOSPACE
+
+Если возникли ошибки NOSPACE (превышения квоты пространства), выполните очистку.
+
+    etcdctl alarm list
+    etcdctl alarm disarm
+
+
