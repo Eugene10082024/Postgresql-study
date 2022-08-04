@@ -2,15 +2,15 @@
 
 [Создание кластера Patroni](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/docs_patroni/readme.md#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B0-patroni)
 
-[Как работает кластер Patroni]()
+[Как работает кластер Patroni](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/docs_patroni/readme.md#%D0%BA%D0%B0%D0%BA-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80-patroni)
 
-[Отработка autofailover]()
+[Отработка autofailover](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/docs_patroni#%D0%BE%D1%82%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-autofailover)
 
-[Отработка SPLIT-BRAIN]()
+[Отработка SPLIT-BRAIN](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/docs_patroni#%D0%BE%D1%82%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-split-brain)
 
-[Каталоги и файлы Patroni (ver.2.1.4) при установке Patroni из под пользователя root]()
+[Каталоги и файлы Patroni (ver.2.1.4) при установке Patroni из под пользователя root](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/docs_patroni#%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8-%D0%B8-%D1%84%D0%B0%D0%B9%D0%BB%D1%8B-patroni-ver214-%D0%BF%D1%80%D0%B8-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B5-patroni-%D0%B8%D0%B7-%D0%BF%D0%BE%D0%B4-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-root)
 
-[Каталоги и файлы Patroni (ver.2.1.4) при установке Patroni из под пользователя postgres]()
+[Каталоги и файлы Patroni (ver.2.1.4) при установке Patroni из под пользователя postgres](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/docs_patroni#%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8-%D0%B8-%D1%84%D0%B0%D0%B9%D0%BB%D1%8B-patroni-ver214-%D0%BF%D1%80%D0%B8-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B5-patroni-%D0%B8%D0%B7-%D0%BF%D0%BE%D0%B4-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-postgres)
 
 #### Создание кластера Patroni
 
