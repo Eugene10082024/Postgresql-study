@@ -6,7 +6,7 @@
 
 [Объекты Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query)
 
-[Роли Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/edit/main/roles_users/readme.md)
+[Роли Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/roles_users/readme.md)
 
 [Расширения Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/edit/main/work_extentions/readme.md)
 
