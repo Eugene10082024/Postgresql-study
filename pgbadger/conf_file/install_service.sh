@@ -9,10 +9,10 @@ cp report-pgs-logs.cfg   /etc/default/
 
 # Создание папки для размещения отчетов
 # Местонахождение и название папки должно полностью совпадать со значением переменной DIR_OUTPUT фаала  report-pgs-logs.cfg
-mkdir -p /tmp/report
+mkdir -p /home/postgres/reports/pgbadger
 
 # Назначение  владельцем postgres созданной папки. Неоходимо т.к.  report-pgs-logs.service выполняется под postgres
-chown -R postgres:postgres /tmp/report
+chown -R postgres:postgres /home/postgres/reports/pgbadger
 
 systemctl daemon-reload
 systemctl enable report-pgs-logs.timer
