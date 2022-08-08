@@ -56,7 +56,7 @@ log_filename - параметр должен иметь именно такое 
         cp report-pgs-logs.cfg   /etc/default/
         # Создание папки для размещения отчетов
         # Местонахождение и название папки должно полностью совпадать со значением переменной DIR_OUTPUT фаала  report-pgs-logs.cfg
-        mkdir -p /tmp/report
+        mkdir -p /home/postgres/reports/pgbadger
         # Назначение  владельцем postgres созданной папки. Неоходимо т.к.  report-pgs-logs.service выполняется под postgres
         chown -R postgres:postgres /tmp/report
         systemctl daemon-reload
@@ -68,8 +68,8 @@ log_filename - параметр должен иметь именно такое 
 2.2. Файл report-pgs-logs.cfg
         
         DAYS=7
-        DIR_LOG_PGS='/var/log/postgresql'
-        DIR_OUTPUT='/tmp/report'
+        DIR_LOG_PGS='/pglog/log'
+        DIR_OUTPUT='/home/postgres/reports/pgbadger'
 
 Где:
 
