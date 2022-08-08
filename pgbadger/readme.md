@@ -95,6 +95,7 @@ log_filename - параметр должен иметь именно такое 
       WantedBy=multi-user.target
       
 2.4. Файл report-pgs-logs.timer
+
       [Unit]
       Description=timer start demon report-pgs-logs.service
       [Timer]
