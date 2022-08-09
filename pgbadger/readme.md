@@ -140,7 +140,9 @@ log_filename - параметр должен иметь именно такое 
  
     chmod -755 install_service.sh
     
- 3.3. Выполняется скрипт  install_service.sh 
+ 3.3. Перед выполнением скрипта проверяем правильность указания местоположения logs postgresql в переменной DIR_LOG_PGS размещенной в файле report-pgs-logs.cfg.
+   
+ 3.4. Выполняется скрипт  install_service.sh 
  
     ./install_service.sh 
    
