@@ -8,7 +8,9 @@
 
 [Роли Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/roles_users/readme.md)
 
-[Расширения Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_extentions/readme.md)
+[Расширения (extensions) Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_extentions/readme.md)
+
+[Развертывание и первоначальная настройка кластера Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/install_postgres/readme.md)
 
 [Репликация](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/replication)
 
