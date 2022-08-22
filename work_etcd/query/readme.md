@@ -102,4 +102,60 @@
     etcdctl alarm list
     etcdctl alarm disarm
 
+#### Пересоздание ноды кластера etcd
+
+Останавливаем сервис на etcd 
+
+        systemctl stop etcd
+
+Определяем ID члена кластера etcd который надо удалить:
+
+        etcdctl --write-out=table --endpoints=localhost:2379 member list       
+        
+        +------------------+-----------+--------------+-----------------------------+-----------------------------+------------+
+        |        ID        |  STATUS   |     NAME     |         PEER ADDRS          |        CLIENT ADDRS         | IS LEARNER |
+        +------------------+-----------+--------------+-----------------------------+-----------------------------+------------+
+        | 4f0f239830682d9c |   started | astra-etcd03 | http://192.168.110.167:2380 | http://192.168.122.167:2379 |      false |
+        | 5641e28dba68dda9 | unstarted |              | http://192.168.110.165:2380 |                             |      false |
+        | 8b9292b8d107ea3a |   started | astra-etcd02 | http://192.168.110.166:2380 | http://192.168.122.166:2379 |      false |
+        +------------------+-----------+--------------+-----------------------------+-----------------------------+------------+
+        
+Удаляем из кластра не работающего члена кластера:
+
+        root@astra-etcd02:~# etcdctl member remove 5641e28dba68dda9 --user="root"
+        Password: 
+        Member 5641e28dba68dda9 removed from cluster 78dce426f7c2678a
+        
+Создаем члена кластера в кластере etcd:
+
+        root@astra-etcd02:~# etcdctl member add astra-etcd01 --peer-urls=http://192.168.110.165:2380 --user="root:root"
+        Member ec11318c7914e98f added to cluster 78dce426f7c2678a
+
+        ETCD_NAME="astra-etcd01"
+        ETCD_INITIAL_CLUSTER="astra-etcd03=http://192.168.110.167:2380,astra-etcd02=http://192.168.110.166:2380,astra-etcd01=http://192.168.110.165:2380"
+        ETCD_INITIAL_ADVERTISE_PEER_URLS="http://192.168.110.165:2380"
+        ETCD_INITIAL_CLUSTER_STATE="existing"
+
+Удаляем БД etcd на сервере где была сломанная node etcd:
+
+        rm -rf /var/lib/etcd/member
+        
+Запускаем сервис etcd на node:
+
+        systemctl start etcd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
