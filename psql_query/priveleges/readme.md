@@ -19,3 +19,7 @@
 
 	ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO postgres;	
 	
+
+#### Дополнительные статьи
+[PostgreSQL: Give all permissions to a user on a PostgreSQL database] (
+https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database)
