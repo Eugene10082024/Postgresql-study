@@ -21,5 +21,5 @@
 	
 
 #### Дополнительные статьи
-[PostgreSQL: Give all permissions to a user on a PostgreSQL database] (
+[PostgreSQL: Give all permissions to a user on a PostgreSQL database](
 https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database)
