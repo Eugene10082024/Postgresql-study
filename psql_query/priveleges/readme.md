@@ -25,3 +25,5 @@
 https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database)
 
 [Настройка интеграции ADB и LDAP](https://docs.arenadata.io/adb/ldap/config.html)
+
+[Postgresql: what does GRANT ALL PRIVILEGES ON DATABASE do?]
