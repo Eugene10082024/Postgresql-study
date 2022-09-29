@@ -12,7 +12,7 @@
 
         asarafanov@ubuntu-01:~$ sudo -i
 
-#### 1.2. Устанавливаю дополнительные пакты, которые могут пригадиться для работы 
+#### 1.2. Устанавливаю дополнительные пакеты, которые могут пригадиться для работы 
 
         root@ubuntu-01:~# apt install apt-transport-https ca-certificates curl software-properties-common
 
