@@ -4,6 +4,8 @@
 
 [Запросы по базе данных](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/database.md)
 
+[Запросы по таблицам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/tables.md)
+
 [Запросы по индексам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/indexs.md)
 
 [Запросы по WAL файлам](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/wals.md)
