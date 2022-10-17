@@ -17,3 +17,5 @@
 #### Дополнительная информация
       
 [Работа с представлением pg_stat_activity](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/pg_stat_activity.md)
+
+[Работа с представлением pg_stat_all_tables](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/pg_stat_all_tables.md)
