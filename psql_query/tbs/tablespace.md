@@ -28,18 +28,7 @@
 
         ALTER TABLE <name_table> SET TABLESPACE pg_default;
         
-#### Просмотр местнонахождения табличного пространства.
-
-        \db+
-
-        select spcname ,pg_tablespace_location(oid) from pg_tablespace;
-          spcname   | pg_tablespace_location
-        ------------+------------------------
-         pg_default |
-         pg_global  |
-        (2 rows)
-
-    
+ 
 В данном случае объект перенесется в новое табличное пространство.
 
 ##### ВНИМАНИЕ:
@@ -83,7 +72,20 @@ relfilenode - текущие имя файла объекта.
 
            DROP TABLESPACE new_ts CASCADE 
            
-           
+
+#### Просмотр местнонахождения табличного пространства.
+
+        \db+
+
+        select spcname ,pg_tablespace_location(oid) from pg_tablespace;
+          spcname   | pg_tablespace_location
+        ------------+------------------------
+         pg_default |
+         pg_global  |
+        (2 rows)
+
+
+
 ### Дополнительная информация:
 
 [Удаление табличного пространства с объектами](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tbs/drop_tablespace.md)
