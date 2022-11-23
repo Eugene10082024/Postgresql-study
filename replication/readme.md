@@ -25,7 +25,7 @@ pg_stat_replication. Оно показывает информацию по вс�
         
 Вывод:        
 
-            client      |    user    |    name     |   state   | mode  | pending | write | flush | replay | total_lag 
+             client      |    user    |    name     |   state   | mode  | pending | write | flush | replay | total_lag 
         -----------------+------------+-------------+-----------+-------+---------+-------+-------+--------+-----------
          192.168.122.171 | replicator | redoc-pgs02 | streaming | async |       0 |     0 |     0 |      0 |         0
         (1 строка)
