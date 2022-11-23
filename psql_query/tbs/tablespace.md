@@ -27,6 +27,18 @@
 #### Перенос объект из одного tablespace в другое:
 
         ALTER TABLE <name_table> SET TABLESPACE pg_default;
+        
+#### Просмотр местнонахождения табличного пространства.
+
+        \db+
+
+        select spcname ,pg_tablespace_location(oid) from pg_tablespace;
+          spcname   | pg_tablespace_location
+        ------------+------------------------
+         pg_default |
+         pg_global  |
+        (2 rows)
+
     
 В данном случае объект перенесется в новое табличное пространство.
 
