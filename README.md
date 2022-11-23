@@ -12,6 +12,8 @@
 
 [Развертывание и первоначальная настройка кластера Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/deploy_postgres/readme.md)
 
+[Работа с WAL файлами](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/wal_postgres/readme.md)
+
 [Репликация](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/replication)
 
 [Резервное копирование и восстановление Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/backups)
