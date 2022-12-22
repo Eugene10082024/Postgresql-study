@@ -1,6 +1,6 @@
 #### Работа с базой данных
 
-[Получение первичной информации по базе данных](https://github.com/Aleksey-10081967/Postgresql-study/edit/main/psql_query/database/database_info.md)
+[Получение первичной информации по базе данных] (https://github.com/Aleksey-10081967/Postgresql-study/edit/main/psql_query/database/database_info.md)
 
 #### Информация по базам данных
 
