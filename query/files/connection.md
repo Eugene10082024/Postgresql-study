@@ -26,6 +26,10 @@
 
       SELECT * FROM pg_stat_activity WHERE state = 'active';
       
+Поиск длительных запросов выполняемых в БД
+
+      SELECT max(now() - xact_start) FROM pg_stat_activity WHERE state IN ('idle in transaction', 'active')
+      
 ### Команды по завершению запросов        
 
 Вежливо попросить запрос завершиться
