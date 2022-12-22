@@ -13,6 +13,7 @@
 содержимое журнала транзакций. 
 
 Архивирование WAL
+
         select 
         case when ( last_failed_time > last_archived_time ) then failed_count else 0 end as failed_count,
         cast( last_archived_time as varchar ) ||
