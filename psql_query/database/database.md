@@ -1,5 +1,7 @@
 #### Работа с базой данных
 
+[Получение первичной информации по базе данных]([https://github.com/Aleksey-10081967/Postgresql-study/tree/main/roles_users/readme.md](https://github.com/Aleksey-10081967/Postgresql-study/edit/main/psql_query/database/database_info.md)
+
 #### Информация по базам данных
 
             SELECT pg_size_pretty(sum(pg_database_size(oid))::BIGINT) FROM pg_database;
