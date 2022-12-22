@@ -13,3 +13,7 @@
 Вывод postgres из recovery archive_mode
 
       SELECT pg_wal_replay_resume(); 
+
+Обнуление всей статиски активности:
+
+      SELECT pg_stat_reset();
