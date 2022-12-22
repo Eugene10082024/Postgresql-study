@@ -1,5 +1,9 @@
 #### Работа с базой данных
 
+#### Информация по базам данных
+
+            SELECT pg_size_pretty(sum(pg_database_size(oid))::BIGINT) FROM pg_database;
+
 #### Создание базы данных
             CREATE DATABASE <name_db> - создает БД database01 владельцем которой является текущий пользователь.
             CREATE DATABASE <name_db> OWNER <user_name> - создание БД с указанием владельца
