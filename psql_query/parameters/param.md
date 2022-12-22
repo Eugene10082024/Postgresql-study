@@ -36,13 +36,21 @@
 
 [Полное описание представления](https://postgrespro.ru/docs/postgresql/14/view-pg-settings)
 
-Пример:
+#### Примеры:
 
         select name, setting, context from pg_settings where category like '%name_category%';
 
         select name,setting,context,pending_restart from pg_settings where category like '%Write-Ahead Log%'; 
         
         select * from pg_settings where name like 'max_connections'\gx;
+
+Запрос,  определяет имя и значение для каждого параметра, который можно изменить только путем перезапуска postgreSQL
+
+        SELECT name, setting  FROM pg_settings WHERE context = 'postmaster' 
+ 
+ Запрос, чтобы получить список только тех настроек, которые не изменились по сравнению со значениями по умолчанию и требуют перезагрузки
+ 
+        SELECT name, setting, boot_val FROM pg_settings WHERE context = 'postmaster' AND boot_val = setting;
  
  Получение списка категорий:
  
