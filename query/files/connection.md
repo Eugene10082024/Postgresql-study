@@ -12,13 +12,21 @@
 
       SELECT client_addr, usename, datname, state, count(*) FROM pg_stat_activity GROUP BY 1, 2, 3, 4 ORDER BY 5 DESC;
       
+### Получение информации по сессиям и запросам    
+      
  Вывод информации о состоянии сессий:
  
       SELECT datname,usename,client_addr,wait_event,state FROM pg_stat_activity;
+      
+ Вывод зависших сессий
+ 
+       SELECT count(datname),datname FROM pg_stat_activity WHERE state like 'idle in%' AND ( current_timestamp - state_change ) > interval '1 minute' AND datid NOT IN ( SELECT oid FROM pg_database WHERE datistemplate ) GROUP BY datname;
 
 Вывод списка активных запросов 
 
       SELECT * FROM pg_stat_activity WHERE state = 'active';
+      
+### Команды по завершению запросов        
 
 Вежливо попросить запрос завершиться
 
