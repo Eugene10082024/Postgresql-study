@@ -9,3 +9,14 @@
 
 Роль принадлежит кластеру.
 
+#### Права пользователя (роли)
+
+    \du+
+    
+Использование схемы information_schema и запрос таблицы table_privileges:
+
+    SELECT * FROM information_schema.table_privileges LIMIT 5;
+    
+вывод привелегий для конкретного пользователя (роли):
+
+     SELECT * from information_schema.table_privileges WHERE grantee = ‘postgres’ LIMIT 5;
