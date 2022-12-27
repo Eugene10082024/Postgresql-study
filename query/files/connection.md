@@ -41,3 +41,14 @@
 Убить зависший запрос:
 
       SELECT pg_terminate_backend(<pid of the process>)
+
+#### Отключить всех клиентов от БД в PostgreSQL
+
+      SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = current_database() AND pid <> pg_backend_pid();
+      
+#### Запретить и разрешить подключения      
+
+      UPDATE pg_database SET datallowconn = false WHERE datname = 'my_database';
+      
+      UPDATE pg_database SET datallowconn = true WHERE datname = 'my_database';
+
