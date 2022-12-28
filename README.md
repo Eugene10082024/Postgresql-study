@@ -2,9 +2,9 @@
 
 [Развертывание и первоначальная настройка кластера Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/deploy_postgres/readme.md)
 
-[Запросы для работы в кластере Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/query)
-
 [Объекты Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query)
+
+[Запросы для работы в кластере Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/query)
 
 [Работа с WAL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/wal_postgres/readme.md)
 
