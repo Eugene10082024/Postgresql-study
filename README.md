@@ -18,8 +18,6 @@
 
 [Расширения (extensions) Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_extentions/readme.md)
 
-[Роли Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/roles_users/readme.md)
-
 [Настройка HugePages для Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages)
 
 [Настройка pgbadger для составления отчетов по данным log файлов](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/pgbadger)
