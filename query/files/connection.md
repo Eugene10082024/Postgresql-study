@@ -3,10 +3,12 @@
 Вывод количества соединений в кластере Postgresql
 
       SELECT count(*) AS total_conns FROM pg_stat_activity;
+      SELECT count(*) FROM pg_stat_activity
       
 Вывод количества соединений от определенного клиента
 
       SELECT count(*) FROM pg_stat_activity WHERE client_addr = '10.0.20.26';
+      SELECT count(*) as connections, usename FROM pg_stat_activity GROUP BY usename ORDER BY count(*) desc;
       
 Вывод статистики по выполняемым соединениям:
 
