@@ -1,6 +1,15 @@
 ### Получение информации по Индексам
 
-Размер таблиц вместе с индексами:
+#### Index Cache Hit Rate (сколько ваших индексов находится в вашем кеше)
+
+    SELECT 
+      sum(idx_blks_read) as idx_read,
+      sum(idx_blks_hit)  as idx_hit,
+      (sum(idx_blks_hit) - sum(idx_blks_read)) / sum(idx_blks_hit) as ratio
+    FROM 
+      pg_statio_user_indexes;
+
+#### Размер таблиц вместе с индексами:
 
     SELECT TABLE_NAME,pg_size_pretty(table_size) AS table_size, pg_size_pretty(indexes_size) AS indexes_size, pg_size_pretty(total_size) AS total_size 
     FROM (
@@ -13,11 +22,11 @@
         ORDER BY total_size DESC
         ) AS pretty_sizes;
 
-Просмотр как были созданы индексы
+#### Просмотр как были созданы индексы
 
     SELECT tablename, indexname, indexdef FROM pg_indexes WHERE schemaname = 'public' ORDER BY tablename,indexname;
     
-Просмотр неиспользуемых индексов:
+#### Просмотр неиспользуемых индексов:
 
       SELECT s.schemaname,
              s.relname AS tablename,
