@@ -1,28 +1,30 @@
 ### Материалы по Postgresql:
 
-[PSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql)
+[Развертывание и первоначальная настройка кластера Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/deploy_postgres/readme.md)
 
 [Запросы для работы в кластере Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/query)
 
 [Объекты Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query)
 
-[Роли Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/roles_users/readme.md)
+[Работа с WAL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/wal_postgres/readme.md)
 
-[Расширения (extensions) Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_extentions/readme.md)
+[Autovacuum/vacuum](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vacuum/readme.md)
 
-[Развертывание и первоначальная настройка кластера Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/deploy_postgres/readme.md)
+[Checkpoints](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/checkpoint/readme.md)
 
-[Работа с WAL файлами](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/wal_postgres/readme.md)
-
-[Работа с автовакуумом](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vacuum/readme.md)
+[Резервное копирование и восстановление Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/backups)
 
 [Репликация](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/replication)
 
-[Резервное копирование и восстановление Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/backups)
+[Расширения (extensions) Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_extentions/readme.md)
+
+[Роли Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/roles_users/readme.md)
 
 [Настройка HugePages для Postgresql](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/huge_pages)
 
 [Настройка pgbadger для составления отчетов по данным log файлов](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/pgbadger)
+
+[PSQL](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql)
 
 ### Кластер patroni.
 
