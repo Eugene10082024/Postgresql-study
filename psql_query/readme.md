@@ -15,12 +15,14 @@
 
 [7. Индексы](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/index/index.md)
 
-[8. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/sequence/sequence.md)
+[8. Представления](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/view/readme.md)
 
-[9. Функции](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/function/function.md)
+[9. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/sequence/sequence.md)
 
-[10. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/triggers/trigger.md)
+[10. Функции](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/function/function.md)
 
-[11. Роли](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query/roles/roles.md)
+[11. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/triggers/trigger.md)
 
-[12. Привелегии](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query/priveleges)
+[12. Роли](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query/roles/roles.md)
+
+[13. Привелегии](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/psql_query/priveleges)
