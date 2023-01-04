@@ -19,7 +19,7 @@
 
 [9. Последовательности](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/sequence/sequence.md)
 
-[10. Функции](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/function/function.md)
+[10. Функции и процедуры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/function/function.md)
 
 [11. Триггеры](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/triggers/trigger.md)
 
