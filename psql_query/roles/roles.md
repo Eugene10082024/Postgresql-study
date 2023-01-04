@@ -9,6 +9,14 @@
 
 Роль принадлежит кластеру.
 
+Смена пользователя (роли) в psql:
+    
+    SET ROLE <name_role>
+
+Проверка текущей роли:
+
+    SELECT current_user;
+
 #### Права пользователя (роли)
 
     \du+
@@ -20,3 +28,19 @@
 вывод привелегий для конкретного пользователя (роли):
 
      SELECT * from information_schema.table_privileges WHERE grantee = ‘postgres’ LIMIT 5;
+
+#### Предоставление (GRANT) и отзыв (REVOKE) прав   роли
+
+Предоставление права на просмтор (SELECT) всех таблиц схемы public определенной роли:
+
+    GRANT SELECT ON ALL TABLES IN SCHEMA public TO <name_role>
+    
+Отзыв права на просмотр (SELECT) всех таблиц схемы public определенной роли:
+
+    REVOKE SELECT ON ALL TABLES IN SCHEMA public TO <name_role>    
+    
+    
+    
+    
+
+    
