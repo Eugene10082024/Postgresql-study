@@ -50,18 +50,8 @@ PostgreSQL умеет работать с временными таблицам�
 
                          List of settings
              Role |    Database    |     Settings      
-            ------+----------------+-------------------Настройки, сделанные командой ALTER DATABASE, сохраняются в таблице pg_db_role_setting. Их можно посмотреть в psql следующей командой:
-
-=> \drds
-
-             List of settings
- Role |    Database    |     Settings      
-------+----------------+-------------------
-      | data_databases | temp_buffers=32MB
-(1 row)
+            ------+----------------+-------------------
                   | data_databases | temp_buffers=32MB
-            (1 row)
-  
-  
+            (1 row)            
 
 [Примеры работы с таблицами](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/psql_query/tables/examples/work_tables.md)
