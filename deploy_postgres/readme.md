@@ -3,13 +3,16 @@
 
 
 
+#### Использование checksums
+Проверка проводится ли подсчет контрольных сумм
+	
+    sudo /usr/lib/postgresql/13/bin/pg_checksums --check -D /var/lib/postgresql/13/main
 
-
-
-
-
-
-
+Включение расчета КС:
+Выполняем pg_checksums с ключом --enable:
+    
+    sudo /usr/lib/postgresql/13/bin/pg_checksums --enable -D /var/lib/postgresql/13/main
+    Checksum operation completed
 
 #### Фоновые процессы Postgresql
 
