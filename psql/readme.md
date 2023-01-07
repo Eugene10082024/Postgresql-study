@@ -50,6 +50,14 @@ psql --help
 
 \c или \connect [ -reuse-previous=on|off ] [ имя_бд [ имя_пользователя ] [ компьютер ] [ порт ] | строка_подключения ]
 
+Примеры:
+
+    => \c mydb myuser host.dom 6432
+    => \c service=foo
+    => \c "host=localhost port=5432 dbname=mydb connect_timeout=10 sslmode=disable"
+    => \c -reuse-previous=on sslmode=require    -- меняется только sslmode
+    => \c postgresql://tom@localhost/mydb?application_name=myapp
+
 **\?** - вывод списка команд psql
 
 **\? variables** - вывод списка переменных psql
@@ -84,7 +92,7 @@ psql --help
   
 **\gx** - установка после запроса выводит результаты в разширенном виде
   
-**\timing** - отображение времени выполнения запроса в консольной утилите PostgreSQL
+**\timing on** - отображение времени выполнения запроса в консольной утилите PostgreSQL
     
 **\o <name_file>** - весь вывод попадает в файл с именем name_file
 
