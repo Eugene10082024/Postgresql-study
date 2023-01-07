@@ -34,7 +34,15 @@
 #### Просмотр текущего типа поиска.
 
 	SHOW search_path;   	
-   
+ 
+Список схем можно узнать командой psql (dn = describe namespace):
+
+	\dn
+
+Реальный путь поиска, включая неявные схемы, возвращает вызов функции current_schemas(true). 
+
+	SELECT current_schemas(true);
+
 #### Добавление в путь новую схему
 
 	SET search_path TO myschema,public;
@@ -46,6 +54,10 @@
 	SET search_path TO myschema;
 	
 В данном случае не сможем обращаться к схеме public, не написав полное имя объекта.
+
+Параметр можно установить и на уровне отдельной базы данных:
+	
+	ALTER DATABASE appdb SET search_path = public, app;
 
 ### Назначение привелегий
 
