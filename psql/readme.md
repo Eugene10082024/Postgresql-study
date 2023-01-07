@@ -48,6 +48,8 @@ psql --help
 
 **\с <name_database>** - переключение на БД (name_database)
 
+\c или \connect [ -reuse-previous=on|off ] [ имя_бд [ имя_пользователя ] [ компьютер ] [ порт ] | строка_подключения ]
+
 **\?** - вывод списка команд psql
 
 **\? variables** - вывод списка переменных psql
