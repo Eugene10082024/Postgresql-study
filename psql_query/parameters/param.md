@@ -69,3 +69,4 @@
  
         select distinct category from pg_settings;
            
+        SELECT pg_read_file('/etc/postgresql/13/main/postgresql.conf', 1516, 860)\g (tuples_only=on format=unaligned
