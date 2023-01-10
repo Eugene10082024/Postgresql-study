@@ -1,10 +1,15 @@
 ### Запросы для работы с таблицами
 
+1. Вывод таблиц с наибольшим количеством мертвых строк (tuples)
+2. Генерация списка таблиц в базе данных с самыми большими индексами и процентом времени, в течение которого они используют индекс
+3. Show database bloat (распухание БД)
+4. Поиск таблицы которой соотвествует определенная TOAST таблица
+
 #### Вывод таблиц с наибольшим количеством мертвых строк (tuples)
 
       select relname, n_live_tup, n_dead_tup from pg_stat_all_tables order by 3 desc;
 
-#### Генерация списка таблиц в базе данных с самыми большими первыми и процентом времени, в течение которого они используют индекс
+#### Генерация списка таблиц в базе данных с самыми большими индексами и процентом времени, в течение которого они используют индекс
 
       SELECT 
         relname, 
@@ -67,9 +72,10 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
       ) AS sml
       ORDER BY wastedbytes DESC
 
-#### Поиск таблице которой соотвествует определенная TOAST таблица
+#### Поиск таблицы которой соотвествует определенная TOAST таблица
 
 1. Вывод таблиц, которые занимают наибольшее место на диске.
+
             SELECT nspname || '.' || relname AS "relation",
                 pg_size_pretty(pg_relation_size(C.oid)) AS "size"
               FROM pg_class C
@@ -116,7 +122,7 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
             where reltoastrelid = (
                 select oid
                 from pg_class
-                where relname = '***pg_toast_30748420***'
+                where relname = 'pg_toast_30748420'
                 and relnamespace = (SELECT n2.oid FROM pg_namespace n2 WHERE n2.nspname = 'pg_toast') );
    
   Результат вывода:
