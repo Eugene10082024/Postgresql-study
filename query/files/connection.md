@@ -22,7 +22,10 @@
       
  Вывод зависших сессий
  
-       SELECT count(datname),datname FROM pg_stat_activity WHERE state like 'idle in%' AND ( current_timestamp - state_change ) > interval '1 minute' AND datid NOT IN ( SELECT oid FROM pg_database WHERE datistemplate ) GROUP BY datname;
+       SELECT count(datname),datname 
+       FROM pg_stat_activity 
+       WHERE state like 'idle in%' AND ( current_timestamp - state_change ) > interval '1 minute' AND datid NOT IN ( SELECT oid FROM pg_database WHERE datistemplate ) 
+       GROUP BY datname;
 
 Вывод списка активных запросов 
 
@@ -46,7 +49,9 @@
 
 #### Отключить всех клиентов от БД в PostgreSQL
 
-      SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = current_database() AND pid <> pg_backend_pid();
+      SELECT pg_terminate_backend(pg_stat_activity.pid) 
+      FROM pg_stat_activity 
+      WHERE pg_stat_activity.datname = current_database() AND pid <> pg_backend_pid();
       
 #### Запретить и разрешить подключения      
 
