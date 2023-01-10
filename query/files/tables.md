@@ -5,6 +5,11 @@
 3. Show database bloat (распухание БД)
 4. Поиск таблицы которой соотвествует определенная TOAST таблица
 
+#### Вывод размера таблиц вместе с индексами
+
+
+
+
 #### Вывод таблиц с наибольшим количеством мертвых строк (tuples)
 
       select relname, n_live_tup, n_dead_tup from pg_stat_all_tables order by 3 desc;
