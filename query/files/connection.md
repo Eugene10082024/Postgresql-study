@@ -24,7 +24,8 @@
  
        SELECT count(datname),datname 
        FROM pg_stat_activity 
-       WHERE state like 'idle in%' AND ( current_timestamp - state_change ) > interval '1 minute' AND datid NOT IN ( SELECT oid FROM pg_database WHERE datistemplate ) 
+       WHERE state like 'idle in%' AND ( current_timestamp - state_change ) > interval '1 minute' 
+       AND datid NOT IN ( SELECT oid FROM pg_database WHERE datistemplate ) 
        GROUP BY datname;
 
 Вывод списка активных запросов 
