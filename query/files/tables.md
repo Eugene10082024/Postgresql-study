@@ -66,3 +66,84 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
         LEFT JOIN pg_class c2 ON c2.oid = i.indexrelid
       ) AS sml
       ORDER BY wastedbytes DESC
+
+#### Поиск таблице которой соотвествует определенная TOAST таблица
+
+1. Вывод таблиц, которые занимают наибольшее место на диске.
+            SELECT nspname || '.' || relname AS "relation",
+                pg_size_pretty(pg_relation_size(C.oid)) AS "size"
+              FROM pg_class C
+              LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
+              WHERE nspname NOT IN ('pg_catalog', 'information_schema')
+              ORDER BY pg_relation_size(C.oid) DESC
+              LIMIT 20;
+
+Выводится 20 таблиц. Ниже пример вывода.
+
+                        relation             |  size
+            ----------------------------------+---------
+             pg_toast.pg_toast_30748420       | 337 GB
+             pg_toast.pg_toast_30748420_index | 6280 MB
+             public._reference197718          | 4679 MB
+             pg_toast.pg_toast_6439977        | 1958 MB
+             public._reference197718_3        | 1790 MB
+             public._inforg273494             | 635 MB
+             public._inforgchngr296362_1      | 422 MB
+             public._inforgchngr296362_2      | 385 MB
+             public._inforg274543             | 366 MB
+             public._inforgchngr296362        | 303 MB
+             public._reference197718_s_hpk    | 260 MB
+             public._reference197718_2        | 240 MB
+             public._inforg271706             | 234 MB
+             public._inforg286642             | 228 MB
+             public._referencechngr296742_1   | 213 MB
+             public._reference197718_1        | 201 MB
+             public._referencechngr296742_2   | 187 MB
+             pg_toast.pg_toast_6633348        | 183 MB
+             public._reference197718_vt297219 | 150 MB
+             public._referencechngr296742     | 143 MB
+            (20 rows)
+            
+2. Запоминаем из первой строки - pg_toast_30748420. Данное значение будет использовано в последующих скриптах.
+
+3. Выполняем следующий скрипт с подстановкой значения на выбор:
+
+Первый запрос
+
+            select n.nspname, c.relname
+            from pg_class c
+            inner join pg_namespace n on c.relnamespace = n.oid
+            where reltoastrelid = (
+                select oid
+                from pg_class
+                where relname = '***pg_toast_30748420***'
+                and relnamespace = (SELECT n2.oid FROM pg_namespace n2 WHERE n2.nspname = 'pg_toast') );
+   
+  Результат вывода:
+   
+             nspname |     relname
+            ---------+------------------
+             public  | _reference197718
+            (1 row)
+
+Второй скрипт:
+
+             SELECT
+                c1.relname,
+                c2.relname AS toast_relname
+            FROM
+                pg_class c1
+                JOIN pg_class c2 ON c1.reltoastrelid = c2.oid
+            WHERE
+                c2.relname ='pg_toast_30748420'
+                AND c1.relkind = 'r';
+	
+Результат вывода:
+
+                 relname      |   toast_relname
+            ------------------+-------------------
+             _reference197718 | pg_toast_30748420
+            (1 row)
+
+
+
