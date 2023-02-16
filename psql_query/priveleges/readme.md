@@ -24,7 +24,11 @@
 	
 	GRANT SELECT ON TABLE <name_table> TO <user_login>;
 
-Что надо сделать, чтобы у пользователя user было право выбирать данные из public.table_1 базы данных database_1
+Назначение привелений на создаваемые объекты:
+
+	ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO postgres;	
+
+#### Что надо сделать, чтобы у пользователя user было право выбирать данные из public.table_1 базы данных database_1
 
 	GRANT CONNECT ON DATABASE database_1 TO user;
 	/c database_1;
@@ -32,9 +36,7 @@
 	GRANT SELECT ON TABLE public.table_1 TO user;
 
 
-Назначение привелений на создаваемые объекты:
 
-	ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO postgres;	
 
 #### Запросы для вывода назначенных привелений
 
