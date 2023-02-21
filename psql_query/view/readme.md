@@ -10,4 +10,10 @@
 
     SELECT * FROM select_all_from_users;
     
+ Просмотр созданных представлений в БД:
+
+    \dv
     
+или
+
+    SELECT table_name FROM INFORMATION_SCHEMA.tables WHERE table_type='VIEW' AND table_schema=ANY(current_schemas(false)) ORDER BY table_name;
