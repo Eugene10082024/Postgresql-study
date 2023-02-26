@@ -1,6 +1,6 @@
 ### Работа с автовакуумом
 
-#### Запрос определющий когда autovacuum обработал Ваши таблицы:
+#### Запрос определющий когда autovacuum обработал Ваши таблицы крайний раз:
 
             SELECT schemaname, relname, n_live_tup, n_dead_tup, last_autovacuum FROM pg_stat_all_tables ORDER BY n_dead_tup
             /(n_live_tup * current_setting('autovacuum_vacuum_scale_factor')::float8
@@ -9,7 +9,8 @@
             LIMIT 10;
 
 Автовакуум недавно запустился, но мертвые кортежи не освободил. Мы можем проверить проблему, запустив VACUUM (VERBOSE):
-VACUUM VERBOSE name-table;
+
+            VACUUM VERBOSE name-table;
 
 ##### Проблемы не удаления dead_tuples autovacuum и пути их решения
 
