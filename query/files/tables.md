@@ -127,7 +127,10 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
             
 2. Запоминаем из первой строки - pg_toast_30748420. Данное значение будет использовано в последующих скриптах.
 
-3. Выполняем следующий скрипт с подстановкой значения на выбор:
+3. Выполняем следующий запрос с подстановкой значения на выбор:
+
+	name_toast_table - имя toast таблицы для которой надо найти родительскую таблицу
+	Например - pg_toast_30748420
 
 Первый запрос
 
@@ -137,7 +140,7 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
             where reltoastrelid = (
                 select oid
                 from pg_class
-                where relname = 'pg_toast_30748420'
+                where relname = 'name_toast_table'
                 and relnamespace = (SELECT n2.oid FROM pg_namespace n2 WHERE n2.nspname = 'pg_toast') );
    
   Результат вывода:
@@ -147,7 +150,7 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
              public  | _reference197718
             (1 row)
 
-Второй скрипт:
+Второй запрос:
 
              SELECT
                 c1.relname,
@@ -156,7 +159,7 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
                 pg_class c1
                 JOIN pg_class c2 ON c1.reltoastrelid = c2.oid
             WHERE
-                c2.relname ='pg_toast_30748420'
+                c2.relname ='name_toast_table'
                 AND c1.relkind = 'r';
 	
 Результат вывода:
