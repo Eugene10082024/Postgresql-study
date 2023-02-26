@@ -1,6 +1,43 @@
 ### Работа с автовакуумом
 
-VACUUM activity:
+#### Запрос определющий когда autovacuum обработал Ваши таблицы:
+
+            SELECT schemaname, relname, n_live_tup, n_dead_tup, last_autovacuum FROM pg_stat_all_tables ORDER BY n_dead_tup
+            /(n_live_tup * current_setting('autovacuum_vacuum_scale_factor')::float8
+            + current_setting('autovacuum_vacuum_threshold')::float8)
+            DESC
+            LIMIT 10;
+
+Автовакуум недавно запустился, но мертвые кортежи не освободил. Мы можем проверить проблему, запустив VACUUM (VERBOSE):
+VACUUM VERBOSE name-table;
+
+##### Проблемы не удаления dead_tuples autovacuum и пути их решения
+
+1. Long-running transactions :
+
+            SELECT pid, datname, usename, state, backend_xmin, backend_xid FROM pg_stat_activity WHERE backend_xmin IS NOT NULL OR backend_xid IS NOT NULL ORDER BY greatest(age(backend_xmin), age(backend_xid)) DESC;
+
+Удаление: select pg_terminate_backend(pid)
+
+2. Заброшенные слоты репликации:
+
+            SELECT slot_name, slot_type, database, xmin FROM pg_replication_slots ORDER BY age(xmin) DESC;
+
+Удаление: pg_drop_replication_slot() 
+
+3. Осиротевшие repared transactions:
+
+            SELECT gid, prepared, owner, database, transaction AS xmin FROM pg_prepared_xacts ORDER BY age(transaction) DESC;
+
+Используйте ROLLBACK PREPARED SQL запрос для удаления prepared transactions.
+
+4. Standby server with hot_standby_feedback = on:
+
+Чтобы узнать xmin всех резервных серверов, вы можете запустить следующий запрос на основном сервере:
+
+            SELECT application_name, client_addr, backend_xmin FROM pg_stat_replication ORDER BY age(backend_xmin) DESC;
+
+#### VACUUM activity:
 
             SELECT
                     p.pid,
