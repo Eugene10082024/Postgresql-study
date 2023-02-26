@@ -1,7 +1,7 @@
 ### Запросы для работы с таблицами
 
 1. [Вывод размера таблиц вместе с индексами](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/tables.md#%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4-%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86-%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5-%D1%81-%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D0%B0%D0%BC%D0%B8) 
-2. Вывод таблиц с наибольшим количеством мертвых строк (tuples)
+2. [Вывод таблиц с наибольшим количеством мертвых строк (tuples)](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/query/files/tables.md#%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86-%D1%81-%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%BC-%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%D0%BC-%D0%BC%D0%B5%D1%80%D1%82%D0%B2%D1%8B%D1%85-%D1%81%D1%82%D1%80%D0%BE%D0%BA-tuples)
 3. Генерация списка таблиц в базе данных с самыми большими индексами и процентом времени, в течение которого они используют индекс
 4. Show database bloat (распухание БД)
 5. Поиск таблицы которой соотвествует определенная TOAST таблица
