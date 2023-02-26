@@ -129,11 +129,11 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
 
 3. Выполняем следующий запрос с подстановкой значения на выбор:
 
-	/*name_toast_table*/ - имя toast таблицы для которой надо найти родительскую таблицу
+name_toast_table - имя toast таблицы для которой надо найти родительскую таблицу
 	
-	Например - pg_toast_30748420
+Например - pg_toast_30748420
 
-Первый запрос
+##### Первый запрос
 
             select n.nspname, c.relname
             from pg_class c
@@ -151,7 +151,7 @@ https://wiki.postgresql.org/wiki/Show_database_bloat
              public  | _reference197718
             (1 row)
 
-Второй запрос:
+###### Второй запрос:
 
              SELECT
                 c1.relname,
