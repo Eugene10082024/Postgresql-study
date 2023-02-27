@@ -1,6 +1,12 @@
 ### Примеры etcd.conf
 
-#### Вариант 1. Использование IP адресов 
+#### Вариант 1. Конфигурационный файл который используем отдельные IP для клиентских и peer запросов (использование API ETCD v3).
+(Рекомендуемый для использования)
+
+
+
+
+#### Вариант 2. Использование IP адресов (использование API ETCD v2)
             name: astra-etcd01 
             data-dir: /var/lib/etcd 
             enable-v2: true 
@@ -14,7 +20,7 @@
             initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,astra-etcd03=http://192.168.110.167:2380  
             initial-cluster-state: new
 
-#### Вариант 2. Использование FQDN в параметрах, где это разрешено
+#### Вариант 3. Использование FQDN в параметрах, где это разрешено (использование API ETCD v2)
 
             name: kis-etcd01
             data-dir: /var/lib/etcd
@@ -28,8 +34,9 @@
             initial-cluster-token: cluster-kis-etcd
             initial-cluster: kis-etcd01=http://vdc01-testn1.test.ru:2380,kis-etcd02=http://vvdc01-testn2.test.ru:2380,kisupd-etcd03=http://vvdc01-testn3.test.ru:2380
             initial-cluster-state: existing
+            
 
-#### Вариант 3. использование autotls + debug 
+#### Вариант 4. использование autotls + debug 
 
 В данном варианте обратите внимание на отступы в соответствующих группах. etcd.conf - есть yml файл
 
