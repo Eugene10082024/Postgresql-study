@@ -2,9 +2,22 @@
 
 #### Вариант 1. Конфигурационный файл который используем отдельные IP для клиентских и peer запросов (использование API ETCD v3).
 (Рекомендуемый для использования)
+            name: astra-etcd01
+            data-dir: /var/lib/etcd
+            heartbeat-interval: 200
+            election-timeout: 2000
+            initial-advertise-peer-urls: http://192.168.122.101:2380
+            listen-peer-urls: http://192.168.122.101:2380
+            listen-client-urls: http://192.168.110.165:2379,http://127.0.0.1:2379
+            advertise-client-urls: http://192.168.110.165:2379
+            initial-cluster-token: cluster-etcd
+            initial-cluster: astra-etcd01=http://192.168.122.101:2380,astra-etcd02=http://192.168.122.102:2380,astra-etcd03=http://192.168.122.103:2380
+            auto-compaction-retention: "24"
+            initial-cluster-state: existing
 
-
-
+где: 
+192.168.110.165, 192.168.110.166, 192.168.110.167 - IP адреса пользовательских коннектов
+192.168.122.101, 192.168.122.102, 192.168.122.103 - IP адреса кластерного интерконнекта peer etcd 	
 
 #### Вариант 2. Использование IP адресов (использование API ETCD v2)
             name: astra-etcd01 
