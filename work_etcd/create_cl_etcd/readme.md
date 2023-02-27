@@ -5,7 +5,7 @@
 
 Этап 2. [Инициализация кластера etcd](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/work_etcd/create_cl_etcd/readme.md#%D1%8D%D1%82%D0%B0%D0%BF-2-%D0%B8%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B0-etcd)
 
-Этап 3. [Настройка авторизации в etcd]()
+Этап 3. [Настройка авторизации в etcd](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/work_etcd/create_cl_etcd/readme.md#%D1%8D%D1%82%D0%B0%D0%BF-3-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8-%D0%B2-etcd-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F-root-%D0%B2-etcd-%D0%B8-%D0%B2%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B0%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8)
 
 В примере для развертывания и настройки кластера etcd будет использовано три узла:
 
