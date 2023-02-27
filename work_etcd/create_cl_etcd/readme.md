@@ -17,39 +17,29 @@
 
 ### Этап 1. Развертывание etcd на узлах планируемого кластера
 
-Все описанные действия в данном пункте необходимо выполнить на каждом узле кластера.
+ВНИМАНИЕ : Все описанные действия в данном пункте необходимо выполнить на каждом узле кластера.
 
-#### 1.1. Создание группы etcd.
-    groupadd --system etcd
-    
-#### 1.2. Создание пользователя etcd:
-    useradd --home-dir "/var/lib/etcd" --system --shell /bin/false -g etcd etcd
+1.1. Создание пользователя пользователя под которым будет работать etcd и необходимых каталогов с соответсвующим владельцем и правами.
 
-#### 1.3. Создание необходимых каталогов.
+    sudo groupadd --system etcd
+    sudo useradd -s /sbin/nologin --system -g etcd etcd
+    sudo mkdir -p /var/lib/etcd/
+    sudo chown -R etcd:etcd /var/lib/etcd/
+    sudo mkdir /etc/etcd
+    sudo cp etcd /usr/local/bin/
+    sudo cp etcdctl /usr/local/bin/	
+	sudo cp etcdutl /usr/local/bin/
+	ls -al /usr/local/bin/etcd*
+	sudo /usr/local/bin/etcdctl version
 
-1.3.1. Каталог для конфигурационного файла etcd.yml
 
-    mkdir -p /etc/etcd
-  
-1.3.2. Создание каталога для БД etcd  
-
-    mkdir -p /var/lib/etcd
-    
-1.3.3. Назначение владельцем созданных каталогов пользователя etcd:
-
-    chown etcd:etcd /etc/etcd    
-    chown etcd:etcd /var/lib/etcd
-
-1.3.4. Смена прав доступа к каталогу /var/lib/etcd:
-
-    chmod -R 700 /var/lib/etcd
     
 #### 1.4. Подготовка бинарных файлов etcd для работы.
 1.4.1. Создаем каталог для скачивания etcd.
 
     sudo mkdir /tmp/etcd
 
-1.4.2. Скачиваем крайнюю версию etcd. Сейчас это 3.5.4
+1.4.2. Скачиваем крайнюю версию etcd. (Пример - 3.5.4)
 
     sudo curl -o /tmp/etcd/etcd-v3.5.4.tar.gz https://github.com/etcd-io/etcd/releases/download/v3.5.4/etcd-v3.5.4-linux-amd64.tar.gz
     
@@ -68,6 +58,10 @@
      sudo cp /tmp/etcd/etcd* /usr/local/bin/
 
 #### 1.5. Подготовка конфигурационных файлов /etc/etcd/etcd.yml для создания кластера etcd
+
+
+
+
 
 ### Этап 2. Cоздание кластера etcd
 
