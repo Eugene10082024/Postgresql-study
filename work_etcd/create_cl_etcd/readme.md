@@ -28,11 +28,95 @@
     sudo mkdir /etc/etcd
     sudo cp etcd /usr/local/bin/
     sudo cp etcdctl /usr/local/bin/	
-	sudo cp etcdutl /usr/local/bin/
-	ls -al /usr/local/bin/etcd*
-	sudo /usr/local/bin/etcdctl version
+    sudo cp etcdutl /usr/local/bin/
+    
+1.2. Предварительная проверка (можно пропустить)   
+    ls -al /usr/local/bin/etcd*
+    sudo /usr/local/bin/etcdctl version
+
+1.3. Создание etcd.service
+	
+	sudo vi /etc/systemd/system/etcd.service
+	
+	[Unit]
+	Description=etcd Server
+	After=network.target
+	After=network-online.target
+	Wants=network-online.target
+
+	[Service]
+	Type=notify
+	User=etcd
+	ExecStart=/usr/local/bin/etcd  --config-file=/etc/etcd/etcd.yml
+	#Restart=on-failure
+	LimitNOFILE=65536
+
+	[Install]
+	WantedBy=multi-user.target
+	
+1.4. Перепрочтение конфигурационных файлов сервисов.
+
+	sudo systemctl daemon-reload
+	
+1.5. Подготовка конфигурационный файлов /etc/etcd/etcd.yml
+
+1.5.1 Создание файла /etc/etcd/etcd.yml на узле astra-etcd01 (etcd API v.3)
+
+	sudo vi /etc/etcd/etcd.yml
+
+	name: astra-etcd01 
+        data-dir: /var/lib/etcd 
+        hearbeat-interval: 100
+        election-timeout: 1000
+        initial-advertise-peer-urls: http://192.168.110.165:2380 
+        listen-peer-urls: http://192.168.110.165:2380 
+        listen-client-urls: http://192.168.110.165:2379,http://127.0.0.1:2379 
+        advertise-client-urls: http://192.168.110.165:2379 
+        initial-cluster-token: cluster-etcd 
+        initial-cluster: astra-etcd01=http://192.168.110.165:2380
+	auto-compaction-mode: periodic
+	auto-compaction-retention: "24"
+        initial-cluster-state: new	
+
+1.5.2 Создание файла /etc/etcd/etcd.yml на узле astra-etcd02 (etcd API v.3)
+
+	sudo vi /etc/etcd/etcd.yml
+	
+	name: astra-etcd02 
+        data-dir: /var/lib/etcd 
+        hearbeat-interval: 100
+        election-timeout: 1000
+        initial-advertise-peer-urls: http://192.168.110.166:2380 
+        listen-peer-urls: http://192.168.110.166:2380 
+        listen-client-urls: http://192.168.110.166:2379,http://127.0.0.1:2379 
+        advertise-client-urls: http://192.168.110.166:2379 
+        initial-cluster-token: cluster-etcd 
+        initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380  
+	auto-compaction-mode: periodic
+	auto-compaction-retention: "24"
+        initial-cluster-state: existing
+
+1.5.3 Создание файла /etc/etcd/etcd.yml на узле astra-etcd03 (etcd API v.3)
+
+	sudo vi /etc/etcd/etcd.yml
+	
+	name: astra-etcd03
+        data-dir: /var/lib/etcd 
+        hearbeat-interval: 100
+        election-timeout: 1000
+        initial-advertise-peer-urls: http://192.168.110.167:2380 
+        listen-peer-urls: http://192.168.110.167:2380 
+        listen-client-urls: http://192.168.110.167:2379,http://127.0.0.1:2379 
+        advertise-client-urls: http://192.168.110.167:2379 
+        initial-cluster-token: cluster-etcd 
+        initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,,astra-etcd03=http://192.168.110.166:2380  
+	auto-compaction-mode: periodic
+	auto-compaction-retention: "24"
+        initial-cluster-state: existing
 
 
+
+	
     
 #### 1.4. Подготовка бинарных файлов etcd для работы.
 1.4.1. Создаем каталог для скачивания etcd.
