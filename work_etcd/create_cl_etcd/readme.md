@@ -151,14 +151,16 @@
 	
 2.2. Добавление второго узла  astra-etcd02 (IP - 192.168.122.166) в кластер etcd
 
-Действие выполняем на узле astra-etcd01
+Действие выполняем на узле astra-etcd01:
 
 	/usr/local/bin/etcdctl member add astra-etcd02 --peer-urls=http://192.168.122.166:2380
 
-Запуск etcd на astra-etcd02
+Запуск etcd на astra-etcd02:
+
 	sudo systemctl start etcd.service
 
-Проверка: 
+Проверка:
+
 	ETCDCTL_API=3 /usr/local/bin/etcdctl member list
 	ETCDCTL_API=3 /usr/local/bin/etcdctl endpoint status --cluster -w table		
 
@@ -177,10 +179,9 @@
 	ETCDCTL_API=3 /usr/local/bin/etcdctl member list
 	ETCDCTL_API=3 /usr/local/bin/etcdctl endpoint status --cluster -w table			
 
-
 2.4. На узлах astra-etcd01 и astra-etcd02 выполняем изменение парметра initial-cluster в /etc/etcd/etcd.yml
 
-на:  initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,,astra-etcd03=http://192.168.110.166:2380 
+initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,,astra-etcd03=http://192.168.110.166:2380 
 	
 Выполнение перезапуска сервиса на двух узлах после внесения и сохранения изменения.
 
@@ -196,6 +197,47 @@
 	ETCDCTL_API=3 /usr/local/bin/etcdctl endpoint status --cluster -w table
 
 
-### Этап 3. Настройка авторизации в etcd
+### Этап 3. Настройка авторизации в etcd (Создание пользователя root в etcd и включение авторизации)
+
+Выполняется на любом узле кластера etcd
+
+3.1. Создание пользователя root:
+
+	/usr/local/bin/etcdctl user add root
+	password root: passw0rd	
+
+ВНИМАНИЕ: НАСТОЯТЕЛЬНО РЕКОМЕНДУЕТСЯ В ПАРОЛЕ ИСПОЛЬЗОВАТЬ БОЛЬШИЕ И МАЛЫЕ БУКВЫ И ЦИФРЫ. СПЕЦ СИМВОЛЫ ЛУЧШЕ НЕ ИСПОЛЬЗОВАТЬ.
+
+3.2. Включение авторизации под учетной записью root	
+	
+	/usr/local/bin/etcdctl auth enable	
+	
+3.3. Проверка работы включенной авторизации
+
+Без указания учетной записи - ошибка:
+
+/usr/local/bin/etcdctl user get root
+	
+С указанием учетной записи - все норм.
+/usr/local/bin/etcdctl --user "root:passw0rd" user get root
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
