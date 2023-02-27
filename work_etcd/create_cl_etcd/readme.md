@@ -1,9 +1,9 @@
 ### Создание кластера etcd для работы с Patroni
 Создание кластера etcd для работы с Patroni включаем в себя следующие этапы:
 
-Этап 1. Развертывание etcd на узлах планируемого кластера
+Этап 1. [Развертывание etcd на узлах планируемого кластера](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/work_etcd/create_cl_etcd/readme.md#%D1%8D%D1%82%D0%B0%D0%BF-1-%D1%80%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-etcd-%D0%BD%D0%B0-%D1%83%D0%B7%D0%BB%D0%B0%D1%85-%D0%BF%D0%BB%D0%B0%D0%BD%D0%B8%D1%80%D1%83%D0%B5%D0%BC%D0%BE%D0%B3%D0%BE-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B0)
 
-Этап 2. Создание кластера etcd
+Этап 2. Инициализация кластера etcd
 
 Этап 3. Настройка авторизации в etcd
 
@@ -220,24 +220,3 @@ initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://19
 	
 С указанием учетной записи - все норм.
 /usr/local/bin/etcdctl --user "root:passw0rd" user get root
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
