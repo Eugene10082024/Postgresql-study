@@ -1,4 +1,4 @@
-### Работа с etcd в рамках кластера Patroni 
+### Настройка и администрирование etcd  
 
 [Основные термины и теория работы etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd/docs_etcd)
 
