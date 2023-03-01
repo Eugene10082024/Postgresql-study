@@ -17,11 +17,11 @@
 
 1.3. Развертывание пакетов postgresql (на примере postgresql 14)
 
-2. Смена домашнего каталога у пользователя postgres и создание каталогов для postgresqlpro.
+2. Смена домашнего каталога у пользователя postgres и создание каталогов.
 
     	sudo usermod -d /home/postgres postgres
 	su - postgres
-		
+			
 3. Создание каталогов для postgres. (каталог данных)
 
 	sudo mkdir -p /pgdata/14/data
