@@ -1,7 +1,7 @@
 ### Развертывание пакетов Postgresql для кластера Patroni
 Для примера в кластере Patroni будут использованы 2 узла с postgresql:
-1. Узел 1 - redoc-7.3-pgs01 - IP 192.168.122.170
-2. Узел 2 - redoc-7.3-pgs01 - IP 192.168.122.171
+Узел 1 - redoc-7.3-pgs01 - IP 192.168.122.170
+Узел 2 - redoc-7.3-pgs01 - IP 192.168.122.171
 
 1. Развертывание необходимых пакетов:
 
@@ -17,12 +17,12 @@
 
 1.3. Развертывание пакетов postgresql (на примере postgresql 14)
 
-2. Смена домашнего каталога у пользователя postgres и создание каталогов.
+2.Смена домашнего каталога у пользователя postgres и создание каталогов.
 
-    	sudo usermod -d /home/postgres postgres
+	sudo usermod -d /home/postgres postgres
 	su - postgres
-			
-3. Создание каталогов для postgres. (каталог данных)
+	
+3.Создание каталогов для postgres. (каталог данных)
 
 	sudo mkdir -p /pgdata/14/data
 	sudo chown -R postgres:postgres /pgdata/14
