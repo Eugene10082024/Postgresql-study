@@ -34,7 +34,7 @@
 
 [Настройка и администрирование с vip-manager](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager)
 
-[Настройка и администрирование HAProxy + keepalived]()
+[Настройка и администрирование HAProxy + keepalived](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/haproxy)
 
 ### Кластер Pacemaker-Corosync Postgresql.
 
