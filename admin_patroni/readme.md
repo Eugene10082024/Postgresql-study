@@ -6,6 +6,6 @@
 
 [Работа с patronictl](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_patroni/patroni_ctl)
 
-[Дополнительная информация по patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_patroni/patroni_docs)
+[Дополнительная информация по Patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_patroni/patroni_docs)
 
 
