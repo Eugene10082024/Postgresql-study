@@ -28,7 +28,7 @@
 	sudo chown -R postgres:postgres /pgdata/14
 	sudo chmod -R 700 /pgdata/14
 		
-4. Каталог log (при необходимости):
+4. Каталог log (при необходимости): 
 
 	sudo mkdir -p /pgdata/log
 	sudo chown -R postgres:postgres /pgdata/log
