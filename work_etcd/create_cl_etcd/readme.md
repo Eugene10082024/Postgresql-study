@@ -109,7 +109,7 @@
 	listen-client-urls: http://192.168.110.167:2379,http://127.0.0.1:2379 
 	advertise-client-urls: http://192.168.110.167:2379 
 	initial-cluster-token: cluster-etcd 
-	initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,,astra-etcd03=http://192.168.110.166:2380  
+	initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,astra-etcd03=http://192.168.110.167:2380  
 	auto-compaction-mode: periodic
 	auto-compaction-retention: "24"
 	initial-cluster-state: existing
@@ -181,7 +181,7 @@
 
 2.4. На узлах astra-etcd01 и astra-etcd02 выполняем изменение парметра initial-cluster в /etc/etcd/etcd.yml
 
-initial-cluster:astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,,astra-etcd03=http://192.168.110.166:2380 
+initial-cluster:astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,astra-etcd03=http://192.168.110.167:2380 
 	
 Выполнение перезапуска сервиса на двух узлах после внесения и сохранения изменения.
 
