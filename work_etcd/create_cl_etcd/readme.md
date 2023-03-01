@@ -181,7 +181,7 @@
 
 2.4. На узлах astra-etcd01 и astra-etcd02 выполняем изменение парметра initial-cluster в /etc/etcd/etcd.yml
 
-initial-cluster: astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,,astra-etcd03=http://192.168.110.166:2380 
+initial-cluster:astra-etcd01=http://192.168.110.165:2380,astra-etcd02=http://192.168.110.166:2380,,astra-etcd03=http://192.168.110.166:2380 
 	
 Выполнение перезапуска сервиса на двух узлах после внесения и сохранения изменения.
 
