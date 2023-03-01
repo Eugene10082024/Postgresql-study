@@ -1,6 +1,6 @@
 ### Команды для работы с кластером etcd
 
-[1. Вывод состояния кластера]()
+[1. Вывод состояния кластера](https://github.com/Aleksey-10081967/Postgresql-study/blob/main/work_etcd/query/readme.md#%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4-%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F-%D0%BA%D0%BB%D0%B0%D1%82%D0%B5%D1%80%D0%B0-etcd)
 
 [2. Дефрагментация всех узлов кластера]()
 
