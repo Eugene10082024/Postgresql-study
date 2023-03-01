@@ -20,7 +20,6 @@
 2. Смена домашнего каталога у пользователя postgres и создание каталогов для postgresqlpro.
 
     	sudo usermod -d /home/postgres postgres
-	
 	su - postgres
 		
 3. Создание каталогов для postgres. (каталог данных)
