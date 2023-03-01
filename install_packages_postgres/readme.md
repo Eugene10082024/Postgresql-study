@@ -22,24 +22,24 @@
 	sudo usermod -d /home/postgres postgres
 	su - postgres
 	
-#### 3.Создание каталогов для postgres. (каталог данных)
+#### 3.Создание каталога данных.
 
 	sudo mkdir -p /pgdata/14/data
 	sudo chown -R postgres:postgres /pgdata/14
 	sudo chmod -R 700 /pgdata/14
 		
-#### 4.Каталог log (при необходимости): 
+#### 4.Создание каталога log (при необходимости): 
 
 	sudo mkdir -p /pgdata/log
 	sudo chown -R postgres:postgres /pgdata/log
 	
-#### 5.Каталог WAL (при необходимости):
+#### 5.Создание каталога WAL (при необходимости):
 
 	sudo mkdir -p /pgwal/wal/wal
 	sudo chown -R postgres:postgres /pgwal/wal/
 	sudo chmod -R 700 /pgwal/wal
 	
-#### 6.Каталог для архивных WAL (при необходимости):	
+#### 6.Создание каталога для архивных WAL (при необходимости):	
 
 	sudo mkdir -p /pgwalarch/walarch
 	sudo chown -R postgres:postgres  /pgwalarch/walarch
