@@ -32,7 +32,7 @@
 
 [Настройка и администрирование etcd](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/work_etcd)
 
-[Развертывание пакетов Postgresql для кластера Patroni]() 
+[Развертывание пакетов Postgresql для кластера Patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/install_packages_postgres) 
 
 [Настройка и администрирование ПО Patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_patroni)
 
