@@ -36,7 +36,7 @@
 
 [Настройка и администрирование ПО Patroni](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/admin_patroni)
 
-[Настройка и администрирование с vip-manager](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager)
+[Настройка и администрирование vip-manager](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/vip-manager)
 
 [Настройка и администрирование HAProxy + keepalived](https://github.com/Aleksey-10081967/Postgresql-study/tree/main/haproxy)
 
