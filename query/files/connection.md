@@ -52,13 +52,13 @@
 
 к базе данных:
 
-      ALTER DATABASE <name_db> CONNECTION LIMIT 0; (суперпользователи доступ будут иметь)
-      ALTER DATABASE <name_db> CONNECTION LIMIT -1 - снятие ограничения на подключение к БД
+      ALTER DATABASE <name_db> CONNECTION LIMIT 0;  - (суперпользователи доступ будут иметь)
+      ALTER DATABASE <name_db> CONNECTION LIMIT -1  -  снятие ограничения на подключение к БД
       
 ограничение подключения пользователя (роли)
 
-      ALTER USER <name_user> CONNECTION LIMIT 0
-      ALTER USER <name_user> CONNECTION LIMIT 0 - ограничение пользователя в одно подключение
+      ALTER USER <name_user> CONNECTION LIMIT 0  - запрет подключений пользователя к кластеру Postgres
+      ALTER USER <name_user> CONNECTION LIMIT 1  - ограничение пользователя в одно подключение
       ALTER USER <name_user> CONNECTION LIMIT -1 - снятие ограничений на подключение
       
 ### Отключить всех клиентов от БД в PostgreSQL
