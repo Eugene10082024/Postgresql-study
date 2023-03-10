@@ -48,13 +48,26 @@
 
       SELECT pg_terminate_backend(<pid of the process>)
 
-#### Отключить всех клиентов от БД в PostgreSQL
+### Ограничение по подключениям
+
+к базе данных:
+      ALTER DATABASE <name_db> CONNECTION LIMIT 0; (суперпользователи доступ будут иметь)
+      
+      ALTER DATABASE <name_db> CONNECTION LIMIT -1 - снятие ограничения на подключение к БД
+      
+ограничение подключения пользователя (роли)
+
+      ALTER USER <name_user> CONNECTION LIMIT 0
+      ALTER USER <name_user> CONNECTION LIMIT 0 - ограничение пользователя в одно подключение
+      ALTER USER <name_user> CONNECTION LIMIT -1 - снятие ограничений на подключение
+      
+### Отключить всех клиентов от БД в PostgreSQL
 
       SELECT pg_terminate_backend(pg_stat_activity.pid) 
       FROM pg_stat_activity 
       WHERE pg_stat_activity.datname = current_database() AND pid <> pg_backend_pid();
       
-#### Запретить и разрешить подключения      
+### Запретить и разрешить подключения      
 
       UPDATE pg_database SET datallowconn = false WHERE datname = 'my_database';
       
