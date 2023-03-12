@@ -52,7 +52,9 @@ Oсобенность pg_authid:
 
     ALTER ROLE myname SET enable_indexscan TO off;
 
+Для удаления установок на уровне ролей для параметров конфигурации используется 
 
+    ALTER ROLE имя_роли RESET имя_переменной. 
 
 
 
