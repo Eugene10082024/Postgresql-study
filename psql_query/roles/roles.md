@@ -10,6 +10,10 @@ Oсобенность pg_authid:
 
 Столбец rolpassword - Пароль (возможно зашифрованный); NULL, если он не задан. Его формат зависит от используемого вида шифрования. 
 
+#### Дополнительные ссылки
+
+[Членство в роли](https://postgrespro.ru/docs/enterprise/14/role-membership)
+
 #### Создание пользователя:
 
     create user usr_old with password ‘user’;
