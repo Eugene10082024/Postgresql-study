@@ -45,8 +45,7 @@ Oсобенность pg_authid:
 
 #### Предъопределенные роли в Postgresql   
     
-
-
+[Предопределённые роли](https://postgrespro.ru/docs/enterprise/14/predefined-roles)
 
 #### Дополнительная информация
 
