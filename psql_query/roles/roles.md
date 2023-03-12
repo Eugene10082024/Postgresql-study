@@ -1,15 +1,16 @@
-#### Роли в Postgresql
-Ссылки на описание представлений:
+### Роли в Postgresql
+
+#### Ссылки на описание представлений:
 
 [pg_roles - информации о ролях в базах данных](https://postgrespro.ru/docs/enterprise/14/view-pg-roles)
 
 [pg_authid - информация об идентификаторах для авторизации](https://postgrespro.ru/docs/enterprise/14/catalog-pg-authid)
 
-Oсобенность:
+Oсобенность pg_authid:
 
 Столбец rolpassword - Пароль (возможно зашифрованный); NULL, если он не задан. Его формат зависит от используемого вида шифрования. 
 
-Создание пользователя:
+#### Создание пользователя:
 
     create user usr_old with password ‘user’;
     
