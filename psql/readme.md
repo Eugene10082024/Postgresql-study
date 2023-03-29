@@ -192,6 +192,13 @@ psql --help
 вывод результата запроса в html-файл    
     
         psql -d dbname -H -c "SELECT * FROM test" -o test.html 
+        
+вывод результата выполнения запроса
+
+    psql -X -A -t -c "select 1"
+    результат
+    1
+
     
 ### Настройка PSQL
 
